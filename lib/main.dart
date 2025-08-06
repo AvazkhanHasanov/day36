@@ -1,0 +1,41 @@
+import 'package:day_36_darsda1/core/route/router.dart';
+import 'package:day_36_darsda1/core/utils/colors.dart';
+import 'package:day_36_darsda1/features/categories/pages/categories_page.dart';
+import 'package:day_36_darsda1/features/categories/pages/categories_recipes_page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+
+void main() {
+  runApp(Day36App());
+}
+
+final router = GoRouter(
+  initialLocation: '/categories',
+  routes: [
+    GoRoute(
+      path: '/recipes/:id',
+      builder: (context, state) => CategoriesRecipesPage(
+        categoryId: int.parse(
+          state.pathParameters['id']!,
+        ),
+      ),
+    ),
+    GoRoute(path: '/categories', builder: (context, state) => CategoriesPage()),
+  ],
+);
+
+class Day36App extends StatelessWidget {
+  const Day36App({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+      designSize: Size(430, 932),
+      child: MaterialApp.router(
+        theme: ThemeData(scaffoldBackgroundColor: AppColors.beige),
+        routerConfig: router,
+      ),
+    );
+  }
+}
