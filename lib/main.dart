@@ -10,20 +10,7 @@ void main() {
   runApp(Day36App());
 }
 
-final router = GoRouter(
-  initialLocation: '/categories',
-  routes: [
-    GoRoute(
-      path: '/recipes/:id',
-      builder: (context, state) => CategoriesRecipesPage(
-        categoryId: int.parse(
-          state.pathParameters['id']!,
-        ),
-      ),
-    ),
-    GoRoute(path: '/categories', builder: (context, state) => CategoriesPage()),
-  ],
-);
+
 
 class Day36App extends StatelessWidget {
   const Day36App({super.key});
