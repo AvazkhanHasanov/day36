@@ -14,48 +14,49 @@ import 'bottom.dart';
 
 class RecipeAppBarWithBottom extends StatelessWidget
     implements PreferredSizeWidget {
-
-  const RecipeAppBarWithBottom({super.key, required this.title, required this.id});
+  const RecipeAppBarWithBottom({
+    super.key,
+    required this.title,
+    required this.id,
+  });
 
   final String title;
-final int id;
+  final int id;
+
   @override
   Size get preferredSize => Size(double.infinity, 90.h);
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CategoriesViewModel(),
-      builder: (context, child) {
-        return  AppBar(
-          backgroundColor: Colors.transparent,
-          leading: IconButton(
-            onPressed: () {
-              context.go(RouteName.categoriesPage);
-            },
-            icon: SvgPicture.asset(AppIcons.backArrow),
-          ),
-          centerTitle: true,
-          title: Text(title, style: AppStyles.appBarT),
-          actionsPadding: EdgeInsets.only(right: 37.w),
-          actions: [
-            IconButtonAppBar(
-              icon: AppIcons.notification,
-              backgroundColor: AppColors.pink,
-              foregroundColor: AppColors.pinkSubC,
-              onPressed: () {},
-            ),
-            SizedBox(width: 5.w),
-            IconButtonAppBar(
-              icon: AppIcons.search,
-              backgroundColor: AppColors.pink,
-              foregroundColor: AppColors.pinkSubC,
-              onPressed: () {},
-            ),
-          ],
-          bottom: Bottom(id: id,),
-        );
-      },
+    return AppBar(
+      backgroundColor: Colors.transparent,
+      leading: IconButton(
+        onPressed: () {
+          context.go(RouteName.categoriesPage);
+        },
+        icon: SvgPicture.asset(AppIcons.backArrow),
+      ),
+      centerTitle: true,
+      title: Text(title, style: AppStyles.appBarT),
+      actionsPadding: EdgeInsets.only(right: 37.w),
+      actions: [
+        IconButtonAppBar(
+          icon: AppIcons.notification,
+          backgroundColor: AppColors.pink,
+          foregroundColor: AppColors.pinkSubC,
+          onPressed: () {},
+        ),
+        SizedBox(width: 5.w),
+        IconButtonAppBar(
+          icon: AppIcons.search,
+          backgroundColor: AppColors.pink,
+          foregroundColor: AppColors.pinkSubC,
+          onPressed: () {},
+        ),
+      ],
+      bottom: Bottom(
+        id: id,
+      ),
     );
   }
 }

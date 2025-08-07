@@ -31,7 +31,7 @@ class Bottom extends StatelessWidget implements PreferredSizeWidget {
                     onTap: () {
                       vm.setSelectedIndex(index);
                       context.push(
-                        '/recipes/$index?title=${vm.categories[index].title}',
+                        '/recipes/${vm.categories[index].id}?title=${vm.categories[index].title}',
                       );
                     },
                   );
