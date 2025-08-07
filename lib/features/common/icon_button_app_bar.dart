@@ -8,16 +8,17 @@ class IconButtonAppBar extends StatelessWidget {
     super.key,
     required this.icon,
     required this.backgroundColor,
-    required this.foregroundColor,
+    required this.foregroundColor, required this.onPressed,
   });
   final String icon;
   final Color backgroundColor;
   final Color foregroundColor;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () {},
+      onPressed:onPressed,
       style: IconButton.styleFrom(
         minimumSize: Size(28.w, 28.h),
         maximumSize: Size(28.w, 28.h),

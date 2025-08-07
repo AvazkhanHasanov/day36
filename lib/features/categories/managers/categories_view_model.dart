@@ -3,14 +3,20 @@ import 'package:day_36_darsda1/data/models/category/category_model.dart';
 import 'package:flutter/material.dart';
 
 
-
 class CategoriesViewModel extends ChangeNotifier {
   CategoriesViewModel() {
     fetchCategories();
   }
 
   List<CategoriesModel> categories = [];
+  int selectedIndex=0;
+
   bool isLoading = false;
+
+  void setSelectedIndex(int index) {
+    selectedIndex = index;
+    notifyListeners();
+  }
 
   Future<void> fetchCategories() async {
     isLoading = true;

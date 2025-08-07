@@ -9,8 +9,13 @@ import 'package:provider/provider.dart';
 
 class CategoriesRecipesPage extends StatelessWidget {
   final int categoryId;
+  final String title;
 
-  const CategoriesRecipesPage({super.key, required this.categoryId});
+  const CategoriesRecipesPage({
+    super.key,
+    required this.categoryId,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +23,7 @@ class CategoriesRecipesPage extends StatelessWidget {
       create: (context) => RecipesViewModel(categoryId: categoryId),
       builder: (context, child) => Scaffold(
         extendBody: true,
-        appBar: RecipeAppBarWithBottom(title: 'Breackfast'),
+        appBar: RecipeAppBarWithBottom(title: title, id: categoryId,),
         body: Consumer<RecipesViewModel>(
           builder: (context, vm, child) {
             if (vm.isLoading) {

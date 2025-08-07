@@ -8,6 +8,7 @@ final router = GoRouter(
     GoRoute(
       path: '/recipes/:id',
       builder: (context, state) => CategoriesRecipesPage(
+       title: state.uri.queryParameters['title']!,
         categoryId: int.parse(
           state.pathParameters['id']!,
         ),

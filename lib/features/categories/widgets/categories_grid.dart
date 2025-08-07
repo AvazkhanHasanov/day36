@@ -17,8 +17,8 @@ class CategoriesGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: InkWell(
-        onTap: () => context.push('/recipes/$categoryId'),
+      child: GestureDetector(
+        onTap: () => context.push('/recipes/$categoryId?title=$title'),
         child: Column(
           children: [
             ClipRRect(

@@ -7,10 +7,15 @@ class AppStyles {
     fontWeight: FontWeight.w600,
     color: AppColors.redPinkMain,
   );
-  static final tSW400S16 = TextStyle(
+  static final tSW400S16Oq = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w400,
     color: AppColors.oq,
+  );
+  static final tSW400S16Pink = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.redPinkMain,
   );
   static final tSW400S12 = TextStyle(
     fontWeight: FontWeight.w400,

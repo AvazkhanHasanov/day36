@@ -1,6 +1,6 @@
 class RecipesModel {
   final int categoryId, timeRequired;
-  final double rating;
+  final num rating;
   final String title, description, photo;
 
   RecipesModel( {

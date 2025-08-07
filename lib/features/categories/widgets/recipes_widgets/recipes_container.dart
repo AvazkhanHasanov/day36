@@ -16,7 +16,7 @@ class RecipesContainer extends StatelessWidget {
   });
 
   final int timeRequired;
-  final double rating;
+  final num rating;
   final String title, description;
 
   @override

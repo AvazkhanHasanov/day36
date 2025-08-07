@@ -6,13 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class RecipeAppBar extends StatelessWidget implements PreferredSizeWidget{
+class RecipeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const RecipeAppBar({
-    super.key, required this.title,
+    super.key,
+    required this.title,
   });
-final String title ;
+
+  final String title;
+
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => Size(double.infinity, 56);
 
   @override
@@ -31,16 +33,16 @@ final String title ;
           icon: AppIcons.notification,
           backgroundColor: AppColors.pink,
           foregroundColor: AppColors.pinkSubC,
+          onPressed: () {},
         ),
         SizedBox(width: 5.w),
         IconButtonAppBar(
           icon: AppIcons.search,
           backgroundColor: AppColors.pink,
           foregroundColor: AppColors.pinkSubC,
+          onPressed: () {},
         ),
       ],
     );
   }
-
-
 }

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 
 class RecipesViewModel extends ChangeNotifier {
   RecipesViewModel({required this.categoryId}) {
-    fetchCategories();
+    fetchCategories(categoryId);
   }
 
   final int categoryId;
   List<RecipesModel> elements = [];
   bool isLoading = false;
 
-  Future<void> fetchCategories() async {
+  Future<void> fetchCategories(int categoryId) async {
     isLoading = true;
     notifyListeners();
     var respond = await dio.get('/recipes/list?Category=$categoryId');
