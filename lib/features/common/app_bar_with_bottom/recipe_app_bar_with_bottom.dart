@@ -32,7 +32,7 @@ class RecipeAppBarWithBottom extends StatelessWidget
       backgroundColor: Colors.transparent,
       leading: IconButton(
         onPressed: () {
-          context.go(RouteName.categoriesPage);
+          context.pop();
         },
         icon: SvgPicture.asset(AppIcons.backArrow),
       ),

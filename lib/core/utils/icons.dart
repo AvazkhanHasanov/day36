@@ -23,5 +23,5 @@ class AppIcons {
   static final star = 'assets/icons/star.svg';
   static final starEmpty = 'assets/icons/star-empty.svg';
   static final starFilled = 'assets/icons/star-filled.svg';
-  static final threeDots = 'assets/icons/three-dots.svg';
+  static final threeDots = 'assets/icons/three_dots.svg';
 }

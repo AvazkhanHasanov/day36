@@ -25,11 +25,13 @@ class RecipesIconButton extends StatelessWidget {
       ),
       style: IconButton.styleFrom(
         backgroundColor: backgroundColor,
-        foregroundColor: foregroundColor,
         padding: EdgeInsets.zero,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
-      icon: SvgPicture.asset(icon),
+      icon: SvgPicture.asset(
+        icon,
+        colorFilter: ColorFilter.mode(foregroundColor, BlendMode.srcIn),
+      ),
     );
   }
 }

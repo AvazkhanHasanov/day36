@@ -1,10 +1,11 @@
 class RecipesModel {
-  final int categoryId, timeRequired;
+  final int categoryId, timeRequired, id;
   final num rating;
   final String title, description, photo;
 
-  RecipesModel( {
+  RecipesModel({
     required this.categoryId,
+    required this.id,
     required this.photo,
     required this.timeRequired,
     required this.rating,
@@ -20,6 +21,7 @@ class RecipesModel {
       title: json['title'],
       description: json['description'],
       photo: json['photo'],
+      id: json['id'],
     );
   }
 }

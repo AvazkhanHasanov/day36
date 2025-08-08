@@ -7,6 +7,16 @@ class AppStyles {
     fontWeight: FontWeight.w600,
     color: AppColors.redPinkMain,
   );
+  static final tSW600S20Oq = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: AppColors.brownF9,
+  );
+  static final tSW400S13Oq = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    color: AppColors.brownF9,
+  );
   static final tSW400S16Oq = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w400,
@@ -27,10 +37,35 @@ class AppStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.color23,
   );
+  static final titlle = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: AppColors.redPinkMain,
+  );
+  static final subTextRed = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    color: AppColors.redPinkMain,
+  );
+  static final subTextOq = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    color: AppColors.brownF9,
+  );
+  static final paragraph = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w300,
+    color: AppColors.brownF9,
+  );
+  static final subtitle = TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.w500,
+    color: AppColors.redPinkMain,
+  );
   static final subTextMini = TextStyle(
     fontSize: 13,
     fontWeight: FontWeight.w300,
     color: AppColors.color23,
-    height: 1
+    height: 1,
   );
 }

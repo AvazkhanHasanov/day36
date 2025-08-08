@@ -8,8 +8,10 @@ class IconButtonAppBar extends StatelessWidget {
     super.key,
     required this.icon,
     required this.backgroundColor,
-    required this.foregroundColor, required this.onPressed,
+    required this.foregroundColor,
+    required this.onPressed,
   });
+
   final String icon;
   final Color backgroundColor;
   final Color foregroundColor;
@@ -18,17 +20,17 @@ class IconButtonAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed:onPressed,
+      onPressed: onPressed,
       style: IconButton.styleFrom(
         minimumSize: Size(28.w, 28.h),
         maximumSize: Size(28.w, 28.h),
         padding: EdgeInsets.zero,
-        foregroundColor: foregroundColor,
         backgroundColor: backgroundColor,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
       icon: SvgPicture.asset(
         icon,
+        colorFilter: ColorFilter.mode(foregroundColor, BlendMode.srcIn),
       ),
     );
   }

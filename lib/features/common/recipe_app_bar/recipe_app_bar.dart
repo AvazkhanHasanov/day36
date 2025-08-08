@@ -5,6 +5,7 @@ import 'package:day_36_darsda1/features/common/icon_button_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class RecipeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const RecipeAppBar({
@@ -22,7 +23,9 @@ class RecipeAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.transparent,
       leading: IconButton(
-        onPressed: () {},
+        onPressed: () {
+          context.pop();
+        },
         icon: SvgPicture.asset(AppIcons.backArrow),
       ),
       centerTitle: true,
