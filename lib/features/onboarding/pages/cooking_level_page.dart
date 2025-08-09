@@ -1,7 +1,5 @@
-import 'package:day_36_darsda1/core/utils/colors.dart';
-import 'package:day_36_darsda1/core/utils/icons.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
-import 'package:day_36_darsda1/features/common/icon_button_app_bar.dart';
+import 'package:day_36_darsda1/features/onboarding/widgets/onboarding_page_app_bar.dart';
 import 'package:day_36_darsda1/features/onboarding/widgets/cooking_navigation_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,8 +7,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widgets/for_level.dart';
 
 class CookingLevelPage extends StatelessWidget {
-  CookingLevelPage({super.key});
+  CookingLevelPage({super.key, required this.controller});
 
+  final PageController controller;
   final List<Map<String, dynamic>> level = [
     {
       'level': 'Novice',
@@ -38,33 +37,7 @@ class CookingLevelPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        leading: IconButtonAppBar(
-          icon: AppIcons.backArrow,
-          backgroundColor: Colors.transparent,
-          foregroundColor: AppColors.redPinkMain,
-          onPressed: () {},
-        ),
-        centerTitle: true,
-        title: Container(
-          alignment: Alignment.topLeft,
-          width: 230.w,
-          height: 12.h,
-          decoration: BoxDecoration(
-            color: AppColors.colorD9,
-            borderRadius: BorderRadiusGeometry.circular(6.r),
-          ),
-          child: Container(
-            width: 65.w,
-            height: 12.h,
-            decoration: BoxDecoration(
-              color: AppColors.redPinkMain,
-              borderRadius: BorderRadiusGeometry.circular(6.r),
-            ),
-          ),
-        ),
-      ),
+
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 36.w),
@@ -98,7 +71,15 @@ class CookingLevelPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: CookingNavigationAppBar(),
+      bottomNavigationBar: CookingNavigationAppBar(
+        onTap: () {
+          controller.animateToPage(
+            1,
+            duration: Duration(milliseconds: 300),
+            curve: Curves.linear,
+          );
+        },
+      ),
     );
   }
 }

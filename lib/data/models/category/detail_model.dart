@@ -6,8 +6,10 @@ class DetailModel {
   String title, description, photo;
   final UserModel user;
   final List<InstructionsModel> instructions;
+  final List<IngredientsModel> ingredients;
 
   DetailModel({
+    required this.ingredients,
     required this.instructions,
     required this.user,
     required this.id,
@@ -20,6 +22,8 @@ class DetailModel {
 
   factory DetailModel.fromJson(Map<String, dynamic> json) {
     return DetailModel(
+      ingredients: (json['ingredients'] as List).map((x) =>
+          IngredientsModel.fromJson(x)).toList(),
       id: json['id'],
       title: json['title'],
       photo: json['photo'],
@@ -34,6 +38,7 @@ class DetailModel {
   }
 }
 
+// Userni malumotlarini oladi
 class UserModel {
   int id;
   String profilePhoto, userName, firstName, lastName;
@@ -57,6 +62,7 @@ class UserModel {
   }
 }
 
+// instructiondan malumotlarni oladi
 class InstructionsModel {
   String text;
   int order;
@@ -65,5 +71,18 @@ class InstructionsModel {
 
   factory InstructionsModel.fromJson(Map<String, dynamic> json) {
     return InstructionsModel(text: json['text'], order: json['order']);
+  }
+}
+
+class IngredientsModel {
+  String amount, name;
+  int order;
+
+  IngredientsModel(
+      {required this.amount, required this.name, required this.order});
+
+  factory IngredientsModel.fromJson(Map<String, dynamic> json){
+    return IngredientsModel(
+        amount: json['amount'], name: json["name"], order: json['order']);
   }
 }

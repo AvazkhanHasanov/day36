@@ -3,10 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/utils/colors.dart';
 
-class AllergicBottomNavigarionBar extends StatelessWidget {
-  const AllergicBottomNavigarionBar({
-    super.key,
+class AllergicBottomNavigationBar extends StatelessWidget {
+  const AllergicBottomNavigationBar({
+    super.key, required this.onTap,
   });
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -32,20 +33,23 @@ class AllergicBottomNavigarionBar extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Padding(
               padding: EdgeInsets.only(bottom: 34.h),
-              child: Container(
-                alignment: Alignment.center,
-                width: 162.w,
-                height: 45.h,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadiusGeometry.circular(30.r),
-                  color: AppColors.redPinkMain,
-                ),
-                child: Text(
-                  'Continue',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 20,
-                    color: AppColors.brownF9,
+              child: GestureDetector(
+                onTap: onTap,
+                child: Container(
+                  alignment: Alignment.center,
+                  width: 162.w,
+                  height: 45.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadiusGeometry.circular(30.r),
+                    color: AppColors.redPinkMain,
+                  ),
+                  child: Text(
+                    'Continue',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                      color: AppColors.brownF9,
+                    ),
                   ),
                 ),
               ),

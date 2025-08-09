@@ -1,12 +1,16 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:day_36_darsda1/features/onboarding/managers/preferences_view_model.dart';
+import 'package:day_36_darsda1/features/onboarding/widgets/onboarding_page_app_bar.dart';
+import 'package:day_36_darsda1/features/onboarding/widgets/preferences_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class PreferencesPage extends StatelessWidget {
-  const PreferencesPage({super.key});
+  const PreferencesPage({super.key, required this.controller});
+
+  final PageController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +20,7 @@ class PreferencesPage extends StatelessWidget {
         return Scaffold(
           body: SafeArea(
             child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 36.w),
+              padding: EdgeInsets.symmetric(horizontal: 36.w),
               child: Column(
                 spacing: 20.h,
                 children: [
@@ -35,9 +39,10 @@ class PreferencesPage extends StatelessWidget {
                       return Expanded(
                         child: GridView.builder(
                           itemCount: vm.categories.length,
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                          ),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                              ),
                           itemBuilder: (context, index) {
                             return Column(
                               children: [
@@ -68,6 +73,18 @@ class PreferencesPage extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+          bottomNavigationBar: PreferencesBottomNavigationBar(
+            onTap1: () {
+              controller.jumpToPage(2);
+            },
+            onTap2: () {
+              controller.animateToPage(
+                2,
+                duration: Duration(milliseconds: 300),
+                curve: Curves.linear,
+              );
+            },
           ),
         );
       },

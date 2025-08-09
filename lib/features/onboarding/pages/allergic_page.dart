@@ -8,7 +8,9 @@ import '../../../core/utils/colors.dart';
 import '../../../core/utils/styles.dart';
 
 class AllergicPage extends StatelessWidget {
-  const AllergicPage({super.key});
+  const AllergicPage({super.key, required this.controller});
+  final PageController controller;
+
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +78,7 @@ class AllergicPage extends StatelessWidget {
               ),
             ),
           ),
-          bottomNavigationBar: AllergicBottomNavigarionBar(),
+          bottomNavigationBar: AllergicBottomNavigationBar(onTap: () {  },),
         );
       },
     );

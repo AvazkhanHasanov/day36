@@ -1,12 +1,18 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
+import 'package:day_36_darsda1/features/onboarding/widgets/navigation_bar_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CookingNavigationAppBar extends StatelessWidget {
-  const CookingNavigationAppBar({
-    super.key, required this.onTap,
+class PreferencesBottomNavigationBar extends StatelessWidget {
+  const PreferencesBottomNavigationBar({
+    super.key,
+    required this.onTap1,
+    required this.onTap2,
   });
-final VoidCallback onTap;
+
+  final VoidCallback onTap1;
+  final VoidCallback onTap2;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -31,25 +37,20 @@ final VoidCallback onTap;
             alignment: Alignment.bottomCenter,
             child: Padding(
               padding: EdgeInsets.only(bottom: 34.h),
-              child: GestureDetector(
-                onTap: onTap,
-                child: Container(
-                  alignment: Alignment.center,
-                  width: 207.w,
-                  height: 45.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadiusGeometry.circular(30.r),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  NavigationBarContainer(
+                    text: 'Skip',
+                    color: AppColors.pink,
+                    onTap: onTap1,
+                  ),
+                  NavigationBarContainer(
+                    text: 'Continue',
                     color: AppColors.redPinkMain,
+                    onTap: onTap2,
                   ),
-                  child: Text(
-                    'Continue',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
-                      color: AppColors.brownF9,
-                    ),
-                  ),
-                ),
+                ],
               ),
             ),
           ),
