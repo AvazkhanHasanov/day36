@@ -1,14 +1,13 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:day_36_darsda1/features/onboarding/managers/preferences_view_model.dart';
-import 'package:day_36_darsda1/features/onboarding/widgets/onboarding_page_app_bar.dart';
-import 'package:day_36_darsda1/features/onboarding/widgets/preferences_bottom_navigation_bar.dart';
+import 'package:day_36_darsda1/features/onboarding/widgets/preference/preferences_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-class PreferencesPage extends StatelessWidget {
-  const PreferencesPage({super.key, required this.controller});
+class Preferences extends StatelessWidget {
+  const Preferences({super.key, required this.controller});
 
   final PageController controller;
 

@@ -1,16 +1,16 @@
 import 'package:day_36_darsda1/features/onboarding/managers/allergic_view_model.dart';
-import 'package:day_36_darsda1/features/onboarding/widgets/allergic_bottom_navigarion_bar.dart';
+import 'package:day_36_darsda1/features/onboarding/widgets/allergic/allergic_bottom_navigarion_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/utils/colors.dart';
-import '../../../core/utils/styles.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/styles.dart';
 
-class AllergicPage extends StatelessWidget {
-  const AllergicPage({super.key, required this.controller});
+class Allergic extends StatelessWidget {
+  const Allergic({super.key, required this.controller});
+
   final PageController controller;
-
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,11 @@ class AllergicPage extends StatelessWidget {
               ),
             ),
           ),
-          bottomNavigationBar: AllergicBottomNavigationBar(onTap: () {  },),
+          bottomNavigationBar: AllergicBottomNavigationBar(
+            onTap: () {},
+            backgroundColor: AppColors.redPinkMain,
+            foregroundColor: AppColors.brownF9,
+          ),
         );
       },
     );

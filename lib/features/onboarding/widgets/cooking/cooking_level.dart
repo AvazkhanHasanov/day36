@@ -1,13 +1,12 @@
 import 'package:day_36_darsda1/core/utils/styles.dart';
-import 'package:day_36_darsda1/features/onboarding/widgets/onboarding_page_app_bar.dart';
-import 'package:day_36_darsda1/features/onboarding/widgets/cooking_navigation_app_bar.dart';
+import 'package:day_36_darsda1/features/onboarding/widgets/cooking/cooking_navigation_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../widgets/for_level.dart';
+import 'for_level.dart';
 
-class CookingLevelPage extends StatelessWidget {
-  CookingLevelPage({super.key, required this.controller});
+class CookingLevel extends StatelessWidget {
+  CookingLevel({super.key, required this.controller});
 
   final PageController controller;
   final List<Map<String, dynamic>> level = [

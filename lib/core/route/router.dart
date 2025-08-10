@@ -1,8 +1,7 @@
-import 'package:day_36_darsda1/core/route/route_name.dart';
 import 'package:day_36_darsda1/features/categories/pages/categories_page.dart';
 import 'package:day_36_darsda1/features/categories/pages/categories_recipes_page.dart';
 import 'package:day_36_darsda1/features/categories/pages/detail_page.dart';
-import 'package:day_36_darsda1/features/onboarding/pages/onboarding.dart';
+import 'package:day_36_darsda1/features/onboarding/pages/onboarding_page.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(

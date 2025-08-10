@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/utils/colors.dart';
+import '../../../../core/utils/colors.dart';
 
 class AllergicBottomNavigationBar extends StatelessWidget {
   const AllergicBottomNavigationBar({
-    super.key, required this.onTap,
+    super.key,
+    required this.onTap,
+    required this.backgroundColor, required this.foregroundColor,
   });
+
   final VoidCallback onTap;
+  final Color backgroundColor;
+  final Color foregroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +46,14 @@ class AllergicBottomNavigationBar extends StatelessWidget {
                   height: 45.h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadiusGeometry.circular(30.r),
-                    color: AppColors.redPinkMain,
+                    color: backgroundColor,
                   ),
                   child: Text(
                     'Continue',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 20,
-                      color: AppColors.brownF9,
+                      color: foregroundColor,
                     ),
                   ),
                 ),
