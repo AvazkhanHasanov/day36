@@ -39,7 +39,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ),
         body: Consumer<OnboardingViewModel>(
           builder: (context, vm, child) {
-            return PageView.builder(
+            if (vm.isLoading) {
+            return Center(child: CircularProgressIndicator());
+            }
+            return  PageView.builder(
               controller: controller,
               itemCount: vm.onboarding.length +1,
               itemBuilder: (context, index) {

@@ -3,5 +3,10 @@ class RouteName{
   static final String recipesPage ='/recipes';
   static final String detailPage ='/detail';
   static final String onboarding ='/onboarding';
+  static final String login ='/login';
+  static final String signUp ='/signUp';
+  static final String profile ='/profile';
+  static final String forgotPassword ='/forgotPassword';
+  static final String enter ='/enter';
 
 }

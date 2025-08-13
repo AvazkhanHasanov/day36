@@ -36,11 +36,19 @@ class AppStyles {
     fontSize: 12,
     fontWeight: FontWeight.w400,
     color: AppColors.color23,
+    fontFamily: 'League',
+  );
+  static final subTextS14 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: AppColors.brownF9,
+    fontFamily: 'League',
   );
   static final titlle = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w600,
     color: AppColors.redPinkMain,
+    fontFamily: 'Poppins'
   );
   static final subTextRed = TextStyle(
     fontSize: 12,
@@ -51,6 +59,7 @@ class AppStyles {
     fontSize: 12,
     fontWeight: FontWeight.w400,
     color: AppColors.brownF9,
+    fontFamily: 'Poppins'
   );
   static final paragraph = TextStyle(
     fontSize: 14,
@@ -61,11 +70,37 @@ class AppStyles {
     fontSize: 15,
     fontWeight: FontWeight.w500,
     color: AppColors.redPinkMain,
+    fontFamily: 'Poppins',
+  );
+  static final subtitleOq = TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.w500,
+    color: AppColors.brownF9,
+    fontFamily: 'Poppins',
+  );
+  static final hintT = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    color: AppColors.beige.withAlpha((225 * 0.45).toInt()),
+    fontFamily: 'Poppins',
   );
   static final subTextMini = TextStyle(
     fontSize: 13,
     fontWeight: FontWeight.w300,
     color: AppColors.color23,
     height: 1,
+    fontFamily: 'League',
+  );
+  static final subTextMiniOq = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeight.w300,
+    color: AppColors.brownF9,
+    fontFamily: 'League',
+  );
+  static final tSW600S14 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    color: AppColors.brownF9,
+    fontFamily: 'League',
   );
 }

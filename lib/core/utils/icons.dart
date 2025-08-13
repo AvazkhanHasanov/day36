@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class AppIcons {
   static final backArrow = 'assets/icons/back-arrow.svg';

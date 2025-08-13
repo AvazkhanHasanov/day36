@@ -1,12 +1,16 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
+import 'package:day_36_darsda1/features/common/recipe_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CookingNavigationAppBar extends StatelessWidget {
   const CookingNavigationAppBar({
-    super.key, required this.onTap,
+    super.key,
+    required this.onTap,
   });
-final VoidCallback onTap;
+
+  final VoidCallback onTap;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -31,25 +35,11 @@ final VoidCallback onTap;
             alignment: Alignment.bottomCenter,
             child: Padding(
               padding: EdgeInsets.only(bottom: 34.h),
-              child: GestureDetector(
+              child: RecipeContainer(
+                text: 'Continue',
                 onTap: onTap,
-                child: Container(
-                  alignment: Alignment.center,
-                  width: 207.w,
-                  height: 45.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadiusGeometry.circular(30.r),
-                    color: AppColors.redPinkMain,
-                  ),
-                  child: Text(
-                    'Continue',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
-                      color: AppColors.brownF9,
-                    ),
-                  ),
-                ),
+                backgroundColor: AppColors.redPinkMain,
+                foregroundColor: AppColors.brownF9,
               ),
             ),
           ),
