@@ -2,7 +2,7 @@ import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/icons.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:day_36_darsda1/features/categories/managers/detail_view_model.dart';
-import 'package:day_36_darsda1/features/categories/pages/detail_page_rich_text.dart';
+import 'package:day_36_darsda1/features/categories/widgets/detail_page_rich_text.dart';
 import 'package:day_36_darsda1/features/categories/widgets/detail_profile.dart';
 import 'package:day_36_darsda1/features/categories/widgets/recipes_widgets/recipes_icon_button.dart';
 import 'package:day_36_darsda1/features/common/recipe_app_bar/recipe_app_bar.dart';

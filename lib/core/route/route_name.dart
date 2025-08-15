@@ -8,5 +8,6 @@ class RouteName{
   static final String profile ='/profile';
   static final String forgotPassword ='/forgotPassword';
   static final String enter ='/enter';
+  static final String trending ='/trending';
 
 }

@@ -1,12 +1,14 @@
 class AuthModel {
-  final String firstName;
-  final String lastName;
-  final String email;
-  final String phoneNumber;
-  final String birthDate;
-  final String password;
+  final String firstName,
+      lastName,
+      email,
+      phoneNumber,
+      birthDate,
+      password,
+      username;
 
   AuthModel({
+    required this.username,
     required this.firstName,
     required this.lastName,
     required this.email,
@@ -22,7 +24,8 @@ class AuthModel {
       email: json['email'],
       phoneNumber: json['phoneNumber'],
       birthDate: json['birthDate'],
-      password: json['password'],
+      password: json['password'], username: json['username'],
+
     );
   }
 
@@ -34,6 +37,7 @@ class AuthModel {
       "phoneNumber": phoneNumber,
       "birthDate": birthDate,
       "password": password,
+      'username':username,
     };
   }
 }

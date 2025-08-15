@@ -8,10 +8,11 @@ import 'package:day_36_darsda1/features/categories/pages/categories_page.dart';
 import 'package:day_36_darsda1/features/categories/pages/categories_recipes_page.dart';
 import 'package:day_36_darsda1/features/categories/pages/detail_page.dart';
 import 'package:day_36_darsda1/features/onboarding/pages/onboarding_page.dart';
+import 'package:day_36_darsda1/features/trending/pages/trending_page.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
-  initialLocation: RouteName.signUp,
+  initialLocation: RouteName.trending,
   routes: [
     GoRoute(
       path: '/recipes/:id',
@@ -35,6 +36,10 @@ final router = GoRouter(
     GoRoute(
       path: '/onboarding',
       builder: (context, state) => OnboardingPage(),
+    ),
+    GoRoute(
+      path: '/trending',
+      builder: (context, state) => TrendingPage(),
     ),
     GoRoute(
       path: '/login',

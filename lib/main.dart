@@ -1,10 +1,16 @@
+import 'package:day_36_darsda1/core/client.dart';
 import 'package:day_36_darsda1/core/route/router.dart';
 import 'package:day_36_darsda1/core/utils/colors.dart';
+import 'package:day_36_darsda1/data/repositories/auth_repository.dart';
+import 'package:day_36_darsda1/data/repositories/category_repository.dart';
+import 'package:day_36_darsda1/data/repositories/trending_repository.dart';
 import 'package:day_36_darsda1/features/auth/managers/auth_view_model.dart';
 import 'package:day_36_darsda1/features/categories/managers/categories_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+
+import 'features/onboarding/managers/onboarding_view_model.dart';
 
 void main() {
   runApp(Day36App());
@@ -19,8 +25,26 @@ class Day36App extends StatelessWidget {
       designSize: Size(430, 932),
       child: MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: (context) => CategoriesViewModel()),
-          ChangeNotifierProvider(create: (context) => AuthViewModel()),
+          Provider(create: (context) => ApiClient()),
+          Provider(create: (context) => AuthRepository(client: context.read())),
+          Provider(
+            create: (context) => TrendingRepository(client: context.read()),
+          ),
+          Provider(
+            create: (context) =>
+                CategoryRepository(client: context.read<ApiClient>()),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => AuthViewModel(authRepo: context.read()),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => OnboardingViewModel(),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => CategoriesViewModel(
+              categoryRepo: context.read<CategoryRepository>(),
+            ),
+          ),
         ],
         child: MaterialApp.router(
           theme: ThemeData(scaffoldBackgroundColor: AppColors.beige),

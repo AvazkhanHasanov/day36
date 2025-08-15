@@ -1,5 +1,4 @@
 import 'package:day_36_darsda1/core/utils/icons.dart';
-import 'package:day_36_darsda1/features/categories/managers/categories_view_model.dart';
 import 'package:day_36_darsda1/features/onboarding/managers/onboarding_view_model.dart';
 import 'package:day_36_darsda1/features/onboarding/widgets/o_b2.dart';
 import 'package:day_36_darsda1/features/onboarding/pages/onboarding1_1.dart';
@@ -19,16 +18,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (context) => OnboardingViewModel(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => CategoriesViewModel(),
-        ),
-      ],
-      child: Scaffold(
+    return Scaffold(
         extendBody: true,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -72,7 +62,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
             );
           },
         ),
-      ),
-    );
+      );
   }
 }

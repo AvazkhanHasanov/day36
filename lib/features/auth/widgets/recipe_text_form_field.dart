@@ -14,14 +14,19 @@ class RecipeTextFormField extends StatelessWidget {
     required this.validator,
     this.isPassword = false,
     required this.controller,
+    this.onTap,
+    this.readOnly=false,
   });
 
   final int minLine;
+
   final String label, hint;
   final String? Function(String?) validator;
   final bool isPassword;
 
   final TextEditingController controller;
+  final VoidCallback? onTap;
+  final bool readOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +48,8 @@ class RecipeTextFormField extends StatelessWidget {
               validator: validator,
               minLines: minLine,
               maxLines: minLine + 1,
+              readOnly: readOnly,
+              onTap: onTap,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20.5.r),
