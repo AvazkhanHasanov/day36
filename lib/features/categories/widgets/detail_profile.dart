@@ -33,6 +33,7 @@ class DetailProfile extends StatelessWidget {
 
         SizedBox(
           height: 56.h,
+          width: 141.w,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -45,7 +46,6 @@ class DetailProfile extends StatelessWidget {
                   '$firstName $lastName',
                   overflow: TextOverflow.ellipsis,
                   style: AppStyles.paragraph,
-
                 ),
               ),
             ],

@@ -9,13 +9,13 @@ class DetailPageRichText extends StatelessWidget {
   });
 
   final String text;
-  final int? order;
+  final String order;
 
   @override
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: '• ${order??""} ',
+        text: '• $order ',
         style: AppStyles.subTextRed,
         children: [
           TextSpan(

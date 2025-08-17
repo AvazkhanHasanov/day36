@@ -9,7 +9,7 @@ class CategoriesViewModel extends ChangeNotifier {
   }
 
   List<CategoriesModel> categories = [];
-  int selectedIndex = 0;
+  int? selectedIndex;
   String? error;
   final CategoryRepository _categoryRepo;
   bool isLoading = false;
@@ -27,7 +27,6 @@ class CategoriesViewModel extends ChangeNotifier {
       (exception) => error = exception.toString(),
       (value) => categories = value,
     );
-
     isLoading = false;
     notifyListeners();
   }

@@ -1,28 +1,28 @@
-import 'package:day_36_darsda1/core/client.dart';
 import 'package:day_36_darsda1/data/models/onboarding/allergic_model.dart';
-import 'package:day_36_darsda1/data/models/onboarding/preferences_model.dart';
+import 'package:day_36_darsda1/data/repositories/allergic_repository.dart';
 import 'package:flutter/material.dart';
 
 class AllergicViewModel extends ChangeNotifier {
-  AllergicViewModel(){
+  final AllergicRepository _allergicRepo;
+
+  AllergicViewModel({required AllergicRepository allergicRepo})
+    : _allergicRepo = allergicRepo {
     fetchAllergic();
   }
 
   List<AllergicModel> categories = [];
   bool isLoading = true;
+  String? error;
 
   Future<void> fetchAllergic() async {
     isLoading = true;
     notifyListeners();
-    var respond = await dio.get('/allergic/list');
-    if (respond.statusCode != 200) {
-      throw Exception('cuisineslarni olib kelisihda hatolik ${respond.data}');
-    } else {
-      isLoading = false;
-      categories = (respond.data as List)
-          .map((x) => AllergicModel.fromJson(x))
-          .toList();
-      notifyListeners();
-    }
+    var result = await _allergicRepo.getAll();
+    result.fold(
+      (exception) => error = exception.toString(),
+      (value) => categories = value,
+    );
+    isLoading = false;
+    notifyListeners();
   }
 }

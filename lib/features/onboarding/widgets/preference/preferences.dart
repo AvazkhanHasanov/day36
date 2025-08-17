@@ -14,7 +14,7 @@ class Preferences extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => PreferencesViewModel(),
+      create: (context) => PreferencesViewModel(preferencesRepo: context.read()),
       builder: (context, child) {
         return Scaffold(
           body: SafeArea(

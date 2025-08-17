@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
+import '../../../data/repositories/detail_repository.dart';
 import '../widgets/detail_page/detail_page_stack.dart';
 
 class DetailPage extends StatelessWidget {
@@ -21,7 +22,10 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => DetailViewModel(detailId: detailId),
+      create: (context) => DetailViewModel(
+        detailId: detailId,
+        detailRepo: context.read<DetailRepository>(),
+      ),
       builder: (context, child) {
         return Scaffold(
           appBar: RecipeAppBar(
@@ -90,10 +94,48 @@ class DetailPage extends StatelessWidget {
                               style: AppStyles.titlle,
                             ),
                             SizedBox(height: 26.h),
-                            ...List.generate(detail.instructions.length, (index) {
-                              return DetailPageRichText(text: detail.instructions[index].text, order: detail.instructions[index].order,);
-                            },)
-            
+                            ...List.generate(
+                              detail.ingredients.length,
+                              (index) {
+                                return DetailPageRichText(
+                                  text: detail.ingredients[index].name,
+                                  order: detail.ingredients[index].amount,
+                                );
+                              },
+                            ),
+                            SizedBox(height: 31.h),
+                            Text(
+                              '${detail.instructions.length} Easy Steps',
+                              style: AppStyles.titlle,
+                            ),
+                            SizedBox(height: 11.h),
+                            ...List.generate(
+                              detail.instructions.length,
+                              (index) {
+                                return Padding(
+                                  padding: EdgeInsets.only(bottom: 11.h),
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 4.w,
+                                    ),
+                                    width: 356.w,
+                                    height: 81.h,
+                                    decoration: BoxDecoration(
+                                      color: index % 2 == 0
+                                          ? AppColors.pinkSubC
+                                          : AppColors.pink,
+                                      borderRadius: BorderRadius.circular(14.r),
+                                    ),
+                                    child: Text(
+                                      '${index + 1}. ${detail.instructions[index].text} ',
+                                      style: AppStyles.tSW400S12Black,
+                                      maxLines: 3,
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
                           ],
                         ),
                       ],

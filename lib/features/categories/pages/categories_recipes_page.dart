@@ -8,6 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
+import '../../../data/repositories/recipes_repository.dart';
+
 class CategoriesRecipesPage extends StatelessWidget {
   final int categoryId;
   final String title;
@@ -21,7 +23,10 @@ class CategoriesRecipesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => RecipesViewModel(categoryId: categoryId),
+      create: (context) => RecipesViewModel(
+        categoryId: categoryId,
+        recipesRepo: context.read<RecipesRepository>(),
+      ),
       builder: (context, child) => Scaffold(
         extendBody: true,
         appBar: RecipeAppBarWithBottom(

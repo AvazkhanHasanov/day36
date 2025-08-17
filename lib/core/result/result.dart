@@ -13,7 +13,6 @@ final class Ok<T> extends Result<T> {
   const Ok._(this.value);
 
   final T value;
-
   @override
   R fold<R>(
     R Function(Exception error) onError,

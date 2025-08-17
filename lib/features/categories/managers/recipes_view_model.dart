@@ -1,29 +1,40 @@
-import 'package:day_36_darsda1/core/client.dart';
 import 'package:day_36_darsda1/data/models/category/recipes_model.dart';
+import 'package:day_36_darsda1/data/repositories/recipes_repository.dart';
 import 'package:flutter/material.dart';
 
 class RecipesViewModel extends ChangeNotifier {
-  RecipesViewModel({required this.categoryId}) {
-    fetchCategories(categoryId);
+  final RecipesRepository _recipesRepo;
+
+  RecipesViewModel({
+    required this.categoryId,
+    required RecipesRepository recipesRepo,
+  }) : _recipesRepo = recipesRepo {
+    fetchRecipes(categoryId);
   }
 
   final int categoryId;
   List<RecipesModel> elements = [];
   bool isLoading = false;
+  String? error;
 
-  Future<void> fetchCategories(int categoryId) async {
+  Future<void> fetchRecipes(int categoryId) async {
     isLoading = true;
     notifyListeners();
-    var respond = await dio.get('/recipes/list?Category=$categoryId');
-    if (respond.statusCode != 200) {
-      throw Exception('Xatolik: ${respond.data}');
-    } else {
-      isLoading = false;
-      elements = (respond.data as List)
-          .map((x) => RecipesModel.fromJson(x))
-          .toList();
+    var result = await _recipesRepo.getAll(categoryId);
 
-      notifyListeners();
-    }
+    result.fold(
+      (exception) {
+        print('Error fetching recipes: $error');
+        return error = exception.toString();
+      },
+
+      (value) {
+        print('Fetched ${elements.length} recipes: $elements');
+        return elements = value;
+      },
+    );
+
+    isLoading = false;
+    notifyListeners();
   }
 }

@@ -31,6 +31,12 @@ class AppStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.beige,
   );
+  static final tSW400S12Black = TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.beige,
+  );
   static final tSW400S16Oq = TextStyle(
     fontSize: 16.sp,
     fontWeight: FontWeight.w400,
@@ -50,7 +56,7 @@ class AppStyles {
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
     color: AppColors.color23,
-    fontFamily: 'League',
+    fontFamily: 'Poppins',
   );
   static final subTextS14 = TextStyle(
     fontSize: 14.sp,
@@ -120,6 +126,12 @@ class AppStyles {
   );
   static final subtextPink = TextStyle(
     fontWeight: FontWeight.w400,
+    fontSize: 12.sp,
+    color: AppColors.pinkSubC,
+    fontFamily: 'Poppins',
+  );
+  static final tSW300S12 = TextStyle(
+    fontWeight: FontWeight.w300,
     fontSize: 12.sp,
     color: AppColors.pinkSubC,
     fontFamily: 'Poppins',

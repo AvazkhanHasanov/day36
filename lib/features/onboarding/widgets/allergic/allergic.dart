@@ -15,7 +15,7 @@ class Allergic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => AllergicViewModel(),
+      create: (context) => AllergicViewModel(allergicRepo: context.read()),
       builder: (context, child) {
         return Scaffold(
           extendBodyBehindAppBar: true,

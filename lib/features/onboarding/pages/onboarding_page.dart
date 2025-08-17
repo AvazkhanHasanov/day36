@@ -18,7 +18,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return ChangeNotifierProvider(
+      create: (context) => OnboardingViewModel(onboardingRepo: context.read(), categoryRepo: context.read()),
+      builder: (context, child) => Scaffold(
         extendBody: true,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -30,11 +32,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
         body: Consumer<OnboardingViewModel>(
           builder: (context, vm, child) {
             if (vm.isLoading) {
-            return Center(child: CircularProgressIndicator());
+              return Center(child: CircularProgressIndicator());
             }
-            return  PageView.builder(
+            return PageView.builder(
               controller: controller,
-              itemCount: vm.onboarding.length +1,
+              itemCount: vm.onboarding.length + 1,
               itemBuilder: (context, index) {
                 if (index < vm.onboarding.length) {
                   if (vm.onboarding.isEmpty) {
@@ -62,6 +64,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             );
           },
         ),
-      );
+      ),
+    );
   }
 }

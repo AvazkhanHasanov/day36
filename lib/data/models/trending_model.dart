@@ -16,14 +16,14 @@ class TrendingModel {
 
   factory TrendingModel.fromJson(Map<String, dynamic> json) {
     return TrendingModel(
-      id: json['id']as int,
-      categoryId: json['categoryId']as int,
-      title: json['title']as String,
-      description: json['description']as String,
-      difficulty: json['difficulty']as String,
-      photo: json['photo']as String,
-      timeRequired: json['timeRequired']as int,
-      rating: (json['rating']as num),
+      id: json['id'],
+      categoryId: json['categoryId'],
+      title: json['title'],
+      description: json['description'],
+      difficulty: json['difficulty'],
+      photo: json['photo'],
+      timeRequired: json['timeRequired'],
+      rating: json['rating'],
     );
   }
 }

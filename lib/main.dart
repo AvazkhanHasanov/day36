@@ -1,8 +1,13 @@
 import 'package:day_36_darsda1/core/client.dart';
 import 'package:day_36_darsda1/core/route/router.dart';
 import 'package:day_36_darsda1/core/utils/colors.dart';
+import 'package:day_36_darsda1/data/repositories/allergic_repository.dart';
 import 'package:day_36_darsda1/data/repositories/auth_repository.dart';
 import 'package:day_36_darsda1/data/repositories/category_repository.dart';
+import 'package:day_36_darsda1/data/repositories/detail_repository.dart';
+import 'package:day_36_darsda1/data/repositories/onboarding_repository.dart';
+import 'package:day_36_darsda1/data/repositories/preferences_repository.dart';
+import 'package:day_36_darsda1/data/repositories/recipes_repository.dart';
 import 'package:day_36_darsda1/data/repositories/trending_repository.dart';
 import 'package:day_36_darsda1/features/auth/managers/auth_view_model.dart';
 import 'package:day_36_darsda1/features/categories/managers/categories_view_model.dart';
@@ -26,6 +31,22 @@ class Day36App extends StatelessWidget {
       child: MultiProvider(
         providers: [
           Provider(create: (context) => ApiClient()),
+          Provider(
+            create: (context) => AllergicRepository(client: context.read()),
+          ),
+          Provider(
+            create: (context) => PreferencesRepository(client: context.read()),
+          ),
+
+          Provider(
+            create: (context) => OnboardingRepository(client: context.read()),
+          ),
+          Provider(
+            create: (context) => DetailRepository(client: context.read()),
+          ),
+          Provider(
+            create: (context) => RecipesRepository(client: context.read()),
+          ),
           Provider(create: (context) => AuthRepository(client: context.read())),
           Provider(
             create: (context) => TrendingRepository(client: context.read()),
@@ -35,14 +56,17 @@ class Day36App extends StatelessWidget {
                 CategoryRepository(client: context.read<ApiClient>()),
           ),
           ChangeNotifierProvider(
+            create: (context) => CategoriesViewModel(
+              categoryRepo: context.read<CategoryRepository>(),
+            ),
+          ),
+          ChangeNotifierProvider(
             create: (context) => AuthViewModel(authRepo: context.read()),
           ),
           ChangeNotifierProvider(
-            create: (context) => OnboardingViewModel(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => CategoriesViewModel(
-              categoryRepo: context.read<CategoryRepository>(),
+            create: (context) => OnboardingViewModel(
+              onboardingRepo: context.read(),
+              categoryRepo: context.read(),
             ),
           ),
         ],
