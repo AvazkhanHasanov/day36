@@ -57,7 +57,7 @@ class StackContainer extends StatelessWidget {
         children: [
           Text(
             title,
-            style: AppStyles.subText,
+            style: AppStyles.subtext23,
           ),
           Text(
             description,

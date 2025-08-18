@@ -33,61 +33,62 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AuthAppBar(
-        title: 'Login',
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            spacing: 27.h,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Form(
-                key: formKey,
-                child: Column(
-                  spacing: 10.h,
-                  children: [
-                    RecipeTextFormField(
-                      label: 'Email',
-                      hint: 'example@example.com',
-                      validator: (value) {
-                        final emailRegExp = RegExp(
-                          r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
-                        );
-                        if (value == null || value.isEmpty) {
-                          return ' Emailni kiritshni unutdinggiz';
-                        } else if (!emailRegExp.hasMatch(value)) {
-                          return 'Email farmati noto`g`ri';
-                        }
-                        return null;
-                      },
-                      controller: emailController,
-                    ),
-                    RecipeTextFormField(
-                      label: 'Password',
-                      hint: '● ● ● ● ● ● ● ●',
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'parol kitirish majburiy';
-                        } else if (value.length < 8) {
-                          return "parol eng kamida 8 ta raqamdan iborat bo`lsin";
-                        }
-                        return null;
-                      },
-                      controller: passwordController,
-                      isPassword: true,
-                    ),
-                  ],
+    return Consumer<AuthViewModel>(
+      builder: (context, vm, child) {
+
+        return vm.isLoginLoading
+            ? CircularProgressIndicator()
+            : Scaffold(
+                extendBodyBehindAppBar: true,
+                appBar: AuthAppBar(
+                  title: 'Login',
                 ),
-              ),
-              SizedBox(height: 60.h),
-              Consumer<AuthViewModel>(
-                builder: (context, vm, child) {
-                  return vm.isLoginLoading
-                      ? CircularProgressIndicator()
-                      : RecipeContainer(
+                body: SafeArea(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      spacing: 27.h,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Form(
+                          key: formKey,
+                          child: Column(
+                            spacing: 10.h,
+                            children: [
+                              RecipeTextFormField(
+                                label: 'Email',
+                                hint: 'example@example.com',
+                                validator: (value) {
+                                  final emailRegExp = RegExp(
+                                    r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                                  );
+                                  if (value == null || value.isEmpty) {
+                                    return ' Emailni kiritshni unutdinggiz';
+                                  } else if (!emailRegExp.hasMatch(value)) {
+                                    return 'Email farmati noto`g`ri';
+                                  }
+                                  return null;
+                                },
+                                controller: emailController,
+                              ),
+                              RecipeTextFormField(
+                                label: 'Password',
+                                hint: '● ● ● ● ● ● ● ●',
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'parol kitirish majburiy';
+                                  } else if (value.length < 8) {
+                                    return "parol eng kamida 8 ta raqamdan iborat bo`lsin";
+                                  }
+                                  return null;
+                                },
+                                controller: passwordController,
+                                isPassword: true,
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 60.h),
+                        RecipeContainer(
                           text: 'Log In',
                           onTap: () async {
                             if (formKey.currentState!.validate()) {
@@ -99,6 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                                 loginModel: loginData,
                               );
                               if (result) {
+                                context.go(RouteName.home);
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(content: Text('Muvaffaqiyatli')),
                                 );
@@ -107,49 +109,50 @@ class _LoginPageState extends State<LoginPage> {
                           },
                           backgroundColor: AppColors.pink,
                           foregroundColor: AppColors.pinkSubC,
-                        );
-                },
-              ),
-              RecipeContainer(
-                text: 'Sign Up',
-                onTap: () {
-                  context.push(RouteName.signUp);
-                },
-                backgroundColor: AppColors.pink,
-                foregroundColor: AppColors.pinkSubC,
-              ),
-              SizedBox(height: 30.h),
-              Text(
-                'Forgot Password?',
-                style: AppStyles.tSW600S14,
-              ),
-              SizedBox(height: 44.h),
-              Text(
-                'or sign up with',
-                style: AppStyles.subTextMiniOq,
-              ),
-              Row(
-                children: [],
-              ),
-              RichText(
-                text: TextSpan(
-                  text: 'don\'t have an account?',
-                  children: [
-                    TextSpan(
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          context.push(RouteName.signUp);
-                        },
-                      text: ' Sing Up',
-                      style: TextStyle(color: Colors.blue),
+                        ),
+
+                        RecipeContainer(
+                          text: 'Sign Up',
+                          onTap: () {
+                            context.push(RouteName.signUp);
+                          },
+                          backgroundColor: AppColors.pink,
+                          foregroundColor: AppColors.pinkSubC,
+                        ),
+                        SizedBox(height: 30.h),
+                        Text(
+                          'Forgot Password?',
+                          style: AppStyles.tSW600S14,
+                        ),
+                        SizedBox(height: 44.h),
+                        Text(
+                          'or sign up with',
+                          style: AppStyles.subTextMiniOq,
+                        ),
+                        Row(
+                          children: [],
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            text: 'don\'t have an account?',
+                            children: [
+                              TextSpan(
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    context.push(RouteName.signUp);
+                                  },
+                                text: ' Sing Up',
+                                style: TextStyle(color: Colors.blue),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ),
-      ),
+              );
+      },
     );
   }
 }

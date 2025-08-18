@@ -1,7 +1,6 @@
 import 'package:day_36_darsda1/features/categories/widgets/recipes_widgets/recipes_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/icons.dart';
@@ -47,7 +46,7 @@ class RecipesContainer extends StatelessWidget {
               Text(
                 title,
                 maxLines: 1,
-                style: AppStyles.subText,
+                style: AppStyles.subtext23,
               ),
               Text(
                 description,

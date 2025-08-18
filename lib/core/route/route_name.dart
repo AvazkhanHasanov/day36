@@ -9,5 +9,9 @@ class RouteName{
   static final String forgotPassword ='/forgotPassword';
   static final String enter ='/enter';
   static final String trending ='/trending';
+  static final String home ='/home';
+  static final String topChefs ='/TopChefs';
+  static final String chefProfile ='/chefProfile';
+
 
 }

@@ -31,7 +31,7 @@ class AppStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.beige,
   );
-  static final tSW400S12Black = TextStyle(
+  static final subtextB = TextStyle(
     fontFamily: 'Poppins',
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
@@ -52,7 +52,7 @@ class AppStyles {
     fontSize: 12.sp,
     color: AppColors.pinkSubC,
   );
-  static final subText = TextStyle(
+  static final subtext23 = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
     color: AppColors.color23,
@@ -70,12 +70,14 @@ class AppStyles {
     color: AppColors.redPinkMain,
     fontFamily: 'Poppins',
   );
-  static final subTextRed = TextStyle(
+  static final subtextRed = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
     color: AppColors.redPinkMain,
   );
-  static final subTextOq = TextStyle(
+
+  // homepageda subtitleAB ga ozgartir
+  static final subtextOq = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
     color: AppColors.brownF9,
@@ -87,12 +89,13 @@ class AppStyles {
     color: AppColors.brownF9,
   );
   static final subtitle = TextStyle(
-    fontSize: 15.sp
-    ,
+    fontSize: 15.sp,
     fontWeight: FontWeight.w500,
     color: AppColors.redPinkMain,
     fontFamily: 'Poppins',
   );
+
+  //title homepageda
   static final subtitleOq = TextStyle(
     fontSize: 15.sp,
     fontWeight: FontWeight.w500,
@@ -105,6 +108,8 @@ class AppStyles {
     color: AppColors.beige.withAlpha((225 * 0.45).toInt()),
     fontFamily: 'Poppins',
   );
+
+  // homepageda textw300ni ozgartir
   static final subTextMini = TextStyle(
     fontSize: 13.sp,
     fontWeight: FontWeight.w300,
@@ -134,6 +139,30 @@ class AppStyles {
     fontWeight: FontWeight.w300,
     fontSize: 12.sp,
     color: AppColors.pinkSubC,
+    fontFamily: 'Poppins',
+  );
+  static final tSW300S12L = TextStyle(
+    fontWeight: FontWeight.w300,
+    fontSize: 12.sp,
+    color: AppColors.brownF9,
+    fontFamily: 'League',
+  );
+  static final tSW500S8 = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 8.sp,
+    color: AppColors.brownF9,
+    fontFamily: 'Poppins',
+  );
+  static final tSW500S10 = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 10.sp,
+    color: AppColors.pinkSubC,
+    fontFamily: 'Poppins',
+  );
+  static final titleAB = TextStyle(
+    fontSize: 25.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.redPinkMain,
     fontFamily: 'Poppins',
   );
 }

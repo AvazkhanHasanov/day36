@@ -28,6 +28,7 @@ class CategoriesPage extends StatelessWidget {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 mainAxisSpacing: 8.h,
                 mainAxisExtent: 172.h,
+
                 crossAxisCount: 2,
               ),
               itemBuilder: (context, index) {

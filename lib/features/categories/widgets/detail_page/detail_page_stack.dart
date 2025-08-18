@@ -54,7 +54,7 @@ class DetailPageStack extends StatelessWidget {
                   backgroundColor: Colors.transparent,
                   foregroundColor: AppColors.brownF9,
                 ),
-                Text('$rating', style: AppStyles.subTextOq),
+                Text('$rating', style: AppStyles.subtextOq),
                 SizedBox(width: 5.w),
                 RecipesIconButton(
                   icon: AppIcons.community,
@@ -64,7 +64,7 @@ class DetailPageStack extends StatelessWidget {
                 ),
                 Text(
                   '2.273',
-                  style: AppStyles.subTextOq,
+                  style: AppStyles.subtextOq,
                 ),
               ],
             ),

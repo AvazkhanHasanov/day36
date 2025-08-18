@@ -1,25 +1,21 @@
 import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-class DetailPageRichText extends StatelessWidget {
-  const DetailPageRichText({
-    super.key,
-    required this.text,
-    required this.order,
+class ProfileRichText extends StatelessWidget {
+  const ProfileRichText({
+    super.key, required this.number, required this.text,
   });
-
-  final String text;
-  final String order;
-
+final int number;
+final String text;
   @override
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: '• $order ',
-        style: AppStyles.subtextRed,
+        text: '$number',
+        style: AppStyles.subtitleOq,
         children: [
           TextSpan(
-            text: text,
+            text: '\n$text',
             style: AppStyles.subtextOq,
           ),
         ],

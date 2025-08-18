@@ -4,28 +4,31 @@ import 'package:day_36_darsda1/core/utils/colors.dart';
 
 class RecipesIconButton extends StatelessWidget {
   const RecipesIconButton({
+    this.padding=EdgeInsets.zero,
+    this.size=const Size(10, 10),
     super.key,
     required this.icon,
     required this.onPressed,
-    this.backgroundColor = AppColors.oq,
-    this.foregroundColor = AppColors.oq,
+    this.backgroundColor = AppColors.redPinkMain,
+    this.foregroundColor = AppColors.brownF9,
   });
 
   final String icon;
   final VoidCallback onPressed;
   final Color backgroundColor;
   final Color foregroundColor;
-
+  final Size size;
+final EdgeInsets padding;
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () {},
+      onPressed: onPressed,
       constraints: BoxConstraints.tight(
-        Size(10, 10),
+        size,
       ),
       style: IconButton.styleFrom(
         backgroundColor: backgroundColor,
-        padding: EdgeInsets.zero,
+        padding: padding,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
       icon: SvgPicture.asset(

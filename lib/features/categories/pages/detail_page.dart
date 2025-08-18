@@ -71,7 +71,7 @@ class DetailPage extends StatelessWidget {
                                 ),
                                 Text(
                                   '${detail.timeRequired} min',
-                                  style: AppStyles.subTextOq,
+                                  style: AppStyles.subtextOq,
                                 ),
                               ],
                             ),
@@ -129,7 +129,7 @@ class DetailPage extends StatelessWidget {
                                     ),
                                     child: Text(
                                       '${index + 1}. ${detail.instructions[index].text} ',
-                                      style: AppStyles.tSW400S12Black,
+                                      style: AppStyles.subtextB,
                                       maxLines: 3,
                                     ),
                                   ),

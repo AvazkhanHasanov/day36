@@ -39,7 +39,7 @@ class AuthViewModel extends ChangeNotifier {
 
   //Loading uchun
   bool isLoginLoading = false;
-  bool isLoadingSuccess = false;
+  bool isLoginSuccess = false;
   String? loadingError;
 
   String loadingToken = '';
@@ -58,11 +58,11 @@ class AuthViewModel extends ChangeNotifier {
         return false;
       },
       (success) {
-        print('ishladuu: $success');
+        print('ishladi: $success');
         print('dataType: $loadingData');
 
         isLoginLoading = false;
-        isLoadingSuccess = true;
+        isLoginSuccess = true;
         loadingToken = success;
         notifyListeners();
         return true;

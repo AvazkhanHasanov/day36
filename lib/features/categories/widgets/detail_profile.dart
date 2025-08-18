@@ -39,7 +39,7 @@ class DetailProfile extends StatelessWidget {
             children: [
               Text(
                 '@$username',
-                style: AppStyles.subTextRed,
+                style: AppStyles.subtextRed,
               ),
               Expanded(
                 child: Text(

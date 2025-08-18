@@ -8,13 +8,16 @@ import 'package:day_36_darsda1/data/repositories/detail_repository.dart';
 import 'package:day_36_darsda1/data/repositories/onboarding_repository.dart';
 import 'package:day_36_darsda1/data/repositories/preferences_repository.dart';
 import 'package:day_36_darsda1/data/repositories/recipes_repository.dart';
+import 'package:day_36_darsda1/data/repositories/top_chefs_repository.dart';
 import 'package:day_36_darsda1/data/repositories/trending_repository.dart';
 import 'package:day_36_darsda1/features/auth/managers/auth_view_model.dart';
 import 'package:day_36_darsda1/features/categories/managers/categories_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
 
+import 'features/home/managers/home_view_model.dart';
 import 'features/onboarding/managers/onboarding_view_model.dart';
 
 void main() {
@@ -30,30 +33,50 @@ class Day36App extends StatelessWidget {
       designSize: Size(430, 932),
       child: MultiProvider(
         providers: [
-          Provider(create: (context) => ApiClient()),
+          Provider(create: (context) => FlutterSecureStorage()),
+          Provider(
+            create: (context) => ApiClient(secureStorage: context.read()),
+          ),
           Provider(
             create: (context) => AllergicRepository(client: context.read()),
+          ),
+          Provider(
+            create: (context) => AuthRepository(
+              client: context.read(),
+              secureStorage: context.read(),
+            ),
+          ),
+          Provider(
+            create: (context) =>
+                CategoryRepository(client: context.read<ApiClient>()),
+          ),
+          Provider(
+            create: (context) => DetailRepository(client: context.read()),
+          ),
+          Provider(
+            create: (context) => OnboardingRepository(client: context.read()),
           ),
           Provider(
             create: (context) => PreferencesRepository(client: context.read()),
           ),
 
           Provider(
-            create: (context) => OnboardingRepository(client: context.read()),
-          ),
-          Provider(
-            create: (context) => DetailRepository(client: context.read()),
-          ),
-          Provider(
             create: (context) => RecipesRepository(client: context.read()),
           ),
-          Provider(create: (context) => AuthRepository(client: context.read())),
+          Provider(
+            create: (context) => TopChefsRepository(client: context.read()),
+          ),
           Provider(
             create: (context) => TrendingRepository(client: context.read()),
           ),
-          Provider(
-            create: (context) =>
-                CategoryRepository(client: context.read<ApiClient>()),
+
+          ChangeNotifierProvider(
+            create: (context) => HomeViewModel(
+              categoryRepo: context.read(),
+              trendingRepo: context.read(),
+              recipesRepo: context.read(),
+              topChefsRepo: context.read(),
+            ),
           ),
           ChangeNotifierProvider(
             create: (context) => CategoriesViewModel(
@@ -71,6 +94,7 @@ class Day36App extends StatelessWidget {
           ),
         ],
         child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(scaffoldBackgroundColor: AppColors.beige),
           routerConfig: router,
         ),

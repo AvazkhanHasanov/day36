@@ -39,7 +39,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 Text(
                   'Lorem ipsum dolor sit amet pretium cras id dui pellentesque ornare. Quisque malesuada netus pulvinar diam.',
                   maxLines: 4,
-                  style: AppStyles.subTextOq,
+                  style: AppStyles.subtextOq,
                 ),
               ],
             ),
