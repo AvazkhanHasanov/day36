@@ -1,4 +1,6 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
+import 'package:day_36_darsda1/core/utils/styles.dart';
+import 'package:day_36_darsda1/features/common/heart_icon.dart';
 import 'package:day_36_darsda1/features/top_chefs/manager/chef_profile_view_model.dart';
 import 'package:day_36_darsda1/features/top_chefs/widgets/profile/chef_profile_app_bar.dart';
 import 'package:day_36_darsda1/features/top_chefs/widgets/profile/divider.dart';
@@ -82,6 +84,8 @@ class ChefProfile extends StatelessWidget {
                               ],
                             ),
                           ),
+                          Text('Recipes',style:AppStyles.subtextOq),
+                          Divider(color: AppColors.redPinkMain,),
                           Expanded(
                             child: GridView.builder(
                               itemCount: vm.recipes!.length,
@@ -112,6 +116,7 @@ class ChefProfile extends StatelessWidget {
                                         RecipesImage(
                                           photo: vm.recipes![index].photo,
                                         ),
+
                                       ],
                                     ),
                                   ),

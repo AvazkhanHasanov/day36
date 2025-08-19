@@ -10,21 +10,17 @@ class RecipesImage extends StatelessWidget {
 final String photo;
   @override
   Widget build(BuildContext context) {
-    return Consumer<RecipesViewModel>(
-      builder: (context, vm, child) {
-        return Align(
-          alignment: Alignment.topCenter,
-          child: ClipRRect(
-            borderRadius: BorderRadiusGeometry.circular(14),
-            child: Image.network(
-              photo,
-              width: 169.w,
-              height: 153.h,
-              fit: BoxFit.cover,
-            ),
-          ),
-        );
-      },
+    return Align(
+      alignment: Alignment.topCenter,
+      child: ClipRRect(
+        borderRadius: BorderRadiusGeometry.circular(14),
+        child: Image.network(
+          photo,
+          width: 169.w,
+          height: 153.h,
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }

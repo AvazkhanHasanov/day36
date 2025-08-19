@@ -63,11 +63,15 @@ class RecipesContainer extends StatelessWidget {
                   RecipesIconButton(
                     icon: AppIcons.star,
                     onPressed: () {},
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: AppColors.pinkSubC,
                   ),
                   Spacer(),
                   RecipesIconButton(
                     icon: AppIcons.clock,
                     onPressed: () {},
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: AppColors.pinkSubC,
                   ),
                   Text(
                     '${timeRequired}min',
