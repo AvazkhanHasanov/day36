@@ -7,11 +7,9 @@ class RecipesRepository {
 
   RecipesRepository({required ApiClient client}) : _client = client;
 
-  Future<Result<List<RecipesModel>>> getAll({int? id}) async {
-    final endPoint = id != null
-        ? '/recipes/list?Category=$id'
-        : '/recipes/list?Limit=2';
-    final response = await _client.get<List>(endPoint);
+  Future<Result<List<RecipesModel>>> getAll({Map<String,dynamic>? queryParam}) async {
+
+    final response = await _client.get<List>('/recipes/list');
     return response.fold(
       (error) => Result.error(error),
       (value) => Result.ok(

@@ -2,9 +2,9 @@ import 'package:day_36_darsda1/features/categories/widgets/recipes_widgets/recip
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/utils/colors.dart';
-import '../../../../core/utils/icons.dart';
-import '../../../../core/utils/styles.dart';
+import '../../core/utils/colors.dart';
+import '../../core/utils/icons.dart';
+import '../../core/utils/styles.dart';
 
 class RecipesContainer extends StatelessWidget {
   const RecipesContainer({

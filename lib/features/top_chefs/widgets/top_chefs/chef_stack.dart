@@ -4,6 +4,7 @@ import 'package:day_36_darsda1/features/top_chefs/widgets/top_chefs/chef_contain
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/colors.dart';
 import '../../../../../core/utils/styles.dart';
@@ -31,6 +32,7 @@ class _ChefStackState extends State<ChefStack> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () => context.push('/chefProfile/${widget.id}'),
       child: SizedBox(
         width: 170.w,
         height: 217.h,

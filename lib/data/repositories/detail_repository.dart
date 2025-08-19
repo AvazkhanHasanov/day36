@@ -7,8 +7,8 @@ class DetailRepository {
 
   DetailRepository({required ApiClient client}) : _client = client;
 
-  Future<Result<DetailModel>> getById(int id) async {
-    final response = await _client.get('/recipes/detail/$id');
+  Future<Result<DetailModel>> getById(Map<String,dynamic>? queryParams) async {
+    final response = await _client.get('/recipes/detail',queryParams: queryParams);
     return response.fold(
       (error) => Result.error(error),
       (value) => Result.ok(DetailModel.fromJson(value)

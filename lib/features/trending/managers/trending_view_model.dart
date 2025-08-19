@@ -43,7 +43,9 @@ class TrendingViewModel extends ChangeNotifier {
   Future<void> fetchRecipes(int categoryId) async {
     isRecipesLoading = true;
     notifyListeners();
-    var result = await _recipesRepo.getAll(id: categoryId);
+    var result = await _recipesRepo.getAll(
+      queryParam: {'Category': categoryId, "Limit": 2},
+    );
     result.fold(
       (exception) => recipesError = exception.toString(),
       (value) => recipes = value,

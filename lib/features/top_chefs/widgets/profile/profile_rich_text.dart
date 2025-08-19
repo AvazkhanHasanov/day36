@@ -9,17 +9,12 @@ final int number;
 final String text;
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-        text: '$number',
-        style: AppStyles.subtitleOq,
-        children: [
-          TextSpan(
-            text: '\n$text',
-            style: AppStyles.subtextOq,
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('$number',style: AppStyles.subtitleOq.copyWith(height: 1),),
+        Text(text,style: AppStyles.subtextOq.copyWith(height: 1),),
+      ],
     );
   }
 }

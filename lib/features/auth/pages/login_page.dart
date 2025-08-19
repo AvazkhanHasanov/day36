@@ -101,9 +101,9 @@ class _LoginPageState extends State<LoginPage> {
                               );
                               if (result) {
                                 context.go(RouteName.home);
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text('Muvaffaqiyatli')),
-                                );
+                                // ScaffoldMessenger.of(context).showSnackBar(
+                                //   SnackBar(content: Text('Muvaffaqiyatli')),
+                                // );
                               }
                             }
                           },

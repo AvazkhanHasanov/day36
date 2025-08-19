@@ -15,12 +15,14 @@ class TopChefsViewModel extends ChangeNotifier {
   bool isLoading = false;
   String? error;
   int _page = 1;
-  int _limit=2;
+  final int _limit=2;
+
+
 
   Future<void> fetchTopChefs() async {
     isLoading = true;
     notifyListeners();
-    var result = await _topChefsRepo.getAll(page: _page, limit: _limit);
+    var result = await _topChefsRepo.getAll(queryParams:{"Page": _page,"Limit":_limit});
     result.fold(
       (exception) => error = exception.toString(),
       (value)async {

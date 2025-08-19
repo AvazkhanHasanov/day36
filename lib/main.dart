@@ -4,6 +4,7 @@ import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/data/repositories/allergic_repository.dart';
 import 'package:day_36_darsda1/data/repositories/auth_repository.dart';
 import 'package:day_36_darsda1/data/repositories/category_repository.dart';
+import 'package:day_36_darsda1/data/repositories/chef_profile_repository.dart';
 import 'package:day_36_darsda1/data/repositories/detail_repository.dart';
 import 'package:day_36_darsda1/data/repositories/onboarding_repository.dart';
 import 'package:day_36_darsda1/data/repositories/preferences_repository.dart';
@@ -50,6 +51,7 @@ class Day36App extends StatelessWidget {
             create: (context) =>
                 CategoryRepository(client: context.read<ApiClient>()),
           ),
+          Provider(create: (context) => ChefProfileRepository(client: context.read()),),
           Provider(
             create: (context) => DetailRepository(client: context.read()),
           ),
@@ -70,17 +72,10 @@ class Day36App extends StatelessWidget {
             create: (context) => TrendingRepository(client: context.read()),
           ),
 
-          ChangeNotifierProvider(
-            create: (context) => HomeViewModel(
-              categoryRepo: context.read(),
-              trendingRepo: context.read(),
-              recipesRepo: context.read(),
-              topChefsRepo: context.read(),
-            ),
-          ),
+
           ChangeNotifierProvider(
             create: (context) => CategoriesViewModel(
-              categoryRepo: context.read<CategoryRepository>(),
+              categoryRepo: context.read(),
             ),
           ),
           ChangeNotifierProvider(
@@ -92,6 +87,7 @@ class Day36App extends StatelessWidget {
               categoryRepo: context.read(),
             ),
           ),
+
         ],
         child: MaterialApp.router(
           debugShowCheckedModeBanner: false,

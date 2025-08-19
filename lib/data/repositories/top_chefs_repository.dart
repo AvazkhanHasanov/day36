@@ -7,9 +7,8 @@ class TopChefsRepository {
 
   TopChefsRepository({required ApiClient client}) : _client = client;
 
-  Future<Result<List<TopChefsModel>>> getAll({int? limit,  int? page}) async {
-    var endPoint=limit==null?'/top-chefs/list':'/top-chefs/list?Page=$page&Limit=$limit';
-    var response = await _client.get<List>(endPoint);
+  Future<Result<List<TopChefsModel>>> getAll({Map<String, dynamic>? queryParams}) async {
+    var response = await _client.get<List>('/top-chefs/list', queryParams: queryParams);
     return response.fold(
       (error) => Result.error(error),
       (success) =>

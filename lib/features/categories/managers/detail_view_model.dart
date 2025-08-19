@@ -17,7 +17,7 @@ class DetailViewModel extends ChangeNotifier {
   Future<void> fetchDetail({required int detailId}) async {
     isLoading = true;
     notifyListeners();
-    final result = await _detailRepo.getById(detailId);
+    final result = await _detailRepo.getById({'id':detailId});
     result.fold((e) => error = e.toString(), (value) => detail = value);
     isLoading = false;
     notifyListeners();

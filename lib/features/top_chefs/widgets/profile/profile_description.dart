@@ -6,19 +6,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ProfileDescription extends StatelessWidget {
   const ProfileDescription({
     super.key,
+    required this.firstName,
+    required this.lastName,
+    required this.presentation,
+    required this.profilePhoto,
   });
+
+  final String firstName, lastName, presentation, profilePhoto;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       spacing: 13.w,
       children: [
-        Container(
-          width: 102.w,
-          height: 97.h,
-          decoration: BoxDecoration(
-            color: Colors.orange,
-            borderRadius: BorderRadius.circular(48.5.r),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(48.5.r),
+          child: Image.network(
+            profilePhoto,
+            width: 102.w,
+            height: 97.h,
+            fit: BoxFit.cover,
           ),
         ),
         SizedBox(
@@ -28,12 +35,14 @@ class ProfileDescription extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Neil Tran-Chef',
+                '$firstName $lastName-Chef',
+                maxLines: 2,
                 style: AppStyles.subtitle,
               ),
               Text(
-                'Passionate chef in creative and contemporary cuisine.',
+                presentation,
                 style: AppStyles.tSW300S12L,
+                maxLines: 2,
               ),
               Container(
                 alignment: Alignment.center,

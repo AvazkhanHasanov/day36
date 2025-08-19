@@ -20,6 +20,12 @@ class AppStyles {
     fontWeight: FontWeight.w600,
     color: AppColors.beige,
   );
+  static final tSW500S15Black = TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 15.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.beige,
+  );
   static final tSW400S13Oq = TextStyle(
     fontSize: 13.sp,
     fontWeight: FontWeight.w400,
@@ -157,6 +163,12 @@ class AppStyles {
     fontWeight: FontWeight.w500,
     fontSize: 10.sp,
     color: AppColors.pinkSubC,
+    fontFamily: 'Poppins',
+  );
+  static final tSW400S15 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 15.sp,
+    color: AppColors.beige,
     fontFamily: 'Poppins',
   );
   static final titleAB = TextStyle(

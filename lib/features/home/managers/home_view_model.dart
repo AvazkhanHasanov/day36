@@ -100,7 +100,7 @@ class HomeViewModel extends ChangeNotifier {
   Future<void> fetchTopChefs() async {
     isChefsLoading = true;
     notifyListeners();
-    var result = await _topChefsRepo.getAll(limit: 4);
+    var result = await _topChefsRepo.getAll(queryParams: {"Limit":4});
     result.fold(
       (exception) => chefsError = exception.toString(),
       (value) => chefs = value,

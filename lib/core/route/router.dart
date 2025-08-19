@@ -17,12 +17,13 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 final router = GoRouter(
-  initialLocation: RouteName.login,
+  initialLocation: RouteName.topChefs,
   redirect: (context, state) async {
     final token = await context.read<FlutterSecureStorage>().read(key: 'token');
     if (state.matchedLocation == RouteName.login && token != null) {
       return RouteName.home;
-    }return state.matchedLocation;
+    }
+    return state.matchedLocation;
   },
   routes: [
     GoRoute(
@@ -69,8 +70,8 @@ final router = GoRouter(
       builder: (context, state) => ProfilePage(),
     ),
     GoRoute(
-      path: '/chefProfile',
-      builder: (context, state) => ChefProfile(),
+      path: '/chefProfile/:id',
+      builder: (context, state) => ChefProfile(id: int.parse(state.pathParameters['id']!),),
     ),
     GoRoute(
       path: '/forgotPassword',

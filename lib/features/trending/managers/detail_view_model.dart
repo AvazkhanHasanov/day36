@@ -20,7 +20,7 @@ class DetailIdViewModel extends ChangeNotifier {
   Future<void> fetchDetail({required int id}) async {
     isDetailLoading = true;
     notifyListeners();
-    var result = await _detailRepo.getById(id);
+    var result = await _detailRepo.getById({'id':id});
     result.fold(
           (exception) => detailError = exception.toString(),
           (value) => recipes = value,

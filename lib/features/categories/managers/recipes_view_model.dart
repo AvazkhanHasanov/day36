@@ -20,7 +20,7 @@ class RecipesViewModel extends ChangeNotifier {
   Future<void> fetchRecipes(int categoryId) async {
     isLoading = true;
     notifyListeners();
-    var result = await _recipesRepo.getAll(id: categoryId);
+    var result = await _recipesRepo.getAll(queryParam: {'Category':categoryId});
 
     result.fold(
       (exception) {
