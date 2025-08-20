@@ -1,4 +1,4 @@
-import 'package:day_36_darsda1/data/models/category/category_model.dart';
+import 'package:day_36_darsda1/data/models/recipes/category_model.dart';
 import 'package:day_36_darsda1/data/repositories/category_repository.dart';
 import 'package:flutter/material.dart';
 

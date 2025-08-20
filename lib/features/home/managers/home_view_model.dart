@@ -1,7 +1,7 @@
 import 'package:day_36_darsda1/data/repositories/top_chefs_repository.dart';
 import 'package:flutter/foundation.dart';
-import '../../../data/models/category/category_model.dart';
-import '../../../data/models/category/recipes_model.dart';
+import '../../../data/models/recipes/category_model.dart';
+import '../../../data/models/recipes/recipes_model.dart';
 import '../../../data/models/top_chefs_model.dart';
 import '../../../data/models/trending_model.dart';
 

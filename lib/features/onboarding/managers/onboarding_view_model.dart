@@ -1,7 +1,7 @@
 import 'package:day_36_darsda1/data/models/onboarding/onboarding_model.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../../data/models/category/category_model.dart';
+import '../../../data/models/recipes/category_model.dart';
 import '../../../data/repositories/category_repository.dart';
 import '../../../data/repositories/onboarding_repository.dart';
 

@@ -1,5 +1,7 @@
 
 class AppIcons {
+  static final add = 'assets/icons/add.svg';
+
   static final backArrow = 'assets/icons/back-arrow.svg';
   static final progress = 'assets/icons/progress.svg';
   static final home = 'assets/icons/home.svg';

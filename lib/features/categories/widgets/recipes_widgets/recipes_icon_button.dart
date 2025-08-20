@@ -9,8 +9,8 @@ class RecipesIconButton extends StatelessWidget {
     super.key,
     required this.icon,
     required this.onPressed,
-    this.backgroundColor = AppColors.redPinkMain,
-    this.foregroundColor = AppColors.brownF9,
+    this.backgroundColor = AppColors.pink,
+    this.foregroundColor = AppColors.pinkSubC,
   });
 
   final String icon;

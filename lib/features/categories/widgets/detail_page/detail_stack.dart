@@ -1,3 +1,4 @@
+import 'package:day_36_darsda1/core/route/route_name.dart';
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/icons.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
@@ -5,6 +6,7 @@ import 'package:day_36_darsda1/features/categories/widgets/recipes_widgets/recip
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class DetailPageStack extends StatelessWidget {
   const DetailPageStack({
@@ -39,33 +41,41 @@ class DetailPageStack extends StatelessWidget {
             child: Row(
               spacing: 5.w,
               children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 20,
-                    color: AppColors.brownF9,
+                SizedBox(
+                  width: 200.w,
+                  child: Text(
+                    title,
+                    style: AppStyles.tSW500S20Oq,
+                    maxLines: 1,
                   ),
                 ),
                 Spacer(),
-                RecipesIconButton(
-                  icon: AppIcons.star,
-                  onPressed: () {},
-                  backgroundColor: Colors.transparent,
-                  foregroundColor: AppColors.brownF9,
-                ),
-                Text('$rating', style: AppStyles.subtextOq),
-                SizedBox(width: 5.w),
-                RecipesIconButton(
-                  icon: AppIcons.community,
-                  onPressed: () {},
-                  foregroundColor: AppColors.brownF9,
-                  backgroundColor: Colors.transparent,
-                ),
-                Text(
-                  '2.273',
-                  style: AppStyles.subtextOq,
-                ),
+
+                GestureDetector(
+                    onTap: () => context.push(RouteName.reviews),
+                    child: Row(
+                      spacing: 5.w,
+                      children: [
+                        RecipesIconButton(
+                          icon: AppIcons.star,
+                          onPressed: () {},
+                          backgroundColor: Colors.transparent,
+                          foregroundColor: AppColors.brownF9,
+                        ),
+                        Text('$rating', style: AppStyles.subtextOq),
+                          SizedBox(width: 8.w),
+                        RecipesIconButton(
+                          icon: AppIcons.community,
+                          onPressed: () {},
+                          foregroundColor: AppColors.brownF9,
+                          backgroundColor: Colors.transparent,
+                        ),
+                        Text('2.273',style: AppStyles.subtextOq,),
+                      ],
+                    ),
+                  ),
+
+
               ],
             ),
           ),

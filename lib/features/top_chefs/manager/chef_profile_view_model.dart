@@ -1,7 +1,6 @@
-import 'package:day_36_darsda1/data/models/category/recipes_model.dart';
+import 'package:day_36_darsda1/data/models/recipes/recipes_model.dart';
 import 'package:day_36_darsda1/data/models/chef_profile_model.dart';
 import 'package:day_36_darsda1/data/repositories/chef_profile_repository.dart';
-import 'package:day_36_darsda1/data/repositories/detail_repository.dart';
 import 'package:day_36_darsda1/data/repositories/recipes_repository.dart';
 import 'package:flutter/material.dart';
 
@@ -45,11 +44,16 @@ class ChefProfileViewModel extends ChangeNotifier {
   Future<void> fetchRecipes(int id) async {
     isRecipesLoading = true;
     notifyListeners();
-
-    var result = await _recipesRepo.getAll(queryParam:{'UserId':id} );
+    var result = await _recipesRepo.getAll(queryParam: {'UserId': id});
     result.fold(
-      (exception) => recipesError = exception.toString(),
-      (value) => recipes = value,
+      (exception) {
+        recipesError = exception.toString();
+        recipes = null;
+      },
+      (value) {
+        recipesError = null;
+        recipes = value;
+      },
     );
     isRecipesLoading = false;
     notifyListeners();

@@ -9,6 +9,8 @@ import 'package:day_36_darsda1/features/categories/pages/categories_recipes_page
 import 'package:day_36_darsda1/features/categories/pages/detail_page.dart';
 import 'package:day_36_darsda1/features/home/pages/home_page.dart';
 import 'package:day_36_darsda1/features/onboarding/pages/onboarding_page.dart';
+import 'package:day_36_darsda1/features/reviews/pages/create_review_page.dart';
+import 'package:day_36_darsda1/features/reviews/pages/reviews_page.dart';
 import 'package:day_36_darsda1/features/top_chefs/pages/chef_profile_page.dart';
 import 'package:day_36_darsda1/features/top_chefs/pages/top_chefs_page.dart';
 import 'package:day_36_darsda1/features/trending/pages/trending_page.dart';
@@ -17,13 +19,13 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 final router = GoRouter(
-  initialLocation: RouteName.topChefs,
+  initialLocation: RouteName.createReview,
   redirect: (context, state) async {
     final token = await context.read<FlutterSecureStorage>().read(key: 'token');
     if (state.matchedLocation == RouteName.login && token != null) {
       return RouteName.home;
     }
-    return state.matchedLocation;
+    return null;
   },
   routes: [
     GoRoute(
@@ -39,10 +41,10 @@ final router = GoRouter(
     GoRoute(
       path: '/detail/:id',
       builder: (context, state) => DetailPage(
-        title: state.uri.queryParameters['title']!,
         detailId: int.parse(
           state.pathParameters['id']!,
         ),
+        title: state.uri.queryParameters['title']!,
       ),
     ),
     GoRoute(
@@ -71,7 +73,9 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/chefProfile/:id',
-      builder: (context, state) => ChefProfile(id: int.parse(state.pathParameters['id']!),),
+      builder: (context, state) => ChefProfile(
+        id: int.parse(state.pathParameters['id']!),
+      ),
     ),
     GoRoute(
       path: '/forgotPassword',
@@ -82,8 +86,15 @@ final router = GoRouter(
       builder: (context, state) => EnterPage(),
     ),
     GoRoute(
-      path: '/TopChefs',
+      path: '/topChefs',
       builder: (context, state) => TopChefsPage(),
+    ),
+    GoRoute(
+      path: '/reviews',
+      builder: (context, state) => ReviewsPage(),
+    ),GoRoute(
+      path: '/createReview',
+      builder: (context, state) => CreateReview(),
     ),
   ],
 );

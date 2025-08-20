@@ -1,4 +1,4 @@
-import 'package:day_36_darsda1/data/models/category/recipes_model.dart';
+import 'package:day_36_darsda1/data/models/recipes/recipes_model.dart';
 import 'package:day_36_darsda1/data/models/trending_model.dart';
 import 'package:day_36_darsda1/data/repositories/recipes_repository.dart';
 import 'package:day_36_darsda1/data/repositories/trending_repository.dart';
