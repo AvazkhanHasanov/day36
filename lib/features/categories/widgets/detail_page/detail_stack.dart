@@ -1,4 +1,3 @@
-import 'package:day_36_darsda1/core/route/route_name.dart';
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/icons.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
@@ -13,12 +12,12 @@ class DetailPageStack extends StatelessWidget {
     super.key,
     required this.photo,
     required this.title,
-    required this.rating,
+    required this.rating, required this.id,
   });
 
   final String photo, title;
   final num rating;
-
+final int id;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -50,9 +49,10 @@ class DetailPageStack extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-
                 GestureDetector(
-                    onTap: () => context.push(RouteName.reviews),
+                  onTap: () => context.push('/reviews/$id'),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 6.h),
                     child: Row(
                       spacing: 5.w,
                       children: [
@@ -63,19 +63,21 @@ class DetailPageStack extends StatelessWidget {
                           foregroundColor: AppColors.brownF9,
                         ),
                         Text('$rating', style: AppStyles.subtextOq),
-                          SizedBox(width: 8.w),
+                        SizedBox(width: 8.w),
                         RecipesIconButton(
                           icon: AppIcons.community,
                           onPressed: () {},
                           foregroundColor: AppColors.brownF9,
                           backgroundColor: Colors.transparent,
                         ),
-                        Text('2.273',style: AppStyles.subtextOq,),
+                        Text(
+                          '2.273',
+                          style: AppStyles.subtextOq,
+                        ),
                       ],
                     ),
                   ),
-
-
+                ),
               ],
             ),
           ),

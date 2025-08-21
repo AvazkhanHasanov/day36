@@ -1,3 +1,4 @@
+import 'package:day_36_darsda1/core/auth_interceptor/auth_interceptor.dart';
 import 'package:day_36_darsda1/core/result/result.dart';
 import 'package:day_36_darsda1/core/route/route_name.dart';
 import 'package:day_36_darsda1/core/route/router.dart';
@@ -11,12 +12,12 @@ class ApiClient {
     : _secureStorage = secureStorage;
   final _dio = Dio(
     BaseOptions(
-      baseUrl: "http://192.168.253.67:8888/api/v1",
+      baseUrl: "http://192.168.253.187:8888/api/v1",
       validateStatus: (status) => true,
       connectTimeout: const Duration(seconds: 3),
       receiveTimeout: const Duration(seconds: 5),
     ),
-  );
+  )..interceptors.add(AuthInterceptor());
 
   Future<Result<T>> get<T>(
     String path, {

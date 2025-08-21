@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../core/route/route_name.dart';
 import '../../../core/utils/styles.dart';
 
 class HomePageGestureDetector extends StatelessWidget {
@@ -16,7 +18,7 @@ class HomePageGestureDetector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () => context.push(RouteName.topChefs),
       child: Column(
         children: [
           Image.network(

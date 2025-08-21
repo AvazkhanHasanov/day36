@@ -19,7 +19,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 final router = GoRouter(
-  initialLocation: RouteName.createReview,
+  initialLocation: RouteName.home,
   redirect: (context, state) async {
     final token = await context.read<FlutterSecureStorage>().read(key: 'token');
     if (state.matchedLocation == RouteName.login && token != null) {
@@ -90,11 +90,16 @@ final router = GoRouter(
       builder: (context, state) => TopChefsPage(),
     ),
     GoRoute(
-      path: '/reviews',
-      builder: (context, state) => ReviewsPage(),
-    ),GoRoute(
-      path: '/createReview',
-      builder: (context, state) => CreateReview(),
+      path: '/reviews/:id',
+      builder: (context, state) => ReviewsPage(
+        id: int.parse(state.pathParameters['id']!),
+      ),
+    ),
+    GoRoute(
+      path: '/createReview/:id',
+      builder: (context, state) => CreateReview(
+        id: int.parse(state.pathParameters['id']!),
+      ),
     ),
   ],
 );

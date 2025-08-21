@@ -58,27 +58,20 @@ class TopChefsPage extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(
                                         20.r,
                                       ),
-                                      color: isZero
-                                          ? AppColors.redPinkMain
-                                          : Colors.transparent,
+                                      color: isZero ? AppColors.redPinkMain : Colors.transparent,
                                     ),
                                     child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
                                       spacing: 9.h,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           title[index],
-                                          style: isZero
-                                              ? AppStyles.subtitleOq
-                                              : AppStyles.subtitle,
+                                          style: isZero ? AppStyles.subtitleOq : AppStyles.subtitle,
                                         ),
                                         Row(
                                           spacing: 18.w,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                           children: List.generate(
                                             pageItem.length,
                                             (index) {

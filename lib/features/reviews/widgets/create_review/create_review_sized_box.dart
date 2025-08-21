@@ -5,9 +5,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CreateReviewSizedBox extends StatelessWidget {
   const CreateReviewSizedBox({
-    super.key, required this.text, required this.photo,
+    super.key,
+    required this.text,
+    required this.photo,
   });
-final String text, photo;
+
+  final String text, photo;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -35,7 +39,7 @@ final String text, photo;
             alignment: Alignment.topCenter,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
+              child: Image.network(
                 photo,
                 width: 356.w,
                 height: 206.h,

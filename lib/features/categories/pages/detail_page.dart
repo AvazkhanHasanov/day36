@@ -13,7 +13,11 @@ import '../../../data/repositories/detail_repository.dart';
 import '../widgets/detail_page/detail_stack.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({super.key, required this.title, required this.detailId,});
+  const DetailPage({
+    super.key,
+    required this.title,
+    required this.detailId,
+  });
 
   final String title;
   final int detailId;
@@ -22,8 +26,8 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => DetailViewModel(
-
-        detailRepo: context.read<DetailRepository>(), detailId: detailId,
+        detailRepo: context.read<DetailRepository>(),
+        detailId: detailId,
       ),
       builder: (context, child) {
         return Scaffold(
@@ -48,18 +52,22 @@ class DetailPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // rasm va nomlari chiqadigan joy
                       DetailPageStack(
                         photo: detail!.photo,
                         title: detail.title,
                         rating: detail.rating,
+                        id: detail.id,
                       ),
                       SizedBox(height: 26.h),
+                      // Odamni profile qismi uchun rasm ismlari
                       DetailProfile(
                         profilePhoto: detail.user.profilePhoto,
                         username: detail.user.userName,
                         firstName: detail.user.firstName,
                         lastName: detail.user.lastName,
                       ),
+                      //  Detail qismi uchun
                       Description(
                         timeRequired: detail.timeRequired,
                         description: detail.description,
@@ -101,9 +109,7 @@ class DetailPage extends StatelessWidget {
                                   width: 356.w,
                                   height: 81.h,
                                   decoration: BoxDecoration(
-                                    color: index % 2 == 0
-                                        ? AppColors.pinkSubC
-                                        : AppColors.pink,
+                                    color: index % 2 == 0 ? AppColors.pinkSubC : AppColors.pink,
                                     borderRadius: BorderRadius.circular(14.r),
                                   ),
                                   child: Text(

@@ -13,12 +13,13 @@ class About extends StatelessWidget {
     required this.photo,
     required this.rating,
     required this.reviewsCount,
+    required this.id
   });
 
   final String title, profilePhoto, username, firstName, photo;
   final num rating;
   final int reviewsCount;
-
+final int id;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -38,13 +39,14 @@ class About extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(20.r),
-              child: Image.asset(
+              child: Image.network(
                 photo,
                 width: 162.w,
                 height: 163.h,
               ),
             ),
             AboutDetail(
+              id: id,
               title: title,
               profilePhoto: profilePhoto,
               username: username,

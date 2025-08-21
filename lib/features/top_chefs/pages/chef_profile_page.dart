@@ -1,6 +1,5 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
-import 'package:day_36_darsda1/features/categories/managers/detail_view_model.dart';
 import 'package:day_36_darsda1/features/top_chefs/manager/chef_profile_view_model.dart';
 import 'package:day_36_darsda1/features/top_chefs/widgets/profile/chef_profile_app_bar.dart';
 import 'package:day_36_darsda1/features/top_chefs/widgets/profile/divider.dart';
@@ -93,12 +92,11 @@ class ChefProfile extends StatelessWidget {
                               : Expanded(
                                   child: GridView.builder(
                                     itemCount: vm.recipes!.length,
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 2,
-                                          mainAxisSpacing: 10.w,
-                                          mainAxisExtent: 236.h,
-                                        ),
+                                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      mainAxisSpacing: 10.w,
+                                      mainAxisExtent: 236.h,
+                                    ),
                                     itemBuilder: (context, index) {
                                       return Center(
                                         child: GestureDetector(
@@ -110,15 +108,10 @@ class ChefProfile extends StatelessWidget {
                                           child: Stack(
                                             children: [
                                               RecipesContainer(
-                                                timeRequired: vm
-                                                    .recipes![index]
-                                                    .timeRequired,
-                                                rating:
-                                                    vm.recipes![index].rating,
+                                                timeRequired: vm.recipes![index].timeRequired,
+                                                rating: vm.recipes![index].rating,
                                                 title: vm.recipes![index].title,
-                                                description: vm
-                                                    .recipes![index]
-                                                    .description,
+                                                description: vm.recipes![index].description,
                                               ),
                                               RecipesImage(
                                                 photo: vm.recipes![index].photo,

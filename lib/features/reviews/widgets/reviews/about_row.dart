@@ -15,10 +15,11 @@ class NameImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      spacing:5.w ,
       children: [
         ClipRRect(
           borderRadius: BorderRadiusGeometry.circular(16.r),
-          child: Image.asset(
+          child: Image.network(
             image,
             width: 32.w,
             height: 33.h,

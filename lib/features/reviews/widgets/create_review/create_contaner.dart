@@ -9,12 +9,16 @@ class CreateContainer extends StatelessWidget {
     this.backgroundColor = AppColors.pink,
     required this.textStyle,
     required this.text,
+    this.width=168,
+    this.height=29
   });
 
   final VoidCallback onTap;
   final Color backgroundColor;
   final TextStyle textStyle;
   final String text;
+  final double width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +26,8 @@ class CreateContainer extends StatelessWidget {
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
-        width: 168.w,
-        height: 29.h,
+        width: width.w,
+        height: height.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.h),
           color: backgroundColor,
