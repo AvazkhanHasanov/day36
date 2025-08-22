@@ -189,6 +189,12 @@ class AppStyles {
     color: AppColors.brownF9,
     fontFamily: 'Poppins',
   );
+  static final tSW300S14Oq = TextStyle(
+    fontWeight: FontWeight.w300,
+    fontSize: 14.sp,
+    color: AppColors.brownF9,
+    fontFamily: 'League',
+  );
   static final tSW300S12L = TextStyle(
     fontWeight: FontWeight.w300,
     fontSize: 12.sp,
@@ -211,6 +217,12 @@ class AppStyles {
     fontWeight: FontWeight.w400,
     fontSize: 15.sp,
     color: AppColors.beige,
+    fontFamily: 'Poppins',
+  );
+  static final tSW400S15Oq = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 15.sp,
+    color: AppColors.brownF9,
     fontFamily: 'Poppins',
   );
   static final tSW400S15Red = TextStyle(

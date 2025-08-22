@@ -1,8 +1,10 @@
 import 'package:day_36_darsda1/core/client.dart';
 import 'package:day_36_darsda1/core/result/result.dart';
+import 'package:day_36_darsda1/data/models/community_model.dart';
 import 'package:day_36_darsda1/data/models/recipes/create_review_model.dart';
 import 'package:day_36_darsda1/data/models/recipes/recipes_model.dart';
 import 'package:day_36_darsda1/data/models/recipes/recipes_review_model.dart';
+import 'package:flutter/cupertino.dart';
 
 class RecipesRepository {
   final ApiClient _client;
@@ -46,6 +48,20 @@ class RecipesRepository {
       (value) => Result.ok(
         CreateReviewModel.formJson(value),
       ),
+    );
+  }
+
+  Future<Result<List<CommunityModel>>> getCommunity({Map<String, dynamic>? queryParam}) async {
+    final response = await _client.get<List>('/recipes/community/list', queryParams: queryParam);
+    return response.fold(
+      (error) {
+        print('repo error: $error');
+        return Result.error(error);
+      },
+      (success) {
+        print('repo : $success');
+        return Result.ok(success.map((x) => CommunityModel.fromJson(x)).toList());
+      },
     );
   }
 }

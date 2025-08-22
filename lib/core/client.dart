@@ -8,16 +8,19 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 class ApiClient {
   final FlutterSecureStorage _secureStorage;
 
-  ApiClient({required FlutterSecureStorage secureStorage})
-    : _secureStorage = secureStorage;
-  final _dio = Dio(
-    BaseOptions(
-      baseUrl: "http://192.168.253.187:8888/api/v1",
-      validateStatus: (status) => true,
-      connectTimeout: const Duration(seconds: 3),
-      receiveTimeout: const Duration(seconds: 5),
-    ),
-  )..interceptors.add(AuthInterceptor());
+  ApiClient({required FlutterSecureStorage secureStorage}) : _secureStorage = secureStorage {
+   _dio= Dio(
+      BaseOptions(
+        baseUrl: "http://192.168.253.143:8888/api/v1",
+        validateStatus: (status) => true,
+        connectTimeout: const Duration(seconds: 3),
+        receiveTimeout: const Duration(seconds: 5),
+      ),
+    );
+    _dio.interceptors.add(AuthInterceptor());
+  }
+
+  late final Dio _dio;
 
   Future<Result<T>> get<T>(
     String path, {
