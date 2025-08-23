@@ -8,6 +8,8 @@ class CommunityViewModel extends ChangeNotifier {
 
   CommunityViewModel({required RecipesRepository recipesRepo}) : _recipesRepo = recipesRepo {
     fetchCommunity();
+    fetchNewCommunity();
+    fetchOldCommunity();
   }
 
   bool isCommunityLoading = false;
@@ -29,6 +31,58 @@ class CommunityViewModel extends ChangeNotifier {
     isCommunityLoading = false;
     notifyListeners();
   }
+  //New
+  bool isNewCommunityLoading = false;
+  String? newCommunityError;
+  List<CommunityModel> newCommunity = [];
+
+  Future<void> fetchNewCommunity() async {
+    isNewCommunityLoading = true;
+    notifyListeners();
+    var result = await _recipesRepo.getCommunity(queryParam: {'Order':'created'});
+    result.fold(
+      (exception) {
+        return newCommunityError = exception.toString();
+      },
+      (value) {
+        return newCommunity = value;
+      },
+    );
+    isNewCommunityLoading = false;
+    notifyListeners();
+  }
+// Old
+  bool isOldCommunityLoading = false;
+  String? oldCommunityError;
+  List<CommunityModel> oldCommunity = [];
+
+  Future<void> fetchOldCommunity() async {
+    isOldCommunityLoading = true;
+    notifyListeners();
+    var result = await _recipesRepo.getCommunity(queryParam: {'Descending':'true'});
+    result.fold(
+      (exception) {
+        return oldCommunityError = exception.toString();
+      },
+      (value) {
+        return oldCommunity = value;
+      },
+    );
+    isOldCommunityLoading = false;
+    notifyListeners();
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
   String data(DateTime created) {
     DateTime now = DateTime.now();
