@@ -1,7 +1,7 @@
 import 'package:day_36_darsda1/data/repositories/recipes_repository.dart';
 import 'package:flutter/material.dart';
 
-import '../../../data/models/community_model.dart';
+import '../../../data/models/recipes/community_model.dart';
 
 class CommunityViewModel extends ChangeNotifier {
   final RecipesRepository _recipesRepo;

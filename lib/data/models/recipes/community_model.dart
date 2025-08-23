@@ -1,10 +1,11 @@
 class CommunityModel {
   final String title, description, photo;
   final DateTime created;
-  final int timeRequired, reviewsCount;
+  final int timeRequired, reviewsCount,id;
   final num rating;
   final UserModel user;
   CommunityModel({
+    required this.id,
     required this.user,
     required this.title,
     required this.description,
@@ -17,6 +18,7 @@ class CommunityModel {
 
   factory CommunityModel.fromJson(Map<String, dynamic> json) {
     return CommunityModel(
+      id: json['id'],
       user: UserModel.fromJson(json['user']),
       title: json['title'],
       description: json['description'],

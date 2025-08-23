@@ -1,10 +1,9 @@
 import 'package:day_36_darsda1/core/client.dart';
 import 'package:day_36_darsda1/core/result/result.dart';
-import 'package:day_36_darsda1/data/models/community_model.dart';
+import 'package:day_36_darsda1/data/models/recipes/community_model.dart';
 import 'package:day_36_darsda1/data/models/recipes/create_review_model.dart';
 import 'package:day_36_darsda1/data/models/recipes/recipes_model.dart';
 import 'package:day_36_darsda1/data/models/recipes/recipes_review_model.dart';
-import 'package:flutter/cupertino.dart';
 
 class RecipesRepository {
   final ApiClient _client;

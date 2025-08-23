@@ -81,6 +81,8 @@ class _CommunityPageState extends State<CommunityPage> with SingleTickerProvider
                             ListView.builder(
                               itemBuilder: (context, index) {
                                 return CommunityContainer(
+                                  userId: vm.community[index].user.id,
+                                  id: vm.community[index].id,
                                   created: vm.data(vm.community[index].created),
                                   profilePhoto: vm.community[index].user.profilePhoto,
                                   username: vm.community[index].user.username,
@@ -96,6 +98,8 @@ class _CommunityPageState extends State<CommunityPage> with SingleTickerProvider
                             ListView.builder(
                               itemBuilder: (context, index) {
                                 return CommunityContainer(
+                                  userId: vm.newCommunity[index].user.id,
+                                  id: vm.newCommunity[index].id,
                                   created: vm.data(vm.newCommunity[index].created),
                                   profilePhoto: vm.newCommunity[index].user.profilePhoto,
                                   username: vm.newCommunity[index].user.username,
@@ -111,8 +115,10 @@ class _CommunityPageState extends State<CommunityPage> with SingleTickerProvider
                             ListView.builder(
                               itemBuilder: (context, index) {
                                 return CommunityContainer(
+                                  userId: vm.oldCommunity[index].user.id,
+                                  id: vm.oldCommunity[index].id,
                                   created: vm.data(vm.oldCommunity[index].created),
-                                  profilePhoto: vm.oldCommunity[index].user.profilePhoto,
+                                    profilePhoto: vm.oldCommunity[index].user.profilePhoto,
                                   username: vm.oldCommunity[index].user.username,
                                   photo: vm.oldCommunity[index].photo,
                                   title: vm.oldCommunity[index].title,
