@@ -1,4 +1,4 @@
-import 'package:day_36_darsda1/core/route/route_name.dart';
+import 'package:day_36_darsda1/core/route/routes.dart';
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:day_36_darsda1/data/models/auth/login_model.dart';
@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                                 hint: 'example@example.com',
                                 validator: (value) {
                                   final emailRegExp = RegExp(
-                                    r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                                    r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$',
                                   );
                                   if (value == null || value.isEmpty) {
                                     return ' Emailni kiritshni unutdinggiz';
@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                                 loginModel: loginData,
                               );
                               if (result) {
-                                context.go(RouteName.home);
+                                context.go(Routes.home);
                                 // ScaffoldMessenger.of(context).showSnackBar(
                                 //   SnackBar(content: Text('Muvaffaqiyatli')),
                                 // );
@@ -114,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                         RecipeContainer(
                           text: 'Sign Up',
                           onTap: () {
-                            context.push(RouteName.signUp);
+                            context.push(Routes.signUp);
                           },
                           backgroundColor: AppColors.pink,
                           foregroundColor: AppColors.pinkSubC,
@@ -139,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                               TextSpan(
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
-                                    context.push(RouteName.signUp);
+                                    context.push(Routes.signUp);
                                   },
                                 text: ' Sing Up',
                                 style: TextStyle(color: Colors.blue),

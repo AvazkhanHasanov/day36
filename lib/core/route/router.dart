@@ -1,4 +1,4 @@
-import 'package:day_36_darsda1/core/route/route_name.dart';
+import 'package:day_36_darsda1/core/route/routes.dart';
 import 'package:day_36_darsda1/features/auth/pages/login_page.dart';
 import 'package:day_36_darsda1/features/auth/pages/password/enter.dart';
 import 'package:day_36_darsda1/features/auth/pages/password/send_OTP.dart';
@@ -24,8 +24,8 @@ final router = GoRouter(
   initialLocation: '/community',
   redirect: (context, state) async {
     final token = await context.read<FlutterSecureStorage>().read(key: 'token');
-    if (state.matchedLocation == RouteName.login && token != null) {
-      return RouteName.home;
+    if (state.matchedLocation == Routes.login && token != null) {
+      return Routes.home;
     }
     return null;
   },

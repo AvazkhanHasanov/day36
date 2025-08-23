@@ -1,6 +1,6 @@
 import 'package:day_36_darsda1/core/auth_interceptor/auth_interceptor.dart';
 import 'package:day_36_darsda1/core/result/result.dart';
-import 'package:day_36_darsda1/core/route/route_name.dart';
+import 'package:day_36_darsda1/core/route/routes.dart';
 import 'package:day_36_darsda1/core/route/router.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -37,7 +37,7 @@ class ApiClient {
       );
       if (response.statusCode == 401) {
         await _secureStorage.delete(key: 'token');
-        router.go(RouteName.login);
+        router.go(Routes.login);
       }
       if (response.statusCode != 200) {
         return Result.error(Exception(response.data));
@@ -64,7 +64,7 @@ class ApiClient {
       );
       if (response.statusCode == 401) {
         await _secureStorage.delete(key: 'token');
-        router.go(RouteName.login);
+        router.go(Routes.login);
       }
       if (response.statusCode != 200 && response.statusCode != 201) {
         return Result.error(Exception('hatolik ${response.data}'));

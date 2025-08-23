@@ -1,4 +1,4 @@
-import 'package:day_36_darsda1/core/route/route_name.dart';
+import 'package:day_36_darsda1/core/route/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -40,7 +40,7 @@ class _LaunchState extends State<Launch> {
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
       if (mounted) {
-        context.push(RouteName.categoriesPage);
+        context.push(Routes.categoriesPage);
       }
     });
   }

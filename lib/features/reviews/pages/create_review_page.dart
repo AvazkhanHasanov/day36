@@ -1,4 +1,4 @@
-import 'package:day_36_darsda1/core/route/route_name.dart';
+import 'package:day_36_darsda1/core/route/routes.dart';
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/icons.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
@@ -134,7 +134,7 @@ class _CreateReviewState extends State<CreateReview> {
                                           actions: [
                                             CreateContainer(
                                               onTap: () {
-                                                context.go(RouteName.home);
+                                                context.go(Routes.home);
                                               },
                                               width: 207,
                                               height: 45,

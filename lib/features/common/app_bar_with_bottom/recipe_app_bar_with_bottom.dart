@@ -1,10 +1,7 @@
-import 'package:day_36_darsda1/core/route/route_name.dart';
-import 'package:day_36_darsda1/features/categories/managers/categories_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 
 import '../../../core/utils/colors.dart';
 import '../../../core/utils/icons.dart';
