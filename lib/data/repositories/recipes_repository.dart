@@ -2,6 +2,7 @@ import 'package:day_36_darsda1/core/client.dart';
 import 'package:day_36_darsda1/core/result/result.dart';
 import 'package:day_36_darsda1/data/models/recipes/community_model.dart';
 import 'package:day_36_darsda1/data/models/recipes/create_review_model.dart';
+import 'package:day_36_darsda1/data/models/recipes/my_recipes_model.dart';
 import 'package:day_36_darsda1/data/models/recipes/recipes_model.dart';
 import 'package:day_36_darsda1/data/models/recipes/recipes_review_model.dart';
 
@@ -54,12 +55,24 @@ class RecipesRepository {
     final response = await _client.get<List>('/recipes/community/list', queryParams: queryParam);
     return response.fold(
       (error) {
+        return Result.error(error);
+      },
+      (success) {
+        return Result.ok(success.map((x) => CommunityModel.fromJson(x)).toList());
+      },
+    );
+  }
+
+  Future<Result<List<MyRecipesModel>>> getMyRecipes({Map<String, dynamic>? queryParam}) async {
+    final response = await _client.get<List>('/recipes/my-recipes', queryParams: queryParam);
+    return response.fold(
+      (error) {
         print('repo error: $error');
         return Result.error(error);
       },
       (success) {
         print('repo : $success');
-        return Result.ok(success.map((x) => CommunityModel.fromJson(x)).toList());
+        return Result.ok(success.map((x) => MyRecipesModel.fromJson(x)).toList());
       },
     );
   }

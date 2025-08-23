@@ -14,6 +14,7 @@ class Routes{
   static final String chefProfile ='/chefProfile';
   static final String reviews ='/reviews';
   static final String createReview ='/createReview';
+  static final String myRecipes ='/myRecipes';
 
 
 }

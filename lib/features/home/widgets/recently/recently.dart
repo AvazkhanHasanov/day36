@@ -34,6 +34,8 @@ class Recently extends StatelessWidget {
                     2,
                         (index) {
                       return RecentlySizedBox(
+                        id: vm.recipes[index].id,
+                        description: vm.recipes[index].description,
                         title: vm.recipes[index].title,
                         rating: vm.recipes[index].rating,
                         timeRequired: vm.recipes[index].timeRequired,

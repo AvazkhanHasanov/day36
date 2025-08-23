@@ -19,9 +19,10 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../../features/community/pages/community_page.dart';
+import '../../features/my_recipes/pages/my_recipes_page.dart';
 
 final router = GoRouter(
-  initialLocation: '/community',
+  initialLocation: Routes.home,
   redirect: (context, state) async {
     final token = await context.read<FlutterSecureStorage>().read(key: 'token');
     if (state.matchedLocation == Routes.login && token != null) {
@@ -90,6 +91,9 @@ final router = GoRouter(
     GoRoute(
       path: '/topChefs',
       builder: (context, state) => TopChefsPage(),
+    ), GoRoute(
+      path: '/myRecipes',
+      builder: (context, state) => MyRecipesPage(),
     ),
     GoRoute(
       path: '/community',
