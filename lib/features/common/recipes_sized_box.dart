@@ -15,7 +15,7 @@ class RecipesSizedBox extends StatefulWidget {
     required this.title,
     required this.rating,
     required this.timeRequired,
-    required this.id
+    required this.id,
   });
 
   final String photo;
@@ -98,12 +98,8 @@ class _RecipesSizedBoxState extends State<RecipesSizedBox> {
                   isSelected = !isSelected;
                   setState(() {});
                 },
-                backgroundColor: isSelected
-                    ? AppColors.redPinkMain
-                    : AppColors.pink,
-                foregroundColor: isSelected
-                    ? AppColors.brownF9
-                    : AppColors.pinkSubC,
+                backgroundColor: isSelected ? AppColors.redPinkMain : AppColors.pink,
+                foregroundColor: isSelected ? AppColors.brownF9 : AppColors.pinkSubC,
               ),
             ),
           ],

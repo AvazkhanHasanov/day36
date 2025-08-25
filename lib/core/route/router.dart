@@ -14,22 +14,13 @@ import 'package:day_36_darsda1/features/reviews/pages/reviews_page.dart';
 import 'package:day_36_darsda1/features/top_chefs/pages/chef_profile_page.dart';
 import 'package:day_36_darsda1/features/top_chefs/pages/top_chefs_page.dart';
 import 'package:day_36_darsda1/features/trending/pages/trending_page.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 
 import '../../features/community/pages/community_page.dart';
 import '../../features/my_recipes/pages/my_recipes_page.dart';
 
 final router = GoRouter(
-  initialLocation: Routes.home,
-  redirect: (context, state) async {
-    final token = await context.read<FlutterSecureStorage>().read(key: 'token');
-    if (state.matchedLocation == Routes.login && token != null) {
-      return Routes.home;
-    }
-    return null;
-  },
+  initialLocation: Routes.topChefs,
   routes: [
     GoRoute(
       path: '/recipes/:id',

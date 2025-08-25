@@ -15,14 +15,18 @@ class AuthRepository {
        _secureStorage = secureStorage;
 
   Future<Result<String>> add({required AuthModel authData}) async {
-    final result = await _client.post(
+    final result = await _client.post<Map<String, dynamic>>(
       '/auth/register',
       data: authData.toJson(),
     );
     return result.fold(
       (error) => Result.error(error),
       (value) {
-        return Result.ok(value['accessToken']);
+        final token = value['accessToken'];
+        _secureStorage.write(key: 'token', value: token);
+        _secureStorage.write(key: 'login', value: authData.email);
+        _secureStorage.write(key: 'password', value: authData.password);
+        return Result.ok(token);
       },
     );
   }
@@ -35,6 +39,8 @@ class AuthRepository {
     return result.fold((error) => Result.error(error), (value) {
       final token = value['accessToken'];
       _secureStorage.write(key: 'token', value: token);
+      _secureStorage.write(key: 'login', value: loginData.login);
+      _secureStorage.write(key: 'password', value: loginData.password);
       return Result.ok(token);
     });
   }
