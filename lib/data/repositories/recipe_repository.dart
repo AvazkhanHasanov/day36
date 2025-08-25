@@ -1,15 +1,18 @@
 import 'package:day_36_darsda1/core/client.dart';
-import 'package:day_36_darsda1/core/result/result.dart';
-import 'package:day_36_darsda1/data/models/recipes/community_model.dart';
-import 'package:day_36_darsda1/data/models/recipes/create_review_model.dart';
+import 'package:day_36_darsda1/core/utils/result.dart';
+import 'package:day_36_darsda1/data/models/recipes/community_recipes_model.dart';
+import 'package:day_36_darsda1/data/models/recipes/recipes_create_review_model.dart';
 import 'package:day_36_darsda1/data/models/recipes/my_recipes_model.dart';
 import 'package:day_36_darsda1/data/models/recipes/recipes_model.dart';
 import 'package:day_36_darsda1/data/models/recipes/recipes_review_model.dart';
 
-class RecipesRepository {
+import '../models/recipes/detail_model.dart';
+import '../models/trending_model.dart';
+
+class RecipeRepository {
   final ApiClient _client;
 
-  RecipesRepository({required ApiClient client}) : _client = client;
+  RecipeRepository({required ApiClient client}) : _client = client;
 
   Future<Result<List<RecipesModel>>> getAll({Map<String, dynamic>? queryParam}) async {
     final response = await _client.get<List>('/recipes/list', queryParams: queryParam);
@@ -21,13 +24,11 @@ class RecipesRepository {
     );
   }
 
-  Future<Result<List<RecipesModel>>> getRecipeDetail({Map<String, dynamic>? queryParam}) async {
-    final response = await _client.get<List>('/recipes/list', queryParams: queryParam);
+  Future<Result<RecipesDetailModel>> getById(int id, {Map<String, dynamic>? queryParams}) async {
+    final response = await _client.get('/recipes/detail/$id', queryParams: queryParams);
     return response.fold(
       (error) => Result.error(error),
-      (value) => Result.ok(
-        value.map((x) => RecipesModel.fromJson(x)).toList(),
-      ),
+      (value) => Result.ok(RecipesDetailModel.fromJson(value)),
     );
   }
 
@@ -41,39 +42,38 @@ class RecipesRepository {
     );
   }
 
-  Future<Result<CreateReviewModel>> getCreateReview({required int id, Map<String, dynamic>? queryParam}) async {
+  Future<Result<RecipesCreateReviewModel>> getCreateReview({required int id, Map<String, dynamic>? queryParam}) async {
     final response = await _client.get<Map<String, dynamic>>('/recipes/create-review/$id', queryParams: queryParam);
     return response.fold(
       (error) => Result.error(error),
       (value) => Result.ok(
-        CreateReviewModel.formJson(value),
+        RecipesCreateReviewModel.formJson(value),
       ),
     );
   }
 
-  Future<Result<List<CommunityModel>>> getCommunity({Map<String, dynamic>? queryParam}) async {
+  Future<Result<List<CommunityRecipesModel>>> getCommunityAll({Map<String, dynamic>? queryParam}) async {
     final response = await _client.get<List>('/recipes/community/list', queryParams: queryParam);
     return response.fold(
-      (error) {
-        return Result.error(error);
-      },
-      (success) {
-        return Result.ok(success.map((x) => CommunityModel.fromJson(x)).toList());
-      },
+      (error) => Result.error(error),
+
+      (success) => Result.ok(success.map((x) => CommunityRecipesModel.fromJson(x)).toList()),
     );
   }
 
   Future<Result<List<MyRecipesModel>>> getMyRecipes({Map<String, dynamic>? queryParam}) async {
     final response = await _client.get<List>('/recipes/my-recipes', queryParams: queryParam);
     return response.fold(
-      (error) {
-        print('repo error: $error');
-        return Result.error(error);
-      },
-      (success) {
-        print('repo : $success');
-        return Result.ok(success.map((x) => MyRecipesModel.fromJson(x)).toList());
-      },
+      (error) => Result.error(error),
+      (success) => Result.ok(success.map((x) => MyRecipesModel.fromJson(x)).toList()),
+    );
+  }
+
+  Future<Result<TrendingModel>> getTrendingRecipe() async {
+    final result = await _client.get<Map<String, dynamic>>('/recipes/trending-recipe');
+    return result.fold(
+      (error) => Result.error(error),
+      (success) => Result.ok(TrendingModel.fromJson(success)),
     );
   }
 }

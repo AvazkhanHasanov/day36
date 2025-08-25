@@ -10,7 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../../common/recipes_container.dart';
+import '../../common/widgets/recipes_container.dart';
 import '../../categories/widgets/recipes_widgets/recipes_image.dart';
 
 class ChefProfile extends StatelessWidget {

@@ -14,7 +14,7 @@ class TopChefsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => TopChefsViewModel(topChefsRepo: context.read()),
+      create: (context) => TopChefsViewModel(chefRepo: context.read()),
       builder: (context, child) {
         return Scaffold(
           extendBody: true,

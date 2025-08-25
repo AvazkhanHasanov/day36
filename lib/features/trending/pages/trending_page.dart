@@ -14,7 +14,7 @@ class TrendingPage extends StatelessWidget {
       create: (context) => TrendingViewModel(
         categoryId: 1,
         recipesRepo: context.read(),
-        trendingRepo: context.read(),
+
       ),
       builder: (context, child) {
         return Scaffold(

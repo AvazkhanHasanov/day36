@@ -1,4 +1,3 @@
-import 'package:day_36_darsda1/data/repositories/top_chefs_repository.dart';
 import 'package:flutter/foundation.dart';
 import '../../../data/models/recipes/category_model.dart';
 import '../../../data/models/recipes/recipes_model.dart';
@@ -6,25 +5,26 @@ import '../../../data/models/top_chefs_model.dart';
 import '../../../data/models/trending_model.dart';
 
 import '../../../data/repositories/category_repository.dart';
-import '../../../data/repositories/recipes_repository.dart';
-import '../../../data/repositories/trending_repository.dart';
+import '../../../data/repositories/chef_repository.dart';
+import '../../../data/repositories/recipe_repository.dart';
+
 
 class HomeViewModel extends ChangeNotifier {
   // private
-  final TopChefsRepository _topChefsRepo;
+  final ChefRepository _chefRepo;
   final CategoryRepository _categoryRepo;
-  final TrendingRepository _trendingRepo;
-  final RecipesRepository _recipesRepo;
+
+  final RecipeRepository _recipesRepo;
 
   HomeViewModel({
     required CategoryRepository categoryRepo,
-    required TrendingRepository trendingRepo,
-    required RecipesRepository recipesRepo,
-    required TopChefsRepository topChefsRepo,
+
+    required RecipeRepository recipesRepo,
+    required ChefRepository chefRepo,
   }) : _categoryRepo = categoryRepo,
-       _trendingRepo = trendingRepo,
+
        _recipesRepo = recipesRepo,
-       _topChefsRepo = topChefsRepo {
+       _chefRepo = chefRepo {
     fetchTrending();
     fetchCategories();
     fetchRecipes();
@@ -39,7 +39,7 @@ class HomeViewModel extends ChangeNotifier {
   Future<void> fetchTrending() async {
     isTrendingLoading = true;
     notifyListeners();
-    var result = await _trendingRepo.getOne();
+    var result = await _recipesRepo.getTrendingRecipe();
     result.fold(
       (exception) => errorTrending = exception.toString(),
       (value) => trendingRecipe = value,
@@ -100,7 +100,7 @@ class HomeViewModel extends ChangeNotifier {
   Future<void> fetchTopChefs() async {
     isChefsLoading = true;
     notifyListeners();
-    var result = await _topChefsRepo.getAll(queryParams: {"Limit":4});
+    var result = await _chefRepo.getAll(queryParams: {"Limit":4});
     result.fold(
       (exception) => chefsError = exception.toString(),
       (value) => chefs = value,

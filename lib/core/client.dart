@@ -1,5 +1,5 @@
 import 'package:day_36_darsda1/core/auth_interceptor/auth_interceptor.dart';
-import 'package:day_36_darsda1/core/result/result.dart';
+import 'package:day_36_darsda1/core/utils/result.dart';
 import 'package:dio/dio.dart';
 
 class ApiClient {

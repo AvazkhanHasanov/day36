@@ -1,20 +1,19 @@
-
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
-import 'package:day_36_darsda1/features/auth/widgets/digit_form.dart';
+import 'package:day_36_darsda1/features/auth/widgets/digit_form_field.dart';
 import 'package:day_36_darsda1/features/auth/widgets/auth_app_bar.dart';
-import 'package:day_36_darsda1/features/common/recipe_container.dart';
+import 'package:day_36_darsda1/features/common/widgets/recipe_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class EnterPage extends StatefulWidget {
-  const EnterPage({super.key});
+class EnterOTP extends StatefulWidget {
+  const EnterOTP({super.key});
 
   @override
-  State<EnterPage> createState() => _EnterPageState();
+  State<EnterOTP> createState() => _EnterOTPState();
 }
 
-class _EnterPageState extends State<EnterPage> {
+class _EnterOTPState extends State<EnterOTP> {
   static const otpLength = 6;
   final controller = List.generate(
     otpLength,
@@ -36,7 +35,7 @@ class _EnterPageState extends State<EnterPage> {
       appBar: AuthAppBar(title: 'Forgot Your Password'),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 37),
+          padding: EdgeInsets.symmetric(horizontal: 37.w),
           child: Column(
             spacing: 53.h,
             children: [
@@ -57,24 +56,23 @@ class _EnterPageState extends State<EnterPage> {
                   ],
                 ),
               ),
-              Form(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  spacing: 14.w,
-                  children: List.generate(
-                    otpLength,
-                    (index) => DigitForm(
-                      controller: controller[index],
-                      focusNode: focusNodes[index],
-                      onChanged: (String value) {
-                        if (value.length==1 && index<otpLength-1) {
-                        focusNodes[index+1].requestFocus();
-                        }
-                      },
-                    ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                spacing: 14.w,
+                children: List.generate(
+                  otpLength,
+                  (index) => DigitFormField(
+                    controller: controller[index],
+                    focusNode: focusNodes[index],
+                    onChanged: (String value) {
+                      if (value.length == 1 && index < otpLength - 1) {
+                        focusNodes[index + 1].requestFocus();
+                      }
+                    },
                   ),
                 ),
               ),
+
               RichText(text: TextSpan(text: '')),
               Spacer(),
               Padding(

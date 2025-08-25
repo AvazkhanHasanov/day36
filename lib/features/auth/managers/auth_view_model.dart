@@ -9,27 +9,25 @@ class AuthViewModel extends ChangeNotifier {
   bool isLoading = false;
   bool isSuccess = false;
   String? error;
-  String token = '';
+
   final AuthRepository _authRepo;
 
   AuthViewModel({required AuthRepository authRepo}) : _authRepo = authRepo;
 
-  Future<bool> registerEvent({
+  Future<bool> register({
     required AuthModel authModel,
   }) async {
     isLoading = true;
     notifyListeners();
-    final data = await _authRepo.add(authData: authModel);
-    return data.fold(
+    final result = await _authRepo.add(authData: authModel);
+    return result.fold(
       (e) {
-        print('REGISTER ERROR: $e');
         isLoading = false;
         notifyListeners();
         return false;
       },
       (success) {
         isSuccess = true;
-        token = success;
         isLoading = false;
         notifyListeners();
         return true;
@@ -37,12 +35,10 @@ class AuthViewModel extends ChangeNotifier {
     );
   }
 
-  //Loading uchun
+  //Login uchun
   bool isLoginLoading = false;
   bool isLoginSuccess = false;
   String? loadingError;
-
-  String loadingToken = '';
 
   Future<bool> loginEvent({required LoginModel loginModel}) async {
     isLoginLoading = true;
@@ -50,20 +46,13 @@ class AuthViewModel extends ChangeNotifier {
     final loadingData = await _authRepo.login(loginData: loginModel);
     return loadingData.fold(
       (error) {
-        print('xatolik chiqdiiiiiiiiiiiiiii: $error');
-        print('dataType: $loadingData');
-
         isLoginLoading = false;
         notifyListeners();
         return false;
       },
       (success) {
-        print('ishladi: $success');
-        print('dataType: $loadingData');
-
         isLoginLoading = false;
         isLoginSuccess = true;
-        loadingToken = success;
         notifyListeners();
         return true;
       },

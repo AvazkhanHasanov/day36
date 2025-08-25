@@ -1,5 +1,6 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
+import 'package:day_36_darsda1/data/repositories/recipe_repository.dart';
 import 'package:day_36_darsda1/features/categories/managers/detail_view_model.dart';
 import 'package:day_36_darsda1/features/categories/widgets/detail_page/description.dart';
 import 'package:day_36_darsda1/features/categories/widgets/detail_page_rich_text.dart';
@@ -9,11 +10,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import '../../../data/repositories/detail_repository.dart';
+
 import '../widgets/detail_page/detail_stack.dart';
 
-class DetailPage extends StatelessWidget {
-  const DetailPage({
+class RecipesDetailPage extends StatelessWidget {
+  const RecipesDetailPage({
     super.key,
     required this.title,
     required this.detailId,
@@ -26,7 +27,7 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => DetailViewModel(
-        detailRepo: context.read<DetailRepository>(),
+        recipesRepo: context.read<RecipeRepository>(),
         detailId: detailId,
       ),
       builder: (context, child) {
@@ -63,7 +64,7 @@ class DetailPage extends StatelessWidget {
                       // Odamni profile qismi uchun rasm ismlari
                       DetailProfile(
                         profilePhoto: detail.user.profilePhoto,
-                        username: detail.user.userName,
+                        username: detail.user.username,
                         firstName: detail.user.firstName,
                         lastName: detail.user.lastName,
                       ),

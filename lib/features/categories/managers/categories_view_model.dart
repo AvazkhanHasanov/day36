@@ -12,7 +12,7 @@ class CategoriesViewModel extends ChangeNotifier {
   int? selectedIndex;
   String? error;
   final CategoryRepository _categoryRepo;
-  bool isLoading = false;
+  bool isLoading = true;
 
   void setSelectedIndex(int index) {
     selectedIndex = index;

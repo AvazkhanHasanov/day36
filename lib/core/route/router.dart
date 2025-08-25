@@ -5,8 +5,8 @@ import 'package:day_36_darsda1/features/auth/pages/password/send_OTP.dart';
 import 'package:day_36_darsda1/features/auth/pages/profile_page.dart';
 import 'package:day_36_darsda1/features/auth/pages/sign_up_page.dart';
 import 'package:day_36_darsda1/features/categories/pages/categories_page.dart';
-import 'package:day_36_darsda1/features/categories/pages/categories_recipes_page.dart';
-import 'package:day_36_darsda1/features/categories/pages/detail_page.dart';
+import 'package:day_36_darsda1/features/categories/pages/recipes_page.dart';
+import 'package:day_36_darsda1/features/categories/pages/recipes_detail_page.dart';
 import 'package:day_36_darsda1/features/home/pages/home_page.dart';
 import 'package:day_36_darsda1/features/onboarding/pages/onboarding_page.dart';
 import 'package:day_36_darsda1/features/reviews/pages/create_review_page.dart';
@@ -24,17 +24,17 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: '/recipes/:id',
-      builder: (context, state) => CategoriesRecipesPage(
+      builder: (context, state) => RecipesPage(
         title: state.uri.queryParameters['title']!,
         categoryId: int.parse(
           state.pathParameters['id']!,
         ),
       ),
     ),
-    GoRoute(path: '/categories', builder: (context, state) => CategoriesPage()),
+    GoRoute(path: '/recipes', builder: (context, state) => CategoriesPage()),
     GoRoute(
       path: '/detail/:id',
-      builder: (context, state) => DetailPage(
+      builder: (context, state) => RecipesDetailPage(
         detailId: int.parse(
           state.pathParameters['id']!,
         ),
@@ -73,11 +73,11 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/forgotPassword',
-      builder: (context, state) => ForgotPassword(),
+      builder: (context, state) => SendOTP(),
     ),
     GoRoute(
       path: '/enter',
-      builder: (context, state) => EnterPage(),
+      builder: (context, state) => EnterOTP(),
     ),
     GoRoute(
       path: '/topChefs',

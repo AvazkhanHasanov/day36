@@ -1,5 +1,5 @@
 import 'package:day_36_darsda1/core/client.dart';
-import 'package:day_36_darsda1/core/result/result.dart';
+import 'package:day_36_darsda1/core/utils/result.dart';
 import 'package:day_36_darsda1/data/models/recipes/category_model.dart';
 
 class CategoryRepository {

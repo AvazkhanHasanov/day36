@@ -1,10 +1,14 @@
-class CommunityModel {
+
+import 'user_model.dart';
+
+class CommunityRecipesModel {
+  final int id;
   final String title, description, photo;
   final DateTime created;
-  final int timeRequired, reviewsCount,id;
+  final int timeRequired, reviewsCount;
   final num rating;
   final UserModel user;
-  CommunityModel({
+  CommunityRecipesModel({
     required this.id,
     required this.user,
     required this.title,
@@ -16,8 +20,8 @@ class CommunityModel {
     required this.rating,
   });
 
-  factory CommunityModel.fromJson(Map<String, dynamic> json) {
-    return CommunityModel(
+  factory CommunityRecipesModel.fromJson(Map<String, dynamic> json) {
+    return CommunityRecipesModel(
       id: json['id'],
       user: UserModel.fromJson(json['user']),
       title: json['title'],
@@ -31,25 +35,3 @@ class CommunityModel {
   }
 }
 
-class UserModel {
-  final int id;
-  final String profilePhoto, username, firstName, lastName;
-
-  UserModel({
-    required this.id,
-    required this.profilePhoto,
-    required this.username,
-    required this.firstName,
-    required this.lastName,
-  });
-
-  factory UserModel.fromJson(Map<String, dynamic> json) {
-    return UserModel(
-      id: json['id'],
-      profilePhoto: json['profilePhoto'],
-      username: json['username'],
-      firstName: json['firstName'],
-      lastName: json['lastName'],
-    );
-  }
-}

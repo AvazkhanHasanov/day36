@@ -1,6 +1,6 @@
 import 'package:day_36_darsda1/core/route/routes.dart';
 import 'package:day_36_darsda1/core/utils/colors.dart';
-import 'package:day_36_darsda1/features/common/recipes_sized_box.dart';
+import 'package:day_36_darsda1/features/common/widgets/recipes_sized_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';

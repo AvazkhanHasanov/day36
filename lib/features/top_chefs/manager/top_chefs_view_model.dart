@@ -1,13 +1,13 @@
-import 'package:day_36_darsda1/data/repositories/top_chefs_repository.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../../data/models/top_chefs_model.dart';
+import '../../../data/repositories/chef_repository.dart';
 
 class TopChefsViewModel extends ChangeNotifier {
-  final TopChefsRepository _topChefsRepo;
+  final ChefRepository _chefRepo;
 
-  TopChefsViewModel({required TopChefsRepository topChefsRepo})
-    : _topChefsRepo = topChefsRepo {
+  TopChefsViewModel({required ChefRepository chefRepo})
+    : _chefRepo = chefRepo {
     fetchTopChefs();
   }
 
@@ -22,7 +22,7 @@ class TopChefsViewModel extends ChangeNotifier {
   Future<void> fetchTopChefs() async {
     isLoading = true;
     notifyListeners();
-    var result = await _topChefsRepo.getAll(queryParams:{"Page": _page,"Limit":_limit});
+    var result = await _chefRepo.getAll(queryParams:{"Page": _page,"Limit":_limit});
     result.fold(
       (exception) => error = exception.toString(),
       (value)async {

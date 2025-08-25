@@ -1,14 +1,14 @@
 class CategoriesModel {
-  final String title, image;
   final int id;
+  final String title, image;
 
-  CategoriesModel({required this.title, required this.image, required this.id});
+  CategoriesModel({required this.id, required this.title, required this.image});
 
   factory CategoriesModel.fromJson(Map<String, dynamic> json) {
     return CategoriesModel(
+      id: json['id'],
       title: json['title'],
       image: json['image'],
-      id: json['id'],
     );
   }
 }

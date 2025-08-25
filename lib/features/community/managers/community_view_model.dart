@@ -1,12 +1,12 @@
-import 'package:day_36_darsda1/data/repositories/recipes_repository.dart';
+import 'package:day_36_darsda1/data/repositories/recipe_repository.dart';
 import 'package:flutter/material.dart';
 
-import '../../../data/models/recipes/community_model.dart';
+import '../../../data/models/recipes/community_recipes_model.dart';
 
 class CommunityViewModel extends ChangeNotifier {
-  final RecipesRepository _recipesRepo;
+  final RecipeRepository _recipesRepo;
 
-  CommunityViewModel({required RecipesRepository recipesRepo}) : _recipesRepo = recipesRepo {
+  CommunityViewModel({required RecipeRepository recipesRepo}) : _recipesRepo = recipesRepo {
     fetchCommunity();
     fetchNewCommunity();
     fetchOldCommunity();
@@ -14,12 +14,12 @@ class CommunityViewModel extends ChangeNotifier {
 
   bool isCommunityLoading = false;
   String? communityError;
-  List<CommunityModel> community = [];
+  List<CommunityRecipesModel> community = [];
 
   Future<void> fetchCommunity() async {
     isCommunityLoading = true;
     notifyListeners();
-    var result = await _recipesRepo.getCommunity();
+    var result = await _recipesRepo.getCommunityAll();
     result.fold(
       (exception) {
         return communityError = exception.toString();
@@ -34,12 +34,12 @@ class CommunityViewModel extends ChangeNotifier {
   //New
   bool isNewCommunityLoading = false;
   String? newCommunityError;
-  List<CommunityModel> newCommunity = [];
+  List<CommunityRecipesModel> newCommunity = [];
 
   Future<void> fetchNewCommunity() async {
     isNewCommunityLoading = true;
     notifyListeners();
-    var result = await _recipesRepo.getCommunity(queryParam: {'Order':'created'});
+    var result = await _recipesRepo.getCommunityAll(queryParam: {'Order':'created'});
     result.fold(
       (exception) {
         return newCommunityError = exception.toString();
@@ -54,12 +54,12 @@ class CommunityViewModel extends ChangeNotifier {
 // Old
   bool isOldCommunityLoading = false;
   String? oldCommunityError;
-  List<CommunityModel> oldCommunity = [];
+  List<CommunityRecipesModel> oldCommunity = [];
 
   Future<void> fetchOldCommunity() async {
     isOldCommunityLoading = true;
     notifyListeners();
-    var result = await _recipesRepo.getCommunity(queryParam: {'Descending':'true'});
+    var result = await _recipesRepo.getCommunityAll(queryParam: {'Descending':'true'});
     result.fold(
       (exception) {
         return oldCommunityError = exception.toString();

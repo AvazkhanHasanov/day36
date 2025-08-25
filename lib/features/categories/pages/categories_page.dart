@@ -15,33 +15,30 @@ class CategoriesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<CategoriesViewModel>(
       builder: (context, vm, child) {
-        if (vm.isLoading) {
-          return Center(child: CircularProgressIndicator());
-        } else {
-          return Scaffold(
-            extendBody: true,
-            appBar: RecipeAppBar(
-              title: 'Categories',
-            ),
-            body: GridView.builder(
-              itemCount: vm.categories.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                mainAxisSpacing: 8.h,
-                mainAxisExtent: 172.h,
-
-                crossAxisCount: 2,
-              ),
-              itemBuilder: (context, index) {
-                return CategoriesGrid(
-                  image: vm.categories[index].image,
-                  title: vm.categories[index].title,
-                  categoryId: vm.categories[index].id,
-                );
-              },
-            ),
-            bottomNavigationBar: RecipeBottomNavigationBar(),
-          );
-        }
+        return vm.isLoading
+            ? Center(child: CircularProgressIndicator())
+            : Scaffold(
+                extendBody: true,
+                appBar: RecipeAppBar(
+                  title: 'Categories',
+                ),
+                body: GridView.builder(
+                  itemCount: vm.categories.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisSpacing: 8.h,
+                    mainAxisExtent: 172.h,
+                    crossAxisCount: 2,
+                  ),
+                  itemBuilder: (context, index) {
+                    return CategoriesGrid(
+                      image: vm.categories[index].image,
+                      title: vm.categories[index].title,
+                      categoryId: vm.categories[index].id,
+                    );
+                  },
+                ),
+                bottomNavigationBar: RecipeBottomNavigationBar(),
+              );
       },
     );
   }

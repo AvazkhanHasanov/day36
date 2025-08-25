@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DigitForm extends StatelessWidget {
-  const DigitForm({
+class DigitFormField extends StatelessWidget {
+  const DigitFormField({
     super.key,
     required this.controller,
     required this.focusNode,

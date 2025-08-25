@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../core/utils/icons.dart';
+import '../../../core/utils/icons.dart';
 
 class HeartIcon extends StatelessWidget {
   const HeartIcon({

@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/icons.dart';
 import '../../../../core/utils/styles.dart';
-import '../../../common/heart_icon.dart';
+import '../../../common/widgets/heart_icon.dart';
 
 class RecentlySizedBox extends StatefulWidget {
   const RecentlySizedBox({

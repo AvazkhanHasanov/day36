@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../core/utils/colors.dart';
-import '../../core/utils/styles.dart';
+import '../../../core/utils/colors.dart';
+import '../../../core/utils/styles.dart';
 import 'heart_icon.dart';
 
 class RecipesSizedBox extends StatefulWidget {

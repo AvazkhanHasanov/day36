@@ -1,21 +1,24 @@
 class TopChefsModel {
-  final String username, firstName, lastName, profilePhoto;
   final int id;
+  final String username, firstName, lastName, profilePhoto;
+
 
   TopChefsModel({
+    required this.id,
     required this.firstName,
     required this.lastName,
     required this.profilePhoto,
-    required this.id,
+
     required this.username,
   });
 
   factory TopChefsModel.fromJson(Map<String, dynamic> json) {
     return TopChefsModel(
+      id: json['id'],
       firstName: json['firstName'],
       lastName: json['lastName'],
       profilePhoto: json['profilePhoto'],
-      id: json['id'],
+
       username: json['username'],
     );
   }

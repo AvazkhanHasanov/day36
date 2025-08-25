@@ -5,7 +5,7 @@ import 'package:day_36_darsda1/data/models/auth/auth_model.dart';
 import 'package:day_36_darsda1/features/auth/managers/auth_view_model.dart';
 import 'package:day_36_darsda1/features/auth/widgets/auth_app_bar.dart';
 import 'package:day_36_darsda1/features/auth/widgets/recipe_text_form_field.dart';
-import 'package:day_36_darsda1/features/common/recipe_container.dart';
+import 'package:day_36_darsda1/features/common/widgets/recipe_container.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -107,7 +107,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         hint: 'example@example.com',
                         validator: (value) {
                           final emailRegExp = RegExp(
-                            r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+                            r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$',
                           );
                           if (value == null || value.isEmpty) {
                             return ' Emailni kiritshni unutdinggiz';
@@ -216,7 +216,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             birthDate: dateOfBirthController.text,
                             password: passwordController.text,
                           );
-                          final result = await vm.registerEvent(
+                          final result = await vm.register(
                             authModel: registerData,
                           );
                           if (result) {

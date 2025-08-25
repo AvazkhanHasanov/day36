@@ -1,5 +1,5 @@
 import 'package:day_36_darsda1/features/categories/managers/categories_view_model.dart';
-import 'package:day_36_darsda1/features/common/app_bar_with_bottom/bottom_item.dart';
+import 'package:day_36_darsda1/features/common/widgets/app_bar_with_bottom/bottom_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';

@@ -1,26 +1,27 @@
+import 'package:day_36_darsda1/data/repositories/recipe_repository.dart';
 import 'package:flutter/cupertino.dart';
 import '../../../data/models/recipes/detail_model.dart';
 
-import '../../../data/repositories/detail_repository.dart';
+
 
 class DetailIdViewModel extends ChangeNotifier {
-  final DetailRepository _detailRepo;
+  final RecipeRepository _recipesRepo;
 
   DetailIdViewModel({
-    required DetailRepository detailRepo,
+    required RecipeRepository recipesRepo,
     required int detailId,
-  }) : _detailRepo = detailRepo {
+  }) : _recipesRepo = recipesRepo {
     fetchDetail(id: detailId);
   }
 
   bool isDetailLoading = false;
   String? detailError;
-  DetailModel? recipes;
+  RecipesDetailModel? recipes;
 
   Future<void> fetchDetail({required int id}) async {
     isDetailLoading = true;
     notifyListeners();
-    var result = await _detailRepo.getById(id);
+    var result = await _recipesRepo.getById(id);
     result.fold(
           (exception) => detailError = exception.toString(),
           (value) => recipes = value,

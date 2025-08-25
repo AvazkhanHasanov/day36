@@ -1,7 +1,8 @@
 class TrendingModel {
-  int id, categoryId, timeRequired;
-  String title, description, difficulty, photo;
-  num rating;
+  final int id;
+  final int categoryId, timeRequired;
+  final String title, description, difficulty, photo;
+  final num rating;
 
   TrendingModel({
     required this.id,

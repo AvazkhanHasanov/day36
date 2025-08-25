@@ -1,5 +1,5 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
-import 'package:day_36_darsda1/features/common/recipe_container.dart';
+import 'package:day_36_darsda1/features/common/widgets/recipe_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

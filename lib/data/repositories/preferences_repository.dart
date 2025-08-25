@@ -1,5 +1,5 @@
 import 'package:day_36_darsda1/core/client.dart';
-import 'package:day_36_darsda1/core/result/result.dart';
+import 'package:day_36_darsda1/core/utils/result.dart';
 import 'package:day_36_darsda1/data/models/onboarding/preferences_model.dart';
 
 class PreferencesRepository {
@@ -11,8 +11,7 @@ class PreferencesRepository {
     var response = await _client.get<List>('/cuisines/list');
     return response.fold(
       (error) => Result.error(error),
-      (success) =>
-          Result.ok(success.map((x) => PreferenceModel.fromJson(x)).toList()),
+      (success) => Result.ok(success.map((x) => PreferenceModel.fromJson(x)).toList()),
     );
   }
 }

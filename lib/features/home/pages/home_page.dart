@@ -22,9 +22,8 @@ class HomePage extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => HomeViewModel(
         categoryRepo: context.read(),
-        trendingRepo: context.read(),
         recipesRepo: context.read(),
-        topChefsRepo: context.read(),
+        chefRepo: context.read(),
       ),
       child: Scaffold(
         extendBody: true,

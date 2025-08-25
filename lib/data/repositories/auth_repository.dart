@@ -1,5 +1,5 @@
 import 'package:day_36_darsda1/core/client.dart';
-import 'package:day_36_darsda1/core/result/result.dart';
+import 'package:day_36_darsda1/core/utils/result.dart';
 import 'package:day_36_darsda1/data/models/auth/auth_model.dart';
 import 'package:day_36_darsda1/data/models/auth/login_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -36,12 +36,15 @@ class AuthRepository {
       '/auth/login',
       data: loginData.toJson(),
     );
-    return result.fold((error) => Result.error(error), (value) {
-      final token = value['accessToken'];
-      _secureStorage.write(key: 'token', value: token);
-      _secureStorage.write(key: 'login', value: loginData.login);
-      _secureStorage.write(key: 'password', value: loginData.password);
-      return Result.ok(token);
-    });
+    return result.fold(
+      (error) => Result.error(error),
+      (value) {
+        final token = value['accessToken'];
+        _secureStorage.write(key: 'token', value: token);
+        _secureStorage.write(key: 'login', value: loginData.login);
+        _secureStorage.write(key: 'password', value: loginData.password);
+        return Result.ok(token);
+      },
+    );
   }
 }

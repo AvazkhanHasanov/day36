@@ -2,18 +2,18 @@ import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:day_36_darsda1/features/auth/widgets/auth_app_bar.dart';
 import 'package:day_36_darsda1/features/auth/widgets/recipe_text_form_field.dart';
-import 'package:day_36_darsda1/features/common/recipe_container.dart';
+import 'package:day_36_darsda1/features/common/widgets/recipe_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ForgotPassword extends StatefulWidget {
-  const ForgotPassword({super.key});
+class SendOTP extends StatefulWidget {
+  const SendOTP({super.key});
 
   @override
-  State<ForgotPassword> createState() => _ForgotPasswordState();
+  State<SendOTP> createState() => _SendOTPState();
 }
 
-class _ForgotPasswordState extends State<ForgotPassword> {
+class _SendOTPState extends State<SendOTP> {
   final emailController = TextEditingController();
 
   @override

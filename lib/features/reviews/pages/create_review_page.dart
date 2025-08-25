@@ -54,7 +54,7 @@ class _CreateReviewState extends State<CreateReview> {
                         child: Column(
                           children: [
                             CreateReviewSizedBox(
-                              text: vm.createdReview!.comment,
+                              text: vm.createdReview!.title,
                               photo: vm.createdReview!.image,
                             ),
                             SizedBox(height: 23.h),

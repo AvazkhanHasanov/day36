@@ -1,20 +1,20 @@
 import 'package:day_36_darsda1/features/categories/managers/recipes_view_model.dart';
-import 'package:day_36_darsda1/features/common/recipes_container.dart';
+import 'package:day_36_darsda1/features/common/widgets/recipes_container.dart';
 import 'package:day_36_darsda1/features/categories/widgets/recipes_widgets/recipes_image.dart';
-import 'package:day_36_darsda1/features/common/app_bar_with_bottom/recipe_app_bar_with_bottom.dart';
+import 'package:day_36_darsda1/features/common/widgets/recipe_app_bar_with_bottom.dart';
 import 'package:day_36_darsda1/features/common/bottom_navigation_bar/recipe_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../../../data/repositories/recipes_repository.dart';
+import '../../../data/repositories/recipe_repository.dart';
 
-class CategoriesRecipesPage extends StatelessWidget {
+class RecipesPage extends StatelessWidget {
   final int categoryId;
   final String title;
 
-  const CategoriesRecipesPage({
+  const RecipesPage({
     super.key,
     required this.categoryId,
     required this.title,
@@ -25,7 +25,7 @@ class CategoriesRecipesPage extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => RecipesViewModel(
         categoryId: categoryId,
-        recipesRepo: context.read<RecipesRepository>(),
+        recipesRepo: context.read<RecipeRepository>(),
       ),
       builder: (context, child) => Scaffold(
         extendBody: true,

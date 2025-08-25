@@ -1,5 +1,6 @@
 class MyRecipesModel {
-  final int id, categoryId, timeRequired;
+  final int id;
+  final int categoryId, timeRequired;
   final num rating;
   final String title, description, photo, difficulty;
 

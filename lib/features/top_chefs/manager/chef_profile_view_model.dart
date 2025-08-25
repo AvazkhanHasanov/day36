@@ -1,17 +1,17 @@
 import 'package:day_36_darsda1/data/models/recipes/recipes_model.dart';
 import 'package:day_36_darsda1/data/models/chef_profile_model.dart';
-import 'package:day_36_darsda1/data/repositories/chef_profile_repository.dart';
-import 'package:day_36_darsda1/data/repositories/recipes_repository.dart';
+import 'package:day_36_darsda1/data/repositories/chef_repository.dart';
+import 'package:day_36_darsda1/data/repositories/recipe_repository.dart';
 import 'package:flutter/material.dart';
 
 class ChefProfileViewModel extends ChangeNotifier {
-  final ChefProfileRepository _chefProfileRepo;
-  final RecipesRepository _recipesRepo;
+  final ChefRepository _chefProfileRepo;
+  final RecipeRepository _recipesRepo;
 
   ChefProfileViewModel({
-    required ChefProfileRepository chefProfileRepo,
+    required ChefRepository chefProfileRepo,
     required int id,
-    required RecipesRepository recipesRepo,
+    required RecipeRepository recipesRepo,
   }) : _chefProfileRepo = chefProfileRepo,
        _recipesRepo = recipesRepo {
     fetchChefProfile(id);
@@ -26,7 +26,7 @@ class ChefProfileViewModel extends ChangeNotifier {
     isProfileLoading = true;
     notifyListeners();
 
-    var result = await _chefProfileRepo.getAll(id);
+    var result = await _chefProfileRepo.getById(id);
     result.fold(
       (exception) => chefProfileError = exception.toString(),
       (value) => chefProfile = value,

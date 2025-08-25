@@ -1,11 +1,11 @@
 import 'package:day_36_darsda1/data/models/recipes/recipes_review_model.dart';
-import 'package:day_36_darsda1/data/repositories/recipes_repository.dart';
+import 'package:day_36_darsda1/data/repositories/recipe_repository.dart';
 import 'package:flutter/cupertino.dart';
 
 class RecipesReviewViewModel extends ChangeNotifier {
-  final RecipesRepository _recipesRepo;
+  final RecipeRepository _recipesRepo;
 
-  RecipesReviewViewModel({required int id, required RecipesRepository recipesRepo}) : _recipesRepo = recipesRepo {
+  RecipesReviewViewModel({required int id, required RecipeRepository recipesRepo}) : _recipesRepo = recipesRepo {
     fetchRecipesReview(id);
   }
 

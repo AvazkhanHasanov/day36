@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../../../core/utils/colors.dart';
 import '../../../core/utils/styles.dart';
-import '../../common/recipes_sized_box.dart';
+import '../../common/widgets/recipes_sized_box.dart';
 import '../../home/widgets/recently/recently_sized_box.dart';
 
 class MyRecipesPage extends StatelessWidget {

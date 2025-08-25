@@ -1,11 +1,5 @@
 class AuthModel {
-  final String firstName,
-      lastName,
-      email,
-      phoneNumber,
-      birthDate,
-      password,
-      username;
+  final String firstName, lastName, email, phoneNumber, birthDate, password, username;
 
   AuthModel({
     required this.username,
@@ -17,18 +11,6 @@ class AuthModel {
     required this.password,
   });
 
-  factory AuthModel.fromJson(Map<String, dynamic> json) {
-    return AuthModel(
-      firstName: json['firstName'],
-      lastName: json['lastName'],
-      email: json['email'],
-      phoneNumber: json['phoneNumber'],
-      birthDate: json['birthDate'],
-      password: json['password'], username: json['username'],
-
-    );
-  }
-
   Map<String, dynamic> toJson() {
     return {
       "firstName": firstName,
@@ -37,7 +19,7 @@ class AuthModel {
       "phoneNumber": phoneNumber,
       "birthDate": birthDate,
       "password": password,
-      'username':username,
+      'username': username,
     };
   }
 }

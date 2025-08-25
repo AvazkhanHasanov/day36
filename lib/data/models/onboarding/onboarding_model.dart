@@ -1,5 +1,6 @@
 class OnboardingModel {
-  final int id, order;
+  final int id;
+  final int order;
   final String title, subtitle, image;
 
   OnboardingModel({

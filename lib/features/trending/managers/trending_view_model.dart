@@ -1,18 +1,17 @@
 import 'package:day_36_darsda1/data/models/recipes/recipes_model.dart';
 import 'package:day_36_darsda1/data/models/trending_model.dart';
-import 'package:day_36_darsda1/data/repositories/recipes_repository.dart';
-import 'package:day_36_darsda1/data/repositories/trending_repository.dart';
+import 'package:day_36_darsda1/data/repositories/recipe_repository.dart';
 import 'package:flutter/material.dart';
 
 class TrendingViewModel extends ChangeNotifier {
-  final TrendingRepository _trendingRepo;
-  final RecipesRepository _recipesRepo;
+
+  final RecipeRepository _recipesRepo;
 
   TrendingViewModel({
     required this.categoryId,
-    required RecipesRepository recipesRepo,
-    required TrendingRepository trendingRepo,
-  }) : _trendingRepo = trendingRepo,
+    required RecipeRepository recipesRepo,
+
+  }) :
        _recipesRepo = recipesRepo {
     fetchTrending();
     fetchRecipes(categoryId);
@@ -27,7 +26,7 @@ class TrendingViewModel extends ChangeNotifier {
   Future<void> fetchTrending() async {
     isTrendingLoading = true;
     notifyListeners();
-    var result = await _trendingRepo.getOne();
+    var result = await _recipesRepo.getTrendingRecipe();
     result.fold(
       (exception) => error = exception.toString(),
       (value) => trending = value,
