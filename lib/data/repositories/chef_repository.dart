@@ -10,8 +10,8 @@ class ChefRepository {
   ChefRepository({required ApiClient client}) : _client = client;
 
   Future<Result<ChefProfileModel>> getById(int id) async {
-    var respond = await _client.get('/auth/details/$id');
-    return respond.fold(
+    var response = await _client.get('/auth/details/$id');
+    return response.fold(
       (error) {
         return Result.error(error);
       },

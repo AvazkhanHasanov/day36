@@ -4,14 +4,14 @@ import 'package:day_36_darsda1/features/auth/widgets/recipe_text_form_field.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+class CompleteYourProfilePage extends StatefulWidget {
+  const CompleteYourProfilePage({super.key});
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
+  State<CompleteYourProfilePage> createState() => _CompleteYourProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _CompleteYourProfilePageState extends State<CompleteYourProfilePage> {
   final genderController = TextEditingController();
   final bioController = TextEditingController();
 

@@ -1,5 +1,5 @@
 import 'package:day_36_darsda1/core/utils/styles.dart';
-import 'package:day_36_darsda1/features/common/recipe_app_bar/recipe_app_bar.dart';
+import 'package:day_36_darsda1/features/common/widgets/recipe_app_bar/recipe_app_bar.dart';
 import 'package:day_36_darsda1/features/community/managers/community_view_model.dart';
 import 'package:day_36_darsda1/features/community/widgets/tab_bar_text.dart';
 import 'package:day_36_darsda1/features/community/widgets/community_container.dart';

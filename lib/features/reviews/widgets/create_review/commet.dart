@@ -15,7 +15,7 @@ class Commit extends StatelessWidget {
       maxLines: 4,
       decoration: InputDecoration(
         hintText: 'Leave us Review!',
-        hintStyle: AppStyles.tSW500S15,
+        hintStyle: AppStyles.hintT.copyWith(fontSize: 15.sp),
         filled: true,
         fillColor: AppColors.pink,
         border: OutlineInputBorder(

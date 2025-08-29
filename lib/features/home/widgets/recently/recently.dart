@@ -4,10 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/utils/styles.dart';
+import '../../../../data/models/recipes/recipes_model.dart';
 import '../../managers/home_view_model.dart';
 
 class Recently extends StatelessWidget {
-  Recently({
+  const Recently({
     super.key,
   });
 
@@ -23,23 +24,29 @@ class Recently extends StatelessWidget {
             'Recently Added',
             style: AppStyles.subtitle,
           ),
-          Consumer<HomeViewModel>(
-            builder: (context, vm, child) {
-              return vm.isRecipeLoading
-                  ? Center(child: CircularProgressIndicator())
-                  : Row(
+          Selector<HomeViewModel, List<RecipesModel>>(
+            selector: (context, vm) => vm.recipes,
+            builder: (context, recipes, child) {
+              final isLoading = context.select<HomeViewModel, bool>(
+                (value) => value.isRecipeLoading,
+              );
+              if (isLoading) {
+                return Center(child: CircularProgressIndicator());
+              }
+
+              return Row(
                 spacing: 18.w,
                 children: [
                   ...List.generate(
                     2,
-                        (index) {
+                    (index) {
                       return RecentlySizedBox(
-                        id: vm.recipes[index].id,
-                        description: vm.recipes[index].description,
-                        title: vm.recipes[index].title,
-                        rating: vm.recipes[index].rating,
-                        timeRequired: vm.recipes[index].timeRequired,
-                        photo: vm.recipes[index].photo,
+                        id: recipes[index].id,
+                        description: recipes[index].description,
+                        title: recipes[index].title,
+                        rating: recipes[index].rating,
+                        timeRequired: recipes[index].timeRequired,
+                        photo: recipes[index].photo,
                       );
                     },
                   ),

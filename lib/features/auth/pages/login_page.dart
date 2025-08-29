@@ -127,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(height: 44.h),
                         Text(
                           'or sign up with',
-                          style: AppStyles.subTextMiniOq,
+                          style: AppStyles.subTextMini.copyWith(color: AppColors.brownF9),
                         ),
                         Row(
                           children: [],

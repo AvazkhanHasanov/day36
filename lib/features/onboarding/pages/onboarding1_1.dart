@@ -9,7 +9,8 @@ class Onboarding1 extends StatelessWidget {
     super.key,
     required this.text,
     required this.subText,
-    required this.photo, required this.onTap,
+    required this.photo,
+    required this.onTap,
   });
 
   final String text, subText, photo;
@@ -35,7 +36,6 @@ class Onboarding1 extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
                 Container(
-        
                   width: 430.w,
                   height: 284.h,
                   decoration: BoxDecoration(
@@ -46,7 +46,6 @@ class Onboarding1 extends StatelessWidget {
                     ),
                   ),
                 ),
-        
               ],
             ),
           ],

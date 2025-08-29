@@ -3,17 +3,25 @@ import 'package:flutter/material.dart';
 
 class ProfileRichText extends StatelessWidget {
   const ProfileRichText({
-    super.key, required this.number, required this.text,
+    super.key,
+    required this.number,
+    required this.text,
   });
-final int number;
-final String text;
+
+  final int number;
+  final String text;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('$number',style: AppStyles.subtitleOq.copyWith(height: 1),),
-        Text(text,style: AppStyles.subtextOq.copyWith(height: 1),),
+        Text(
+          '$number',
+          style: AppStyles.subtitleOq.copyWith(height: 1, color: Theme.of(context).colorScheme.primary)),
+        Text(
+          text,
+          style: AppStyles.subtextOq.copyWith(height: 1, color: Theme.of(context).colorScheme.primary)),
       ],
     );
   }

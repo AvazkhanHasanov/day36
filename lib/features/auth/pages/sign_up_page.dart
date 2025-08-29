@@ -177,8 +177,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'parolni tasdiqlashni unutingiz';
-                          } else if (passwordController.text !=
-                              confirmController.text) {
+                          } else if (passwordController.text != confirmController.text) {
                             return ' password mos kelmadi';
                           }
                           return null;
@@ -236,14 +235,12 @@ class _SignUpPageState extends State<SignUpPage> {
                                     padding: EdgeInsets.all(36.r),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
                                         Text(
                                           "Sign up succesful!",
-                                          style: AppStyles.tSW600S20Black,
+                                          style: AppStyles.tSW600S20Oq.copyWith(color: AppColors.brownF9),
                                         ),
                                         Container(
                                           width: 82.w,

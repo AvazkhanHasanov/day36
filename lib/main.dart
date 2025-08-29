@@ -1,6 +1,7 @@
 import 'package:day_36_darsda1/core/dependencies.dart';
 import 'package:day_36_darsda1/core/route/router.dart';
-import 'package:day_36_darsda1/core/utils/colors.dart';
+import 'package:day_36_darsda1/features/common/managers/themes_view_model.dart';
+import 'package:day_36_darsda1/features/common/pages/apptheme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -18,12 +19,11 @@ class Day36App extends StatelessWidget {
       designSize: Size(430, 932),
       child: MultiProvider(
         providers: dependencies,
-        child: MaterialApp.router(
+        builder: (context, child) =>  MaterialApp.router(
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            scaffoldBackgroundColor: AppColors.beige,
-            appBarTheme: AppBarTheme(backgroundColor: AppColors.beige),
-          ),
+          theme: AppTheme().lightTheme,
+          darkTheme: AppTheme().darkTheme,
+          themeMode: context.watch<ThemeViewModel>().mode,
           routerConfig: router,
         ),
       ),

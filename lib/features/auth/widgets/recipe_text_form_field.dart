@@ -15,7 +15,7 @@ class RecipeTextFormField extends StatelessWidget {
     this.isPassword = false,
     required this.controller,
     this.onTap,
-    this.readOnly=false,
+    this.readOnly = false,
   });
 
   final int minLine;
@@ -38,12 +38,13 @@ class RecipeTextFormField extends StatelessWidget {
         children: [
           Text(
             label,
-            style: AppStyles.subtitleOq,
+            style: AppStyles.subtitle.copyWith(color: Theme.of(context).colorScheme.primary),
           ),
           SizedBox(
             width: 357.w,
 
             child: TextFormField(
+              cursorColor: AppColors.pinkSubC,
               controller: controller,
               validator: validator,
               minLines: minLine,

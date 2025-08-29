@@ -70,7 +70,7 @@ final int id;
                                         ),
                                         Text(
                                           '@r_joshua',
-                                          style: AppStyles.tSW400S15Red,
+                                          style: AppStyles.titleAB.copyWith(fontSize: 15.sp),
                                         ),
                                         Spacer(),
                                         Text(

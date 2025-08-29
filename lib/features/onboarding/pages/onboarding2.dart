@@ -26,7 +26,6 @@ void dispose(){
       appBar: OnboardingPageAppBar(currentState: 1),
       body: PageView(
         controller:controller,
-
         children: [
           CookingLevel(controller: controller,),
           Preferences(controller: controller,),

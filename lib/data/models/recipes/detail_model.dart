@@ -35,6 +35,20 @@ class RecipesDetailModel {
       instructions: (json['instructions'] as List).map((x) => InstructionsModel.fromJson(x)).toList(),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'ingredients': ingredients.map((x) => x.toJson()).toList(),
+      'instructions': instructions.map((x) => x.toJson()).toList(),
+      'user': user.toJson(),
+      'timeRequired': timeRequired,
+      'rating': rating,
+      'title': title,
+      'photo': photo,
+      'description': description,
+    };
+  }
 }
 
 // instructiondan malumotlarni oladi
@@ -42,10 +56,23 @@ class InstructionsModel {
   final String text;
   final int order;
 
-  InstructionsModel({required this.text, required this.order});
+  InstructionsModel({
+    required this.text,
+    required this.order,
+  });
 
   factory InstructionsModel.fromJson(Map<String, dynamic> json) {
-    return InstructionsModel(text: json['text'], order: json['order']);
+    return InstructionsModel(
+      text: json['text'],
+      order: json['order'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'text': text,
+      'order': order,
+    };
   }
 }
 
@@ -53,9 +80,25 @@ class IngredientsModel {
   final String amount, name;
   final int order;
 
-  IngredientsModel({required this.amount, required this.name, required this.order});
+  IngredientsModel({
+    required this.amount,
+    required this.name,
+    required this.order,
+  });
 
   factory IngredientsModel.fromJson(Map<String, dynamic> json) {
-    return IngredientsModel(amount: json['amount'], name: json["name"], order: json['order']);
+    return IngredientsModel(
+      amount: json['amount'],
+      name: json["name"],
+      order: json['order'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'amount': amount,
+      'name': name,
+      'order': order,
+    };
   }
 }

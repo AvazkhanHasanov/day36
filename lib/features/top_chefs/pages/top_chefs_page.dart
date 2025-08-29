@@ -1,5 +1,5 @@
-import 'package:day_36_darsda1/features/common/bottom_navigation_bar/recipe_bottom_navigation_bar.dart';
-import 'package:day_36_darsda1/features/common/recipe_app_bar/recipe_app_bar.dart';
+import 'package:day_36_darsda1/features/common/widgets/bottom_navigation_bar/recipe_bottom_navigation_bar.dart';
+import 'package:day_36_darsda1/features/common/widgets/recipe_app_bar/recipe_app_bar.dart';
 import 'package:day_36_darsda1/features/top_chefs/manager/top_chefs_view_model.dart';
 import 'package:day_36_darsda1/features/top_chefs/widgets/top_chefs/chef_stack.dart';
 import 'package:flutter/material.dart';

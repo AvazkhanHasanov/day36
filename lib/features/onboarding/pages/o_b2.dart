@@ -1,7 +1,7 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:day_36_darsda1/features/categories/managers/categories_view_model.dart';
-import 'package:day_36_darsda1/features/onboarding/pages/container_on.dart';
+import 'package:day_36_darsda1/features/onboarding/widgets/container_on.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -52,6 +52,7 @@ class OB2 extends StatelessWidget {
                   '''Find the best recipes that the world can provide you also with every step that you can learn to increase your cooking skills.''',
                   style: AppStyles.tSW400S13Oq,
                 ),
+                SizedBox(height: 15.h),
                 ContainerOn(
                   backgroundColor: AppColors.pink,
                   foregroundColor: AppColors.pinkSubC,

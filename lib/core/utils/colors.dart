@@ -7,6 +7,7 @@ class AppColors {
   static const pink = Color(0xFFFFC6C9);
   static const pinkSubC = Color(0xFFEC888D);
   static const oq = Color(0xFFFFFFFF);
+  static const black = Color(0xFF000000);
   static const colorD9 = Color(0xFFD9D9D9);
   static const color23 = Color(0xFF3E2823);
 

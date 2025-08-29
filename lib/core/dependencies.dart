@@ -1,3 +1,4 @@
+import 'package:day_36_darsda1/features/common/managers/themes_view_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -20,7 +21,7 @@ import 'client.dart';
 final dependencies = <SingleChildWidget>[
   Provider(create: (context) => FlutterSecureStorage()),
   Provider(create: (context) => AuthInterceptor(secureStorage: context.read())),
-  Provider(create: (context) => ApiClient(interceptor:context.read())),
+  Provider(create: (context) => ApiClient(interceptor: context.read())),
   Provider(create: (context) => AllergicRepository(client: context.read())),
   Provider(
     create: (context) => AuthRepository(client: context.read(), secureStorage: context.read()),
@@ -31,7 +32,7 @@ final dependencies = <SingleChildWidget>[
   Provider(create: (context) => OnboardingRepository(client: context.read())),
   Provider(create: (context) => PreferencesRepository(client: context.read())),
   Provider(create: (context) => RecipeRepository(client: context.read())),
-
+  ChangeNotifierProvider(create: (context) => ThemeViewModel()),
   ChangeNotifierProvider(create: (context) => CategoriesViewModel(categoryRepo: context.read())),
   ChangeNotifierProvider(create: (context) => AuthViewModel(authRepo: context.read())),
   ChangeNotifierProvider(

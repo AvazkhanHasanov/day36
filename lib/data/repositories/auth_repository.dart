@@ -2,6 +2,7 @@ import 'package:day_36_darsda1/core/client.dart';
 import 'package:day_36_darsda1/core/utils/result.dart';
 import 'package:day_36_darsda1/data/models/auth/auth_model.dart';
 import 'package:day_36_darsda1/data/models/auth/login_model.dart';
+import 'package:day_36_darsda1/data/models/chef_profile_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class AuthRepository {
@@ -15,11 +16,11 @@ class AuthRepository {
        _secureStorage = secureStorage;
 
   Future<Result<String>> add({required AuthModel authData}) async {
-    final result = await _client.post<Map<String, dynamic>>(
+    final response = await _client.post<Map<String, dynamic>>(
       '/auth/register',
       data: authData.toJson(),
     );
-    return result.fold(
+    return response.fold(
       (error) => Result.error(error),
       (value) {
         final token = value['accessToken'];
@@ -32,11 +33,11 @@ class AuthRepository {
   }
 
   Future<Result<String>> login({required LoginModel loginData}) async {
-    final result = await _client.post<Map<String, dynamic>>(
+    final response = await _client.post<Map<String, dynamic>>(
       '/auth/login',
       data: loginData.toJson(),
     );
-    return result.fold(
+    return response.fold(
       (error) => Result.error(error),
       (value) {
         final token = value['accessToken'];
@@ -45,6 +46,14 @@ class AuthRepository {
         _secureStorage.write(key: 'password', value: loginData.password);
         return Result.ok(token);
       },
+    );
+  }
+
+  Future<Result<ChefProfileModel>> getProfile() async {
+    final response = await _client.get<Map<String, dynamic>>('/auth/me');
+    return response.fold(
+      (error) => Result.error(error),
+      (success) => Result.ok(ChefProfileModel.fromJson(success)),
     );
   }
 }

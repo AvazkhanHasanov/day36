@@ -13,19 +13,16 @@ class RecipeBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 90.h,
+      height: 127.h,
       child: Stack(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadiusGeometry.circular(33.r),
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.transparent, AppColors.beige],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.transparent,AppColors.brownF9],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
               ),
             ),
           ),
@@ -45,6 +42,7 @@ class RecipeBottomNavigationBar extends StatelessWidget {
                   labelPadding: EdgeInsets.zero,
                   indicatorColor: Colors.transparent,
                   backgroundColor: Colors.transparent,
+                  shadowColor: Colors.transparent,
                   destinations: [
                     NavigationDestination(
                       icon: SvgPicture.asset(AppIcons.home),

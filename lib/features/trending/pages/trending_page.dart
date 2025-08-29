@@ -1,4 +1,4 @@
-import 'package:day_36_darsda1/features/common/recipe_app_bar/recipe_app_bar.dart';
+import 'package:day_36_darsda1/features/common/widgets/recipe_app_bar/recipe_app_bar.dart';
 import 'package:day_36_darsda1/features/trending/managers/trending_view_model.dart';
 import 'package:day_36_darsda1/features/trending/widgets/recipes_with_container/recipes_with_container.dart';
 import 'package:day_36_darsda1/features/trending/widgets/trending_container/trending_page_container.dart';

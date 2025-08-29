@@ -2,13 +2,14 @@ import 'package:day_36_darsda1/core/route/routes.dart';
 import 'package:day_36_darsda1/features/auth/pages/login_page.dart';
 import 'package:day_36_darsda1/features/auth/pages/password/enter.dart';
 import 'package:day_36_darsda1/features/auth/pages/password/send_OTP.dart';
-import 'package:day_36_darsda1/features/auth/pages/profile_page.dart';
+import 'package:day_36_darsda1/features/auth/pages/complete_your_profile_page.dart';
 import 'package:day_36_darsda1/features/auth/pages/sign_up_page.dart';
 import 'package:day_36_darsda1/features/categories/pages/categories_page.dart';
 import 'package:day_36_darsda1/features/categories/pages/recipes_page.dart';
 import 'package:day_36_darsda1/features/categories/pages/recipes_detail_page.dart';
 import 'package:day_36_darsda1/features/home/pages/home_page.dart';
 import 'package:day_36_darsda1/features/onboarding/pages/onboarding_page.dart';
+import 'package:day_36_darsda1/features/profile/pages/profile_page.dart';
 import 'package:day_36_darsda1/features/reviews/pages/create_review_page.dart';
 import 'package:day_36_darsda1/features/reviews/pages/reviews_page.dart';
 import 'package:day_36_darsda1/features/top_chefs/pages/chef_profile_page.dart';
@@ -16,11 +17,12 @@ import 'package:day_36_darsda1/features/top_chefs/pages/top_chefs_page.dart';
 import 'package:day_36_darsda1/features/trending/pages/trending_page.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/add_recipes/pages/add_recipe_page.dart';
 import '../../features/community/pages/community_page.dart';
 import '../../features/my_recipes/pages/my_recipes_page.dart';
 
 final router = GoRouter(
-  initialLocation: Routes.topChefs,
+  initialLocation: Routes.addRecipePage,
   routes: [
     GoRoute(
       path: '/recipes/:id',
@@ -62,8 +64,8 @@ final router = GoRouter(
       builder: (context, state) => SignUpPage(),
     ),
     GoRoute(
-      path: '/profile',
-      builder: (context, state) => ProfilePage(),
+      path: Routes.completeYourProfilePage,
+      builder: (context, state) => CompleteYourProfilePage(),
     ),
     GoRoute(
       path: '/chefProfile/:id',
@@ -82,13 +84,21 @@ final router = GoRouter(
     GoRoute(
       path: '/topChefs',
       builder: (context, state) => TopChefsPage(),
-    ), GoRoute(
+    ),
+    GoRoute(
       path: '/myRecipes',
       builder: (context, state) => MyRecipesPage(),
     ),
     GoRoute(
       path: '/community',
       builder: (context, state) => CommunityPage(),
+    ), GoRoute(
+      path: Routes.addRecipePage,
+      builder: (context, state) => AddRecipePage(),
+    ),
+    GoRoute(
+      path: Routes.profile,
+      builder: (context, state) => ProfilePage(),
     ),
     GoRoute(
       path: '/reviews/:id',

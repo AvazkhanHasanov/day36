@@ -1,13 +1,13 @@
 import 'package:day_36_darsda1/core/utils/icons.dart';
+import 'package:day_36_darsda1/features/common/managers/themes_view_model.dart';
 import 'package:day_36_darsda1/features/home/widgets/app_bar_icon_button.dart';
 import 'package:day_36_darsda1/features/home/widgets/home_bottom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/utils/colors.dart';
 import '../../../core/utils/styles.dart';
-import '../../common/bottom_navigation_bar/recipe_bottom_navigation_bar.dart';
+import '../../common/widgets/bottom_navigation_bar/recipe_bottom_navigation_bar.dart';
 import '../managers/home_view_model.dart';
 import '../widgets/recently/recently.dart';
 import '../widgets/recipes/your_resipes.dart';
@@ -28,7 +28,6 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         extendBody: true,
         extendBodyBehindAppBar: true,
-        backgroundColor: AppColors.beige,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           toolbarHeight: 70,
@@ -36,10 +35,16 @@ class HomePage extends StatelessWidget {
           title: Column(
             children: [
               Text('Hi! Khan', style: AppStyles.titleAB),
-              Text('What are you cooking today', style: AppStyles.subtextOq),
+              Text('What are you cooking today', style: AppStyles.subtextOq.copyWith(color: Theme.of(context).colorScheme.primary)),
             ],
           ),
           actions: [
+            AppBarIconButton(
+              onPressed: () {
+                context.read<ThemeViewModel>().changeTheme();
+              },
+              icon: AppIcons.threeDots,
+            ),
             AppBarIconButton(
               onPressed: () {},
               icon: AppIcons.notification,
@@ -54,6 +59,8 @@ class HomePage extends StatelessWidget {
           bottom: HomeBottom(),
         ),
         body: SafeArea(
+          top: true,
+          bottom: false,
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.only(top: 19.h),

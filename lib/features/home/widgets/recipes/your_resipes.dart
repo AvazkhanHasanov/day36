@@ -7,13 +7,13 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/utils/styles.dart';
+import '../../../../data/models/recipes/recipes_model.dart';
 import '../../managers/home_view_model.dart';
 
 class YourRecipe extends StatelessWidget {
   const YourRecipe({
     super.key,
   });
-
 
   @override
   Widget build(BuildContext context) {
@@ -36,24 +36,28 @@ class YourRecipe extends StatelessWidget {
                 'Your recipes',
                 style: AppStyles.subtitleOq,
               ),
-              Consumer<HomeViewModel>(
-                builder: (context, vm, child) {
-                  return vm.isRecipeLoading
-                      ? Center(
-                    child: CircularProgressIndicator(),
-                  )
-                      : Row(
+              Selector<HomeViewModel, List<RecipesModel>>(
+                selector: (context, vm) => vm.recipes,
+                builder: (context, recipes, child) {
+                  final isLoading = context.select<HomeViewModel, bool>((value) => value.isRecipeLoading);
+                  if (isLoading) {
+                    return Center(child: Center(child: CircularProgressIndicator()));
+                  }
+                  if (recipes.isEmpty) {
+                    return Center(child: Text('no recipes yet'));
+                  }
+                  return Row(
                     spacing: 17.w,
                     children: [
                       ...List.generate(
                         2,
-                            (index) {
+                        (index) {
                           return RecipesSizedBox(
-                            id: vm.recipes[index].id,
-                            photo: vm.recipes[index].photo,
-                            title: vm.recipes[index].title,
-                            rating: vm.recipes[index].rating,
-                            timeRequired: vm.recipes[index].timeRequired,
+                            id: recipes[index].id,
+                            photo: recipes[index].photo,
+                            title: recipes[index].title,
+                            rating: recipes[index].rating,
+                            timeRequired: recipes[index].timeRequired,
                           );
                         },
                       ),

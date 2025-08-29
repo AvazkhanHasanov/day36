@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/utils/colors.dart';
-import '../../../core/utils/icons.dart';
-import '../../../core/utils/styles.dart';
-import 'icon_button_app_bar.dart';
-import 'app_bar_with_bottom/bottom.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/icons.dart';
+import '../../../../core/utils/styles.dart';
+import '../icon_button_app_bar.dart';
+import 'bottom.dart';
 
 class RecipeAppBarWithBottom extends StatelessWidget
     implements PreferredSizeWidget {

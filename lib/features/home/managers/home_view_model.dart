@@ -22,7 +22,6 @@ class HomeViewModel extends ChangeNotifier {
     required RecipeRepository recipesRepo,
     required ChefRepository chefRepo,
   }) : _categoryRepo = categoryRepo,
-
        _recipesRepo = recipesRepo,
        _chefRepo = chefRepo {
     fetchTrending();

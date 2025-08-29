@@ -5,7 +5,7 @@ class Routes{
   static final String onboarding ='/onboarding';
   static final String login ='/login';
   static final String signUp ='/signUp';
-  static final String profile ='/profile';
+  static final String completeYourProfilePage ='/completeYourProfilePage';
   static final String forgotPassword ='/forgotPassword';
   static final String enter ='/enter';
   static final String trending ='/trending';
@@ -15,6 +15,8 @@ class Routes{
   static final String reviews ='/reviews';
   static final String createReview ='/createReview';
   static final String myRecipes ='/myRecipes';
+  static final String profile ='/profile';
+  static final String addRecipePage ='/addRecipePage';
 
 
 }

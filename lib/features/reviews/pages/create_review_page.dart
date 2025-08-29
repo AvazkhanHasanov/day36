@@ -3,7 +3,7 @@ import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/icons.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:day_36_darsda1/features/categories/widgets/recipes_widgets/recipes_icon_button.dart';
-import 'package:day_36_darsda1/features/common/bottom_navigation_bar/recipe_bottom_navigation_bar.dart';
+import 'package:day_36_darsda1/features/common/widgets/bottom_navigation_bar/recipe_bottom_navigation_bar.dart';
 import 'package:day_36_darsda1/features/reviews/manages/create_review_view_model.dart';
 import 'package:day_36_darsda1/features/reviews/widgets/create_review/create_contaner.dart';
 import 'package:day_36_darsda1/features/reviews/widgets/create_review/commet.dart';
@@ -99,7 +99,7 @@ class _CreateReviewState extends State<CreateReview> {
                                 CreateContainer(
                                   onTap: () {},
                                   text: 'Cancel',
-                                  textStyle: AppStyles.subtitlePinkC,
+                                  textStyle: AppStyles.subtitle.copyWith( color: AppColors.pinkSubC),
                                 ),
                                 CreateContainer(
                                   onTap: () {
@@ -107,7 +107,7 @@ class _CreateReviewState extends State<CreateReview> {
                                       context: context,
                                       builder: (BuildContext context) {
                                         return AlertDialog(
-                                          titleTextStyle: AppStyles.tSW600S20Black,
+                                          titleTextStyle: AppStyles.tSW600S20Oq.copyWith(color: AppColors.brownF9),
                                           titlePadding: EdgeInsets.only(left: 48.w, right: 48.w, top: 46.h),
                                           title: Text(
                                             'Thank you for your Review!',

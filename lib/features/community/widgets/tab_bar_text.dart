@@ -23,7 +23,7 @@ final bool isSelected;
       ),
       child: Text(
         text,
-        style:isSelected? AppStyles.tSW400S15Oq:AppStyles.tSW400S15Red,
+        style:isSelected? AppStyles.tSW400S15Oq:AppStyles.titleAB.copyWith(fontSize: 15.sp),
       ),
     );
   }

@@ -7,9 +7,9 @@ class CategoryRepository {
 
   CategoryRepository({required ApiClient client}) : _client = client;
 
-  Future<Result<List<CategoriesModel>>> getAll() async {
-    final result = await _client.get<List>('/categories/list');
-    return result.fold(
+  Future<Result<List<CategoriesModel>>> getAll({Map<String, dynamic>? queryParams}) async {
+    final response = await _client.get<List>('/categories/list',queryParams:queryParams );
+    return response.fold(
       (error) => Result.error(error),
       (value) =>
           Result.ok(value.map((x) => CategoriesModel.fromJson(x)).toList()),

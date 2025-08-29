@@ -56,11 +56,11 @@ class _ChefStackState extends State<ChefStack> {
                     children: [
                       Text(
                         widget.firstName,
-                        style: AppStyles.subtextB,
+                        style: AppStyles.subtext,
                       ),
                       Text(
                         "@${widget.username}",
-                        style: AppStyles.subtextB,
+                        style: AppStyles.subtext,
                       ),
                       Row(
                         spacing: 4,

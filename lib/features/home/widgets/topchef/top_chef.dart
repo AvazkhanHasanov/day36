@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/utils/styles.dart';
+import '../../../../data/models/top_chefs_model.dart';
 import '../home_page_gesture_detector.dart';
 
 class TopChef extends StatelessWidget {
@@ -25,22 +26,31 @@ class TopChef extends StatelessWidget {
               ' Top Chef',
               style: AppStyles.subtitle,
             ),
-            Consumer<HomeViewModel>(
-              builder: (context, vm, child) {
-                return vm.isChefsLoading
-                    ? Center(
-                  child: CircularProgressIndicator(),
-                )
-                    : Row(
+            Selector<HomeViewModel, List<TopChefsModel>>(
+              selector: (context, vm) => vm.chefs,
+              builder: (context, chefs, child) {
+                final isLoading = context.select<HomeViewModel, bool>((value) => value.isChefsLoading);
+                if (isLoading) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                if (chefs.isEmpty) {
+                  return Text(
+                    'No chefs yet',
+                    style: AppStyles.tSW400S15Oq,
+                  );
+                }
+                return Row(
                   spacing: 9.h,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ...List.generate(
-                      vm.chefs.length,
-                          (index) {
+                      chefs.length,
+                      (index) {
                         return HomePageGestureDetector(
-                          name: vm.chefs[index].firstName,
-                          photo: vm.chefs[index].profilePhoto,
+                          name: chefs[index].firstName,
+                          photo: chefs[index].profilePhoto,
                         );
                       },
                     ),

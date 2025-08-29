@@ -44,7 +44,7 @@ class OnboardingViewModel extends ChangeNotifier {
   Future<void> fetchCategories() async {
     isCategoriesLoading = true;
     notifyListeners();
-    var result = await _categoryRepo.getAll();
+    var result = await _categoryRepo.getAll(queryParams: {'limit':4});
     result.fold(
       (exception) => categoriesError = exception.toString(),
       (value) => categories = value,

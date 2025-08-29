@@ -1,8 +1,8 @@
 import 'package:day_36_darsda1/features/categories/managers/recipes_view_model.dart';
 import 'package:day_36_darsda1/features/common/widgets/recipes_container.dart';
 import 'package:day_36_darsda1/features/categories/widgets/recipes_widgets/recipes_image.dart';
-import 'package:day_36_darsda1/features/common/widgets/recipe_app_bar_with_bottom.dart';
-import 'package:day_36_darsda1/features/common/bottom_navigation_bar/recipe_bottom_navigation_bar.dart';
+import 'package:day_36_darsda1/features/common/widgets/app_bar_with_bottom/recipe_app_bar_with_bottom.dart';
+import 'package:day_36_darsda1/features/common/widgets/bottom_navigation_bar/recipe_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';

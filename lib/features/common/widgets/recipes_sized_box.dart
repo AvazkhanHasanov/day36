@@ -67,7 +67,7 @@ class _RecipesSizedBoxState extends State<RecipesSizedBox> {
                     children: [
                       Text(
                         widget.title,
-                        style: AppStyles.subtextB,
+                        style: AppStyles.subtext,
                       ),
                       Row(
                         spacing: 4,

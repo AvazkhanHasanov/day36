@@ -10,7 +10,6 @@ class ChefProfileModel {
     required this.firstName,
     required this.lastName,
     required this.presentation,
-
     required this.recipesCount,
     required this.followingCount,
     required this.followerCount,

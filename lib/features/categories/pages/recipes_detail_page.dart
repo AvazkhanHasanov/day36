@@ -5,7 +5,7 @@ import 'package:day_36_darsda1/features/categories/managers/detail_view_model.da
 import 'package:day_36_darsda1/features/categories/widgets/detail_page/description.dart';
 import 'package:day_36_darsda1/features/categories/widgets/detail_page_rich_text.dart';
 import 'package:day_36_darsda1/features/categories/widgets/detail_profile.dart';
-import 'package:day_36_darsda1/features/common/recipe_app_bar/recipe_app_bar.dart';
+import 'package:day_36_darsda1/features/common/widgets/recipe_app_bar/recipe_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -115,7 +115,7 @@ class RecipesDetailPage extends StatelessWidget {
                                   ),
                                   child: Text(
                                     '${index + 1}. ${detail.instructions[index].text} ',
-                                    style: AppStyles.subtextB,
+                                    style: AppStyles.subtext,
                                     maxLines: 3,
                                   ),
                                 ),
