@@ -54,7 +54,7 @@ class MiniContainer extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: AppStyles.tSW400S13Black,
+                    style: AppStyles.tSW400S13Oq.copyWith(color: AppColors.beige),
                     maxLines: 1,
                   ),
                   Text(

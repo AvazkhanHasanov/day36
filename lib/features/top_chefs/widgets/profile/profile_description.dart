@@ -41,7 +41,7 @@ class ProfileDescription extends StatelessWidget {
               ),
               Text(
                 presentation,
-                style: AppStyles.tSW300S12L,
+                style: AppStyles.tSW300S12L.copyWith(color: Theme.of(context).colorScheme.primary),
                 maxLines: 2,
               ),
               Container(

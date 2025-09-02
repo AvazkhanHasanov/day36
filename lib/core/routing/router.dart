@@ -1,4 +1,4 @@
-import 'package:day_36_darsda1/core/route/routes.dart';
+import 'package:day_36_darsda1/core/routing/routes.dart';
 import 'package:day_36_darsda1/features/auth/pages/login_page.dart';
 import 'package:day_36_darsda1/features/auth/pages/password/enter.dart';
 import 'package:day_36_darsda1/features/auth/pages/password/send_OTP.dart';
@@ -22,10 +22,11 @@ import '../../features/community/pages/community_page.dart';
 import '../../features/my_recipes/pages/my_recipes_page.dart';
 
 final router = GoRouter(
-  initialLocation: Routes.addRecipePage,
+  initialLocation:Routes.home,
+
   routes: [
     GoRoute(
-      path: '/recipes/:id',
+      path: Routes.recipesPage,
       builder: (context, state) => RecipesPage(
         title: state.uri.queryParameters['title']!,
         categoryId: int.parse(
@@ -33,9 +34,9 @@ final router = GoRouter(
         ),
       ),
     ),
-    GoRoute(path: '/recipes', builder: (context, state) => CategoriesPage()),
+    GoRoute(path:Routes.categoriesPage, builder: (context, state) => CategoriesPage()),
     GoRoute(
-      path: '/detail/:id',
+      path: Routes.detailPage,
       builder: (context, state) => RecipesDetailPage(
         detailId: int.parse(
           state.pathParameters['id']!,
@@ -44,23 +45,23 @@ final router = GoRouter(
       ),
     ),
     GoRoute(
-      path: '/onboarding',
+      path: Routes.onboarding,
       builder: (context, state) => OnboardingPage(),
     ),
     GoRoute(
-      path: '/home',
+      path: Routes.home,
       builder: (context, state) => HomePage(),
     ),
     GoRoute(
-      path: '/trending',
+      path: Routes.trending,
       builder: (context, state) => TrendingPage(),
     ),
     GoRoute(
-      path: '/login',
+      path: Routes.login,
       builder: (context, state) => LoginPage(),
     ),
     GoRoute(
-      path: '/signUp',
+      path: Routes.signUp,
       builder: (context, state) => SignUpPage(),
     ),
     GoRoute(
@@ -68,29 +69,29 @@ final router = GoRouter(
       builder: (context, state) => CompleteYourProfilePage(),
     ),
     GoRoute(
-      path: '/chefProfile/:id',
+      path: Routes.chefProfile,
       builder: (context, state) => ChefProfile(
         id: int.parse(state.pathParameters['id']!),
       ),
     ),
     GoRoute(
-      path: '/forgotPassword',
+      path: Routes.sendOTP,
       builder: (context, state) => SendOTP(),
     ),
     GoRoute(
-      path: '/enter',
+      path: Routes.enter,
       builder: (context, state) => EnterOTP(),
     ),
     GoRoute(
-      path: '/topChefs',
+      path: Routes.topChefs,
       builder: (context, state) => TopChefsPage(),
     ),
     GoRoute(
-      path: '/myRecipes',
+      path: Routes.myRecipes,
       builder: (context, state) => MyRecipesPage(),
     ),
     GoRoute(
-      path: '/community',
+      path: Routes.community,
       builder: (context, state) => CommunityPage(),
     ), GoRoute(
       path: Routes.addRecipePage,
@@ -101,13 +102,13 @@ final router = GoRouter(
       builder: (context, state) => ProfilePage(),
     ),
     GoRoute(
-      path: '/reviews/:id',
+      path: Routes.reviews,
       builder: (context, state) => ReviewsPage(
         id: int.parse(state.pathParameters['id']!),
       ),
     ),
     GoRoute(
-      path: '/createReview/:id',
+      path: Routes.createReview,
       builder: (context, state) => CreateReview(
         id: int.parse(state.pathParameters['id']!),
       ),

@@ -4,8 +4,8 @@ import 'package:day_36_darsda1/features/onboarding/widgets/allergic/allergic_bot
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Onboarding1 extends StatelessWidget {
-  const Onboarding1({
+class First extends StatelessWidget {
+  const First({
     super.key,
     required this.text,
     required this.subText,
@@ -19,20 +19,29 @@ class Onboarding1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text(
-              text,
-              style: AppStyles.tSW600S20Oq,
+            Padding(
+              padding: EdgeInsets.only(left: 25.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    text,
+                    style: AppStyles.appBarT.copyWith(color: Theme.of(context).colorScheme.primary),
+                  ),
+                  Text(subText, style: AppStyles.tSW400S13Oq.copyWith(color: Theme.of(context).colorScheme.primary)),
+                ],
+              ),
             ),
-            Text(subText, style: AppStyles.tSW400S13Oq),
             Stack(
               children: [
                 Image.network(
                   photo,
                   width: 430.w,
-                  height: 720.h,
+                  height: 800.h,
                   fit: BoxFit.cover,
                 ),
                 Container(
@@ -40,7 +49,7 @@ class Onboarding1 extends StatelessWidget {
                   height: 284.h,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [AppColors.beige, Colors.transparent],
+                      colors: [Theme.of(context).colorScheme.primary, Colors.transparent],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                     ),

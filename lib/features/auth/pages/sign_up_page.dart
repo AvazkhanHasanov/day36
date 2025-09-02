@@ -263,7 +263,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                         ),
                                         Text(
                                           "Lorem ipsum dolor sit amet pretium cras id dui pellentesque ornare. Quisque malesuada.",
-                                          style: AppStyles.tSW400S13Black,
+                                          style: AppStyles.tSW400S13Oq.copyWith(color: AppColors.beige),
                                         ),
                                         TextButton(
                                           onPressed: () {

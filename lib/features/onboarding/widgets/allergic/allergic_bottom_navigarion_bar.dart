@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/utils/colors.dart';
 
 class AllergicBottomNavigationBar extends StatelessWidget {
   const AllergicBottomNavigationBar({
@@ -27,7 +26,7 @@ class AllergicBottomNavigationBar extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.transparent, AppColors.beige],
+                  colors: [Colors.transparent, Theme.of(context).colorScheme.primary],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                 ),

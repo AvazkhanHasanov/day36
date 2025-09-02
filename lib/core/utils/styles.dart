@@ -7,6 +7,7 @@ class AppStyles {
     fontSize: 20.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.redPinkMain,
+    fontFamily: 'Poppins',
   );
   static final tSW600S20Oq = TextStyle(
     fontFamily: 'Poppins',
@@ -30,15 +31,10 @@ class AppStyles {
   );
 
   static final tSW400S13Oq = TextStyle(
-    fontSize: 13.sp,
-    fontWeight: FontWeight.w400,
-    color: AppColors.brownF9,
-  );
-  static final tSW400S13Black = TextStyle(
     fontFamily: 'Poppins',
     fontSize: 13.sp,
     fontWeight: FontWeight.w400,
-    color: AppColors.beige,
+    color: AppColors.brownF9,
   );
   static final subtext = TextStyle(
     fontFamily: 'Poppins',

@@ -1,4 +1,3 @@
-import 'package:day_36_darsda1/core/route/routes.dart';
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/icons.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
@@ -15,6 +14,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+
+import '../../../core/routing/routes.dart' show Routes;
 
 class CreateReview extends StatefulWidget {
   const CreateReview({super.key, required this.id});
@@ -123,7 +124,7 @@ class _CreateReviewState extends State<CreateReview> {
                                                 SvgPicture.asset(AppIcons.bigTick),
                                                 Text(
                                                   'Lorem ipsum dolor sit amet pretium cras id dui pellentesque ornare.',
-                                                  style: AppStyles.tSW400S13Black,
+                                                  style: AppStyles.tSW400S13Oq.copyWith(color: AppColors.beige),
                                                   textAlign: TextAlign.center,
                                                 ),
                                               ],

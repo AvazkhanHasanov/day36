@@ -15,14 +15,14 @@ class CategoriesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<CategoriesViewModel>(
       builder: (context, vm, child) {
-        return vm.isLoading
-            ? Center(child: CircularProgressIndicator())
-            : Scaffold(
-                extendBody: true,
-                appBar: RecipeAppBar(
-                  title: 'Categories',
-                ),
-                body: GridView.builder(
+        return Scaffold(
+          extendBody: true,
+          appBar: RecipeAppBar(
+            title: 'Categories',
+          ),
+          body: vm.isLoading
+              ? Center(child: CircularProgressIndicator())
+              : GridView.builder(
                   itemCount: vm.categories.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     mainAxisSpacing: 8.h,
@@ -37,8 +37,8 @@ class CategoriesPage extends StatelessWidget {
                     );
                   },
                 ),
-                bottomNavigationBar: RecipeBottomNavigationBar(),
-              );
+          bottomNavigationBar: RecipeBottomNavigationBar(),
+        );
       },
     );
   }

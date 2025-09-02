@@ -1,4 +1,3 @@
-import 'package:day_36_darsda1/core/route/routes.dart';
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:day_36_darsda1/data/models/auth/login_model.dart';
@@ -11,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+
+import '../../../core/routing/routes.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

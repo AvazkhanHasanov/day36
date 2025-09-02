@@ -10,26 +10,33 @@ class Onboarding2 extends StatefulWidget {
   @override
   State<Onboarding2> createState() => _Onboarding2State();
 }
+
 class _Onboarding2State extends State<Onboarding2> {
-  final controller=PageController();
-  final int currentPage=0;
+  final controller = PageController();
+  final int currentPage = 0;
 
   @override
-void dispose(){
-  super.dispose();
-  controller.dispose();
-}
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: OnboardingPageAppBar(currentState: 1),
       body: PageView(
-        controller:controller,
+        controller: controller,
         children: [
-          CookingLevel(controller: controller,),
-          Preferences(controller: controller,),
-          Allergic(controller: controller,),
+          CookingLevel(
+            controller: controller,
+          ),
+          Preferences(
+            controller: controller,
+          ),
+          Allergic(
+            controller: controller,
+          ),
         ],
       ),
     );

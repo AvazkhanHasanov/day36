@@ -20,7 +20,7 @@ class RecipeBottomNavigationBar extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.transparent,AppColors.brownF9],
+                colors: [Colors.transparent,Theme.of(context).colorScheme.primary],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),

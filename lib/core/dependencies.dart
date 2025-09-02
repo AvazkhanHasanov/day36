@@ -15,8 +15,7 @@ import '../data/repositories/recipe_repository.dart';
 
 import '../features/auth/managers/auth_view_model.dart';
 import '../features/categories/managers/categories_view_model.dart';
-import '../features/onboarding/managers/onboarding_view_model.dart';
-import 'auth_interceptor/auth_interceptor.dart';
+import 'auth_interceptor.dart';
 import 'client.dart';
 
 final dependencies = <SingleChildWidget>[
@@ -36,8 +35,6 @@ final dependencies = <SingleChildWidget>[
   ChangeNotifierProvider(create: (context) => ImageViewModel()),
   ChangeNotifierProvider(create: (context) => ThemeViewModel()),
   ChangeNotifierProvider(create: (context) => CategoriesViewModel(categoryRepo: context.read())),
+  //olsam hatolik beryapdi
   ChangeNotifierProvider(create: (context) => AuthViewModel(authRepo: context.read())),
-  ChangeNotifierProvider(
-    create: (context) => OnboardingViewModel(onboardingRepo: context.read(), categoryRepo: context.read()),
-  ),
 ];

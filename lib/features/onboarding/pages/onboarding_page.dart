@@ -1,7 +1,7 @@
 import 'package:day_36_darsda1/core/utils/icons.dart';
 import 'package:day_36_darsda1/features/onboarding/managers/onboarding_view_model.dart';
-import 'package:day_36_darsda1/features/onboarding/pages/o_b2.dart';
-import 'package:day_36_darsda1/features/onboarding/pages/onboarding1_1.dart';
+import 'package:day_36_darsda1/features/onboarding/pages/last.dart';
+import 'package:day_36_darsda1/features/onboarding/pages/first.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -44,7 +44,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       child: CircularProgressIndicator(),
                     );
                   } else {
-                    return Onboarding1(
+                    return First(
                       text: vm.onboarding[index].title,
                       subText: vm.onboarding[index].subtitle,
                       photo: vm.onboarding[index].image,
@@ -58,7 +58,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     );
                   }
                 } else {
-                  return OB2();
+                  return Last();
                 }
               },
             );

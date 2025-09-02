@@ -1,4 +1,4 @@
-import 'package:day_36_darsda1/core/auth_interceptor/auth_interceptor.dart';
+import 'package:day_36_darsda1/core/auth_interceptor.dart';
 import 'package:day_36_darsda1/core/utils/result.dart';
 import 'package:dio/dio.dart';
 
@@ -8,7 +8,7 @@ class ApiClient {
   ApiClient({required this.interceptor}) {
     _dio = Dio(
       BaseOptions(
-        baseUrl: "http://192.168.226.9:8888/api/v1",
+        baseUrl: "http://10.102.131.88:8888/api/v1",
         validateStatus: (status) => true,
       ),
     )..interceptors.add(interceptor);

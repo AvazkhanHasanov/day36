@@ -1,3 +1,4 @@
+import 'package:day_36_darsda1/core/routing/routes.dart';
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/icons.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
@@ -50,7 +51,7 @@ final int id;
                 ),
                 Spacer(),
                 GestureDetector(
-                  onTap: () => context.push('/reviews/$id'),
+                  onTap: () => context.push(Routes.getReviews(id)),
                   child: Padding(
                     padding: EdgeInsets.symmetric(vertical: 6.h),
                     child: Row(

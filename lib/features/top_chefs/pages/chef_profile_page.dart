@@ -57,7 +57,7 @@ class ChefProfile extends StatelessWidget {
                             recipesCount: profile.recipesCount,
                           ),
 
-                          Text('Recipes', style: AppStyles.subtextOq),
+                          Text('Recipes', style: AppStyles.subtextOq.copyWith(color: Theme.of(context).colorScheme.primary)),
                           Divider(
                             color: AppColors.redPinkMain,
                           ),

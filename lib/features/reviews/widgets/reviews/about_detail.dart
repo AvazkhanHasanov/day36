@@ -1,3 +1,4 @@
+import 'package:day_36_darsda1/core/routing/routes.dart';
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:day_36_darsda1/features/reviews/widgets/reviews/about_row.dart';
@@ -15,7 +16,7 @@ class AboutDetail extends StatelessWidget {
     required this.firstName,
     required this.rating,
     required this.reviewsCount,
-    required this.id
+    required this.id,
   });
 
   final String title, profilePhoto, username, firstName;
@@ -49,7 +50,7 @@ class AboutDetail extends StatelessWidget {
           image: profilePhoto,
         ),
         GestureDetector(
-          onTap: () => context.push('/createReview/$id'),
+          onTap: () => context.push(Routes.getCreateReview(id)),
           child: Container(
             alignment: Alignment.center,
             width: 126.w,
