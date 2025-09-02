@@ -178,7 +178,7 @@ class AppStyles {
     color: AppColors.brownF9,
     fontFamily: 'League',
   );
-  static final tSW500S8 = TextStyle(
+  static final tSW500 = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 8.sp,
     color: AppColors.brownF9,

@@ -19,7 +19,7 @@ class ChefContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(30.r),
         color: AppColors.redPinkMain,
       ),
-      child: Text('Following', style: AppStyles.tSW500S8),
+      child: Text('Following', style: AppStyles.tSW500),
     );
   }
 }

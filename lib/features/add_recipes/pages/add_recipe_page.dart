@@ -1,14 +1,16 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/icons.dart';
-import 'package:day_36_darsda1/features/add_recipes/pages/add_ingredient.dart';
-import 'package:day_36_darsda1/features/add_recipes/pages/add_text.dart';
+import 'package:day_36_darsda1/features/add_recipes/widgets/add_ingredient.dart';
+import 'package:day_36_darsda1/features/add_recipes/widgets/add_text.dart';
 import 'package:day_36_darsda1/features/add_recipes/widgets/add_image.dart';
+import 'package:day_36_darsda1/features/add_recipes/widgets/ingredient_text_form_field.dart';
 import 'package:day_36_darsda1/features/auth/widgets/recipe_text_form_field.dart';
 import 'package:day_36_darsda1/features/categories/widgets/recipes_widgets/recipes_icon_button.dart';
 import 'package:day_36_darsda1/features/common/widgets/bottom_navigation_bar/recipe_bottom_navigation_bar.dart';
 import 'package:day_36_darsda1/features/profile/widgets/text_button_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class AddRecipePage extends StatefulWidget {
@@ -24,20 +26,39 @@ class _AddRecipePageState extends State<AddRecipePage> {
   final timeController = TextEditingController();
   final List<TextEditingController> nameController = [];
   final List<TextEditingController> amountController = [];
+  final List<TextEditingController> instructionController = [];
 
   @override
   void dispose() {
     titleController.dispose();
     descriptionController.dispose();
     timeController.dispose();
-    nameController.forEach((value) => value.dispose());
-    amountController.forEach((value) => value.dispose());
+    for (var value in instructionController) {
+      value.dispose();
+    }
+    for (var value in nameController) {
+      value.dispose();
+    }
+    for (var value in amountController) {
+      value.dispose();
+    }
     super.dispose();
+  }
+
+  void _addInstruction() {
+    instructionController.add(TextEditingController());
+    setState(() {});
   }
 
   void _addIngredient() {
     nameController.add(TextEditingController());
     amountController.add(TextEditingController());
+    setState(() {});
+  }
+
+  void _removeInstruction(int index) {
+    instructionController[index].dispose();
+    instructionController.removeAt(index);
     setState(() {});
   }
 
@@ -51,6 +72,9 @@ class _AddRecipePageState extends State<AddRecipePage> {
 
   @override
   void initState() {
+    _addInstruction();
+    _addInstruction();
+    _addInstruction();
     _addIngredient();
     _addIngredient();
     super.initState();
@@ -93,19 +117,34 @@ class _AddRecipePageState extends State<AddRecipePage> {
                     RecipeTextFormField(
                       label: 'Title',
                       hint: 'Recipe title',
-                      validator: (value) {},
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'joyni to`ldirshi shart';
+                        }
+                        return null;
+                      },
                       controller: titleController,
                     ),
                     RecipeTextFormField(
                       label: 'Description',
                       hint: 'Recipe description',
-                      validator: (value) {},
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'joyni to`ldirshi shart';
+                        }
+                        return null;
+                      },
                       controller: descriptionController,
                     ),
                     RecipeTextFormField(
                       label: 'Time Recipe',
                       hint: '1hour,30min, ...',
-                      validator: (value) {},
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'joyni to`ldirshi shart';
+                        }
+                        return null;
+                      },
                       controller: timeController,
                     ),
                   ],
@@ -131,6 +170,42 @@ class _AddRecipePageState extends State<AddRecipePage> {
                 text: '+ Add Ingredient',
                 onPressed: () {
                   _addIngredient();
+                },
+                backgroundColor: AppColors.redPinkMain,
+                textColor: AppColors.beige,
+              ),
+              AddText(text: 'Instructions'),
+              Column(
+                spacing: 10.h,
+                children: [
+                  ...List.generate(
+                    instructionController.length,
+                    (index) => Row(
+                      spacing: 7.w,
+                      children: [
+                        SvgPicture.asset(AppIcons.threeDots),
+                        IngredientTextFormField(
+                          hint: 'instructions 1',
+                          validator: (value) {},
+                          controller: instructionController[index],
+                          width: 301.w,
+                        ),
+                        RecipesIconButton(
+                          icon: AppIcons.bin,
+                          size: Size(41.r, 41.r),
+                          onPressed: () {
+                            _removeInstruction(index);
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              TextButtonProfile(
+                text: '+ Add Instruction',
+                onPressed: () {
+                  _addInstruction();
                 },
                 backgroundColor: AppColors.redPinkMain,
                 textColor: AppColors.beige,

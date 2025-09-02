@@ -1,3 +1,4 @@
+import 'package:day_36_darsda1/features/common/managers/image_view_model.dart';
 import 'package:day_36_darsda1/features/common/managers/themes_view_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +33,7 @@ final dependencies = <SingleChildWidget>[
   Provider(create: (context) => OnboardingRepository(client: context.read())),
   Provider(create: (context) => PreferencesRepository(client: context.read())),
   Provider(create: (context) => RecipeRepository(client: context.read())),
+  ChangeNotifierProvider(create: (context) => ImageViewModel()),
   ChangeNotifierProvider(create: (context) => ThemeViewModel()),
   ChangeNotifierProvider(create: (context) => CategoriesViewModel(categoryRepo: context.read())),
   ChangeNotifierProvider(create: (context) => AuthViewModel(authRepo: context.read())),
