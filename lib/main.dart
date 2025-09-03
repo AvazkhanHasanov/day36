@@ -1,13 +1,22 @@
 import 'package:day_36_darsda1/core/dependencies.dart';
+import 'package:day_36_darsda1/data/models/recipes/category_model.dart';
 import 'package:day_36_darsda1/features/common/managers/themes_view_model.dart';
 import 'package:day_36_darsda1/features/common/pages/apptheme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'core/routing/router.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  var dir = await getTemporaryDirectory();
+  var box = Hive.init(dir.path);
+  Hive.registerAdapter(CategoriesModelAdapter());
+
+  Hive.openBox<CategoriesModel>('category');
   runApp(RecipeApp());
 }
 

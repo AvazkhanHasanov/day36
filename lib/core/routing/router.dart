@@ -22,7 +22,7 @@ import '../../features/community/pages/community_page.dart';
 import '../../features/my_recipes/pages/my_recipes_page.dart';
 
 final router = GoRouter(
-  initialLocation:Routes.home,
+  initialLocation:Routes.categoriesPage,
 
   routes: [
     GoRoute(

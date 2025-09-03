@@ -18,109 +18,103 @@ class AddImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<ImageViewModel>(
-      builder: (context, vm, child) => GestureDetector(
-        onTap: () {
-          context.read<ImageViewModel>().selectedImage(true);
-          // context.pop();
-        },
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Container(
-              width: 362.w,
-              height: 281.h,
-              decoration: BoxDecoration(
-                color: AppColors.pink.withAlpha((255 / 2).toInt()),
-                borderRadius: BorderRadius.circular(20.r),
-              ),
-              child: vm.isLoading
-                  ? Center(child: CircularProgressIndicator())
-                  : (vm.selectedImagePath == null)
-                  ? Center(
-                      child: InkWell(
-                        onTap: () {
-                          showModalBottomSheet(
-                            context: context,
-                            builder: (context) => Padding(
-                              padding: EdgeInsets.symmetric(vertical: 45.h, horizontal: 12.w),
-                              child: Row(
-                                spacing: 14.w,
-                                children: [
-                                  Expanded(
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        context.read<ImageViewModel>().selectedImage(false);
-                                        context.pop();
-                                      },
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(15.r),
-                                          color: Colors.grey.withAlpha(100),
-                                        ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Icon(Icons.photo_camera, color: Colors.blue, size: 35),
-                                            SizedBox(height: 8),
-                                            Text("Camera"),
-                                          ],
-                                        ),
+      builder: (context, vm, child) => Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            width: 362.w,
+            height: 281.h,
+            decoration: BoxDecoration(
+              color: AppColors.pink.withAlpha((255 / 2).toInt()),
+              borderRadius: BorderRadius.circular(20.r),
+            ),
+            child: vm.isLoading
+                ? Center(child: CircularProgressIndicator())
+                : (vm.selectedImagePath == null)
+                ? Center(
+                    child: InkWell(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (context) => Padding(
+                            padding: EdgeInsets.symmetric(vertical: 45.h, horizontal: 12.w),
+                            child: Row(
+                              spacing: 14.w,
+                              children: [
+                                Expanded(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      context.read<ImageViewModel>().selectedImage(false);
+                                      context.pop();
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15.r),
+                                        color: Colors.grey.withAlpha(100),
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Icon(Icons.photo_camera, color: Colors.blue, size: 35),
+                                          SizedBox(height: 8),
+                                          Text("Camera"),
+                                        ],
                                       ),
                                     ),
                                   ),
-                                  Expanded(
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        context.read<ImageViewModel>().selectedImage(true);
-                                        context.pop();
-                                      },
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(15.r),
-                                          color: Colors.grey.withAlpha(100),
-                                        ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Icon(Icons.image, color: Colors.blue, size: 35),
-                                            SizedBox(height: 8),
-                                            Text("Gallery"),
-                                          ],
-                                        ),
+                                ),
+                                Expanded(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      context.read<ImageViewModel>().selectedImage(true);
+                                      context.pop();
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15.r),
+                                        color: Colors.grey.withAlpha(100),
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Icon(Icons.image, color: Colors.blue, size: 35),
+                                          SizedBox(height: 8),
+                                          Text("Gallery"),
+                                        ],
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                          );
-                        },
-                      ),
-                    )
-                  : Image.file(
-                      File(vm.selectedImagePath!),
-                      fit: BoxFit.cover,
+                          ),
+                        );
+                      },
                     ),
-            ),
-            Column(
-              spacing: 15.h,
-              children: [
-                RecipesIconButton(
-                  size: Size(74.w, 71.h),
-                  backgroundColor: AppColors.redPinkMain,
-                  foregroundColor: AppColors.brownF9,
-                  icon: AppIcons.play,
-                  onPressed: () {},
-                ),
-                if (vm.selectedImagePath == null)
-                  Text(
-                    'Add video recipe',
-                    style: AppStyles.tSW500.copyWith(fontSize: 13.sp),
+                  )
+                : Image.file(
+                    File(vm.selectedImagePath!),
+                    fit: BoxFit.cover,
                   ),
-              ],
-            ),
-          ],
-        ),
+          ),
+          Column(
+            spacing: 15.h,
+            children: [
+              RecipesIconButton(
+                size: Size(74.w, 71.h),
+                backgroundColor: AppColors.redPinkMain,
+                foregroundColor: AppColors.brownF9,
+                icon: AppIcons.play,
+                onPressed: () {},
+              ),
+              if (vm.selectedImagePath == null)
+                Text(
+                  'Add video recipe',
+                  style: AppStyles.tSW500.copyWith(fontSize: 13.sp),
+                ),
+            ],
+          ),
+        ],
       ),
     );
   }
