@@ -1,8 +1,8 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/icons.dart';
+import 'package:day_36_darsda1/features/add_recipes/widgets/add_image.dart';
 import 'package:day_36_darsda1/features/add_recipes/widgets/add_ingredient.dart';
 import 'package:day_36_darsda1/features/add_recipes/widgets/add_text.dart';
-import 'package:day_36_darsda1/features/add_recipes/widgets/add_image.dart';
 import 'package:day_36_darsda1/features/add_recipes/widgets/ingredient_text_form_field.dart';
 import 'package:day_36_darsda1/features/auth/widgets/recipe_text_form_field.dart';
 import 'package:day_36_darsda1/features/categories/widgets/recipes_widgets/recipes_icon_button.dart';
@@ -11,7 +11,8 @@ import 'package:day_36_darsda1/features/profile/widgets/text_button_profile.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
+
+import '../../common/widgets/recipe_app_bar_with_title.dart';
 
 class AddRecipePage extends StatefulWidget {
   const AddRecipePage({super.key});
@@ -84,18 +85,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      appBar: AppBar(
-        leading: RecipesIconButton(
-          icon: AppIcons.backArrow,
-          onPressed: () {
-            context.pop();
-          },
-          backgroundColor: Colors.transparent,
-          foregroundColor: AppColors.redPinkMain,
-        ),
-        centerTitle: true,
-        title: Text('Create Recipes'),
-      ),
+      appBar: RecipeAppBarWithTitle(text: 'Create Recipes'),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 32.w, right: 32.w, bottom: 130.h),

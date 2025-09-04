@@ -1,21 +1,19 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
-import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-class SwitchText extends StatefulWidget {
-  SwitchText({
+class SwitchText extends StatelessWidget {
+  const SwitchText({
     super.key,
     required this.text,
+    required this.textStyle,
+    required this.value,
+    required this.onChanged,
   });
 
   final String text;
-
-  @override
-  State<SwitchText> createState() => _SwitchTextState();
-}
-
-class _SwitchTextState extends State<SwitchText> {
-  bool isSelected = false;
+  final TextStyle textStyle;
+  final bool value;
+  final ValueChanged<bool> onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +21,8 @@ class _SwitchTextState extends State<SwitchText> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          widget.text,
-          style: AppStyles.tSW400S15,
+          text,
+          style: textStyle,
         ),
         Switch(
           activeColor: AppColors.brownF9,
@@ -33,11 +31,8 @@ class _SwitchTextState extends State<SwitchText> {
           inactiveTrackColor: AppColors.pink,
           trackOutlineColor: WidgetStateColor.transparent,
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          value: isSelected,
-          onChanged: (value) {
-            isSelected = !isSelected;
-            setState(() {});
-          },
+          value: value,
+          onChanged: onChanged,
         ),
       ],
     );

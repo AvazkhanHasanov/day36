@@ -1,5 +1,4 @@
 import 'package:day_36_darsda1/core/utils/icons.dart';
-import 'package:day_36_darsda1/features/common/managers/themes_view_model.dart';
 import 'package:day_36_darsda1/features/home/widgets/app_bar_icon_button.dart';
 import 'package:day_36_darsda1/features/home/widgets/home_bottom.dart';
 import 'package:flutter/material.dart';
@@ -39,12 +38,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
           actions: [
-            AppBarIconButton(
-              onPressed: () {
-                context.read<ThemeViewModel>().changeTheme();
-              },
-              icon: AppIcons.threeDots,
-            ),
+
             AppBarIconButton(
               onPressed: () {},
               icon: AppIcons.notification,

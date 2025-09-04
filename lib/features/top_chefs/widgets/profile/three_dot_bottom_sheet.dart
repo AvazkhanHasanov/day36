@@ -4,11 +4,23 @@ import 'package:day_36_darsda1/features/top_chefs/widgets/profile/switch_text.da
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ThreeDotBottomSheet extends StatelessWidget {
+class ThreeDotBottomSheet extends StatefulWidget {
   const ThreeDotBottomSheet({
-    super.key, required this.username, required this.profilePhoto,
+    super.key,
+    required this.username,
+    required this.profilePhoto,
   });
-  final String username,profilePhoto;
+
+  final String username, profilePhoto;
+
+  @override
+  State<ThreeDotBottomSheet> createState() => _ThreeDotBottomSheetState();
+}
+
+class _ThreeDotBottomSheetState extends State<ThreeDotBottomSheet> {
+  bool accountBlock = false;
+  bool accountMute = false;
+  bool notifications = false;
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +44,15 @@ class ThreeDotBottomSheet extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(31.r),
-                  child: Image.network(profilePhoto, width: 64.w,
-                    height: 63.h,fit: BoxFit.cover,),
+                  child: Image.network(
+                    widget.profilePhoto,
+                    width: 64.w,
+                    height: 63.h,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 Text(
-                  '@$username',
+                  '@${widget.username}',
                   style: AppStyles.subtitle,
                 ),
               ],
@@ -45,9 +61,24 @@ class ThreeDotBottomSheet extends StatelessWidget {
               'Manage notifications',
               style: AppStyles.tSW500S15Black,
             ),
-            SwitchText(text: 'Mute notifications'),
-            SwitchText(text: 'Mute Account'),
-            SwitchText(text: 'Block Account'),
+            SwitchText(
+              text: 'Mute notifications',
+              textStyle: AppStyles.tSW400S15,
+              value: notifications,
+              onChanged: (value) => setState(() => notifications = value),
+            ),
+            SwitchText(
+              text: 'Mute Account',
+              textStyle: AppStyles.tSW400S15,
+              value: accountMute,
+              onChanged: (value) => setState(() => accountMute = value),
+            ),
+            SwitchText(
+              text: 'Block Account',
+              textStyle: AppStyles.tSW400S15,
+              value: accountBlock,
+              onChanged: (value) => setState(() => accountBlock = value),
+            ),
           ],
         ),
       ),

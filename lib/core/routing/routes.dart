@@ -22,4 +22,6 @@ class Routes {
   static final profile = '/profile';
   static final addRecipePage = '/addRecipePage';
   static final community = '/community';
+  static final setting='/setting';
+  static final notification='/notification';
 }

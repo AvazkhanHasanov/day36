@@ -5,17 +5,20 @@ import 'package:flutter/material.dart';
 class AppTheme {
   ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.brownF9,
-
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.brownF9,
       surfaceTintColor: Colors.transparent,
-      titleTextStyle: AppStyles.titlle,
+      titleTextStyle:AppStyles.appBarT,
     ),
     colorScheme: ColorScheme.light(primary: AppColors.beige),
   );
   ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.beige,
-    appBarTheme: AppBarTheme(backgroundColor: AppColors.beige, surfaceTintColor: Colors.transparent),
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColors.beige,
+      surfaceTintColor: Colors.transparent,
+      titleTextStyle: AppStyles.appBarT,
+    ),
     colorScheme: ColorScheme.dark(primary: AppColors.brownF9),
   );
 }

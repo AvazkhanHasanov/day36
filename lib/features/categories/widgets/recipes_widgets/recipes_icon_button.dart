@@ -6,11 +6,12 @@ class RecipesIconButton extends StatelessWidget {
   const RecipesIconButton({
     this.padding=EdgeInsets.zero,
     this.size=const Size(10, 10),
-    super.key,
+
     required this.icon,
     required this.onPressed,
     this.backgroundColor = AppColors.pink,
     this.foregroundColor = AppColors.pinkSubC,
+    super.key,
   });
 
   final String icon;

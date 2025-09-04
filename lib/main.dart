@@ -15,8 +15,8 @@ void main() async {
   var dir = await getTemporaryDirectory();
   var box = Hive.init(dir.path);
   Hive.registerAdapter(CategoriesModelAdapter());
-
   Hive.openBox<CategoriesModel>('category');
+  Hive.openBox('setting');
   runApp(RecipeApp());
 }
 

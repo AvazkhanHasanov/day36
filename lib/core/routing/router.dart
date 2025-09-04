@@ -12,6 +12,8 @@ import 'package:day_36_darsda1/features/onboarding/pages/onboarding_page.dart';
 import 'package:day_36_darsda1/features/profile/pages/profile_page.dart';
 import 'package:day_36_darsda1/features/reviews/pages/create_review_page.dart';
 import 'package:day_36_darsda1/features/reviews/pages/reviews_page.dart';
+import 'package:day_36_darsda1/features/setting/pages/notification_page.dart';
+import 'package:day_36_darsda1/features/setting/pages/setting_page.dart';
 import 'package:day_36_darsda1/features/top_chefs/pages/chef_profile_page.dart';
 import 'package:day_36_darsda1/features/top_chefs/pages/top_chefs_page.dart';
 import 'package:day_36_darsda1/features/trending/pages/trending_page.dart';
@@ -22,7 +24,7 @@ import '../../features/community/pages/community_page.dart';
 import '../../features/my_recipes/pages/my_recipes_page.dart';
 
 final router = GoRouter(
-  initialLocation:Routes.categoriesPage,
+  initialLocation: Routes.setting,
 
   routes: [
     GoRoute(
@@ -34,7 +36,7 @@ final router = GoRouter(
         ),
       ),
     ),
-    GoRoute(path:Routes.categoriesPage, builder: (context, state) => CategoriesPage()),
+    GoRoute(path: Routes.categoriesPage, builder: (context, state) => CategoriesPage()),
     GoRoute(
       path: Routes.detailPage,
       builder: (context, state) => RecipesDetailPage(
@@ -93,7 +95,8 @@ final router = GoRouter(
     GoRoute(
       path: Routes.community,
       builder: (context, state) => CommunityPage(),
-    ), GoRoute(
+    ),
+    GoRoute(
       path: Routes.addRecipePage,
       builder: (context, state) => AddRecipePage(),
     ),
@@ -113,5 +116,7 @@ final router = GoRouter(
         id: int.parse(state.pathParameters['id']!),
       ),
     ),
+    GoRoute(path: Routes.setting, builder: (context, state) => SettingPage()),
+    GoRoute(path: Routes.notification, builder: (context, state) => NotificationPage()),
   ],
 );
