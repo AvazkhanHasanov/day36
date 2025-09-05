@@ -5,6 +5,7 @@ class Routes {
   static String getDetailPage(int id) => '/detail/$id';
   static final onboarding = '/onboarding';
   static final login = '/login';
+  static final  launch  = '/launch';
   static final signUp = '/signUp';
   static final completeYourProfilePage = '/completeYourProfilePage';
   static final sendOTP = '/SendOTP';
@@ -24,4 +25,5 @@ class Routes {
   static final community = '/community';
   static final setting='/setting';
   static final notification='/notification';
+  static final  followersPage='/followersPage';
 }

@@ -1,3 +1,4 @@
+import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -15,33 +16,21 @@ class Launch extends StatefulWidget {
 
 class _LaunchState extends State<Launch> {
   Future<bool> isRegistered() async {
-    final preference = FlutterSecureStorage();
-    if (await preference.read(key: 'Zebra') != null) {
-      return true;
-    } else {
-      return false;
-    }
+    final storage = FlutterSecureStorage();
+    final token = await storage.read(key: 'token');
+    return token != null && token.isNotEmpty;
   }
-
-  // @override
-  // void initState() {
-  //   isRegistered().then((value) async {
-  //     await Future.delayed(Duration(seconds: 4));
-  //     if (value) {
-  //       context.go(RouteName.categoriesPage);
-  //     } else {
-  //       context.go(RouteName.login);
-  //     }
-  //   });
-  //   super.initState();
-  // }
 
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
-      if (mounted) {
-        context.push(Routes.categoriesPage);
+
+    isRegistered().then((value) async {
+      await Future.delayed(Duration(seconds: 4));
+      if (value) {
+        context.go(Routes.home);
+      } else {
+        context.go(Routes.login);
       }
     });
   }
@@ -56,18 +45,11 @@ class _LaunchState extends State<Launch> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/img.png',
+              'assets/img2.png',
               width: 153.w,
               height: 153.h,
             ),
-            Text(
-              'DishDash',
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 63.84.sp,
-                color: AppColors.brownF9,
-              ),
-            ),
+            Text('DishDash', style: AppStyles.tSW600S20Oq.copyWith(fontSize: 63.84.sp)),
           ],
         ),
       ),

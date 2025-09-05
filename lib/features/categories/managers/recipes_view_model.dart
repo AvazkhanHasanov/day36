@@ -14,24 +14,17 @@ class RecipesViewModel extends ChangeNotifier {
 
   final int categoryId;
   List<RecipesModel> elements = [];
-  bool isLoading =true;
+  bool isLoading = true;
   String? error;
 
   Future<void> fetchRecipes(int categoryId) async {
     isLoading = true;
     notifyListeners();
-    var result = await _recipesRepo.getAll(queryParam: {'Category':categoryId});
+    var result = await _recipesRepo.getAll(queryParam: {'Category': categoryId});
 
     result.fold(
-      (exception) {
-        print('Error fetching recipes: $error');
-        return error = exception.toString();
-      },
-
-      (value) {
-        print('Fetched ${elements.length} recipes: $elements');
-        return elements = value;
-      },
+      (exception) => error = exception.toString(),
+      (value) => elements = value,
     );
 
     isLoading = false;

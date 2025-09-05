@@ -3,7 +3,7 @@ import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  ThemeData lightTheme = ThemeData(
+ final  ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.brownF9,
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.brownF9,
@@ -12,7 +12,7 @@ class AppTheme {
     ),
     colorScheme: ColorScheme.light(primary: AppColors.beige),
   );
-  ThemeData darkTheme = ThemeData(
+ final  ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.beige,
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.beige,

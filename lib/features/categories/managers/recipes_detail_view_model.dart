@@ -2,10 +2,10 @@ import 'package:day_36_darsda1/data/models/recipes/detail_model.dart';
 import 'package:day_36_darsda1/data/repositories/recipe_repository.dart';
 import 'package:flutter/material.dart';
 
-class DetailViewModel extends ChangeNotifier {
+class RecipesDetailViewModel extends ChangeNotifier {
   final RecipeRepository _recipesRepo;
 
-  DetailViewModel({required int detailId, required RecipeRepository recipesRepo})
+  RecipesDetailViewModel({required int detailId, required RecipeRepository recipesRepo})
     : _recipesRepo = recipesRepo{
     fetchDetail(detailId: detailId);
   }

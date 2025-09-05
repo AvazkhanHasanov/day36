@@ -1,5 +1,9 @@
 import 'package:hive/hive.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 part 'category_model.g.dart';
+
+@JsonSerializable()
 @HiveType(typeId: 0)
 class CategoriesModel {
   @HiveField(0)
@@ -11,11 +15,7 @@ class CategoriesModel {
 
   CategoriesModel({required this.id, required this.title, required this.image});
 
-  factory CategoriesModel.fromJson(Map<String, dynamic> json) {
-    return CategoriesModel(
-      id: json['id'],
-      title: json['title'],
-      image: json['image'],
-    );
-  }
+  factory CategoriesModel.fromJson(Map<String, dynamic> json) => _$CategoriesModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CategoriesModelToJson(this);
 }

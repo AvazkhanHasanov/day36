@@ -1,5 +1,5 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
-import 'package:day_36_darsda1/core/utils/styles.dart';
+import 'package:day_36_darsda1/features/auth/widgets/text_column.dart';
 import 'package:day_36_darsda1/features/auth/widgets/auth_app_bar.dart';
 import 'package:day_36_darsda1/features/auth/widgets/recipe_text_form_field.dart';
 import 'package:day_36_darsda1/features/common/widgets/recipe_container.dart';
@@ -30,26 +30,12 @@ class _SendOTPState extends State<SendOTP> {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(
-              width: 356.w,
-              child: Column(
-                spacing: 20.h,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Hello there!',
-                    style: AppStyles.tSW600S20Oq,
-                  ),
-                  Text(
-                    'Enter your email address. We will send a code verification in the next step.',
-                    style: AppStyles.tSW400S13Oq,
-                  ),
-                ],
-              ),
+            TextColumn(
+              title: 'Hello there!',
+              subtitle: 'Enter your email address. We will send a code verification in the next step.',
             ),
             SizedBox(height: 43.h),
             RecipeTextFormField(
-
               label: 'Email',
               hint: 'example@example.com',
               validator: (value) {
@@ -59,7 +45,7 @@ class _SendOTPState extends State<SendOTP> {
             ),
             Spacer(),
             Padding(
-              padding:  EdgeInsets.only(bottom: 40.h),
+              padding: EdgeInsets.only(bottom: 40.h),
               child: RecipeContainer(
                 text: 'Continue',
                 onTap: () {},

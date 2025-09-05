@@ -8,11 +8,12 @@ import 'package:go_router/go_router.dart';
 class RecipeAppBarWithTitle extends StatelessWidget implements PreferredSizeWidget {
   const RecipeAppBarWithTitle({
     required this.text,
+    this.centerTitle=true,
     super.key,
   });
 
   final String text;
-
+final bool centerTitle;
   @override
   Size get preferredSize => Size(double.infinity, 56.h);
 
@@ -27,7 +28,7 @@ class RecipeAppBarWithTitle extends StatelessWidget implements PreferredSizeWidg
         backgroundColor: Colors.transparent,
         foregroundColor: AppColors.redPinkMain,
       ),
-      centerTitle: true,
+      centerTitle: centerTitle,
       title: Text(text),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:day_36_darsda1/data/repositories/recipe_repository.dart';
-import 'package:day_36_darsda1/features/categories/managers/detail_view_model.dart';
+import 'package:day_36_darsda1/features/categories/managers/recipes_detail_view_model.dart';
 import 'package:day_36_darsda1/features/categories/widgets/detail_page/description.dart';
 import 'package:day_36_darsda1/features/categories/widgets/detail_page_rich_text.dart';
 import 'package:day_36_darsda1/features/categories/widgets/detail_profile.dart';
@@ -26,7 +26,7 @@ class RecipesDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => DetailViewModel(
+      create: (context) => RecipesDetailViewModel(
         recipesRepo: context.read<RecipeRepository>(),
         detailId: detailId,
       ),
@@ -36,7 +36,7 @@ class RecipesDetailPage extends StatelessWidget {
             title: title,
           ),
           body: SingleChildScrollView(
-            child: Consumer<DetailViewModel>(
+            child: Consumer<RecipesDetailViewModel>(
               builder: (context, vm, child) {
                 final detail = vm.detail;
                 if (vm.isLoading) {

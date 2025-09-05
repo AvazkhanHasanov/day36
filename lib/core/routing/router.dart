@@ -1,7 +1,7 @@
 import 'package:day_36_darsda1/core/routing/routes.dart';
 import 'package:day_36_darsda1/features/auth/pages/login_page.dart';
 import 'package:day_36_darsda1/features/auth/pages/password/enter.dart';
-import 'package:day_36_darsda1/features/auth/pages/password/send_OTP.dart';
+import 'package:day_36_darsda1/features/auth/pages/password/send_otp.dart';
 import 'package:day_36_darsda1/features/auth/pages/complete_your_profile_page.dart';
 import 'package:day_36_darsda1/features/auth/pages/sign_up_page.dart';
 import 'package:day_36_darsda1/features/categories/pages/categories_page.dart';
@@ -20,11 +20,13 @@ import 'package:day_36_darsda1/features/trending/pages/trending_page.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/add_recipes/pages/add_recipe_page.dart';
+import '../../features/common/pages/followers_data/followers_page.dart';
 import '../../features/community/pages/community_page.dart';
+import '../../features/launch/launch.dart';
 import '../../features/my_recipes/pages/my_recipes_page.dart';
 
 final router = GoRouter(
-  initialLocation: Routes.setting,
+  initialLocation: Routes.followersPage,
 
   routes: [
     GoRoute(
@@ -118,5 +120,7 @@ final router = GoRouter(
     ),
     GoRoute(path: Routes.setting, builder: (context, state) => SettingPage()),
     GoRoute(path: Routes.notification, builder: (context, state) => NotificationPage()),
+    GoRoute(path: Routes.launch, builder: (context, state) => Launch() ),
+    GoRoute(path: Routes.followersPage, builder: (context, state) =>  FollowersPage() ),
   ],
 );

@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../core/utils/styles.dart';
 import '../../common/widgets/recipe_app_bar_with_title.dart';
 
 class AddRecipePage extends StatefulWidget {
@@ -175,6 +176,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
                       children: [
                         SvgPicture.asset(AppIcons.threeDots),
                         IngredientTextFormField(
+                          hintStyle: AppStyles.hintT,
                           hint: 'instructions 1',
                           validator: (value) {},
                           controller: instructionController[index],

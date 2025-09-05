@@ -11,13 +11,13 @@ import 'package:provider/provider.dart';
 import 'core/routing/router.dart';
 
 void main() async {
+  runApp(RecipeApp());
   WidgetsFlutterBinding.ensureInitialized();
   var dir = await getTemporaryDirectory();
   var box = Hive.init(dir.path);
   Hive.registerAdapter(CategoriesModelAdapter());
   Hive.openBox<CategoriesModel>('category');
   Hive.openBox('setting');
-  runApp(RecipeApp());
 }
 
 class RecipeApp extends StatelessWidget {

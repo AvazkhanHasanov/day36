@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../core/utils/styles.dart';
+
 class AddIngredient extends StatelessWidget {
   const AddIngredient({
     super.key,
@@ -25,12 +27,14 @@ class AddIngredient extends StatelessWidget {
         children: [
           SvgPicture.asset(AppIcons.threeDots),
           IngredientTextFormField(
+            hintStyle: AppStyles.hintT,
             width: 70.w,
             hint: 'Amt',
             validator: (value) {},
             controller: amountController,
           ),
           IngredientTextFormField(
+            hintStyle: AppStyles.hintT,
             width: 224.w,
             hint: 'Ingredient',
             validator: (value) {},

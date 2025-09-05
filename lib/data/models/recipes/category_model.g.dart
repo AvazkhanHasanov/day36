@@ -45,3 +45,21 @@ class CategoriesModelAdapter extends TypeAdapter<CategoriesModel> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+CategoriesModel _$CategoriesModelFromJson(Map<String, dynamic> json) =>
+    CategoriesModel(
+      id: (json['id'] as num).toInt(),
+      title: json['title'] as String,
+      image: json['image'] as String,
+    );
+
+Map<String, dynamic> _$CategoriesModelToJson(CategoriesModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'image': instance.image,
+    };

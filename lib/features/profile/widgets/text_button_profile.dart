@@ -8,20 +8,24 @@ class TextButtonProfile extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
-    this.backgroundColor=AppColors.pink,
-    this.textColor=AppColors.pinkSubC
+    this.backgroundColor = AppColors.pink,
+    this.textColor = AppColors.pinkSubC,
+    this.width = 173,
+    this.height = 27,
   });
 
   final String text;
   final Color backgroundColor;
   final Color textColor;
   final VoidCallback onPressed;
+  final double width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 173.w,
-      height: 27.h,
+      width: width.w,
+      height: height.h,
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(

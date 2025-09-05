@@ -4,29 +4,30 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../core/utils/colors.dart';
 import '../../../core/utils/icons.dart';
-import '../../../core/utils/styles.dart';
 
 class IngredientTextFormField extends StatelessWidget {
   const IngredientTextFormField({
     super.key,
     required this.hint,
-    required this.validator,
+    this.validator,
     this.isPassword = false,
     required this.controller,
     this.onTap,
     this.readOnly = false,
     required this.width,
+    required this.hintStyle,
     // required this.focusNode,
   });
 
   // final FocusNode focusNode;
   final String hint;
-  final String? Function(String?) validator;
+  final String? Function(String?)? validator;
   final bool isPassword;
   final double width;
   final TextEditingController controller;
   final VoidCallback? onTap;
   final bool readOnly;
+  final TextStyle hintStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,7 @@ class IngredientTextFormField extends StatelessWidget {
             filled: true,
             fillColor: AppColors.pink,
             hintText: hint,
-            hintStyle: AppStyles.hintT,
+            hintStyle: hintStyle,
             contentPadding: EdgeInsets.only(
               left: 15.w,
             ),
