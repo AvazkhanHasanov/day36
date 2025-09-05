@@ -18,7 +18,6 @@ import 'package:day_36_darsda1/features/top_chefs/pages/chef_profile_page.dart';
 import 'package:day_36_darsda1/features/top_chefs/pages/top_chefs_page.dart';
 import 'package:day_36_darsda1/features/trending/pages/trending_page.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../features/add_recipes/pages/add_recipe_page.dart';
 import '../../features/common/pages/followers_data/followers_page.dart';
 import '../../features/community/pages/community_page.dart';
