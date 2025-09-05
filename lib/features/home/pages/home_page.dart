@@ -1,11 +1,8 @@
-import 'package:day_36_darsda1/core/utils/icons.dart';
-import 'package:day_36_darsda1/features/home/widgets/app_bar_icon_button.dart';
-import 'package:day_36_darsda1/features/home/widgets/home_bottom.dart';
+import 'package:day_36_darsda1/features/home/pages/home_page_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/utils/styles.dart';
 import '../../common/widgets/bottom_navigation_bar/recipe_bottom_navigation_bar.dart';
 import '../managers/home_view_model.dart';
 import '../widgets/recently/recently.dart';
@@ -27,38 +24,7 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         extendBody: true,
         extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.transparent,
-          toolbarHeight: 70,
-
-          title: Padding(
-            padding: EdgeInsets.only(left: 19.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Hi! Khan', style: AppStyles.titleAB),
-                Text(
-                  'What are you cooking today',
-                  style: AppStyles.subtextOq.copyWith(color: Theme.of(context).colorScheme.primary),
-                ),
-              ],
-            ),
-          ),
-          actionsPadding: EdgeInsets.only(right: 19.w),
-          actions: [
-            AppBarIconButton(
-              onPressed: () {},
-              icon: AppIcons.notification,
-            ),
-            SizedBox(width: 6.w),
-            AppBarIconButton(
-              onPressed: () {},
-              icon: AppIcons.search,
-            ),
-          ],
-          bottom: HomeBottom(),
-        ),
+        appBar: HomePageAppBar(),
         body: SafeArea(
           top: true,
           bottom: false,

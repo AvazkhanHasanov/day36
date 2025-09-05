@@ -52,7 +52,7 @@ class _RecipeBottomNavigationBarState extends State<RecipeBottomNavigationBar> {
             width: double.infinity,
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.transparent, Theme.of(context).colorScheme.primary],
+                colors: [Theme.of(context).colorScheme.tertiary, Theme.of(context).colorScheme.secondary],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -76,6 +76,7 @@ class _RecipeBottomNavigationBarState extends State<RecipeBottomNavigationBar> {
                   indicatorColor: Colors.transparent,
                   backgroundColor: Colors.transparent,
                   shadowColor: Colors.transparent,
+                  elevation: 0,
                   destinations: [
                     NavigationDestination(
                       icon: SvgPicture.asset(AppIcons.home),

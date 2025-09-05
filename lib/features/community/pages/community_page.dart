@@ -1,10 +1,10 @@
 import 'package:day_36_darsda1/core/utils/styles.dart';
-import 'package:day_36_darsda1/features/common/widgets/bottom_navigation_bar/recipe_bottom_navigation_bar.dart';
 import 'package:day_36_darsda1/features/common/widgets/recipe_app_bar/recipe_app_bar.dart';
 import 'package:day_36_darsda1/features/community/managers/community_view_model.dart';
 import 'package:day_36_darsda1/features/community/widgets/tab_bar_text.dart';
 import 'package:day_36_darsda1/features/community/widgets/community_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class CommunityPage extends StatefulWidget {
@@ -138,7 +138,16 @@ class _CommunityPageState extends State<CommunityPage> with SingleTickerProvider
           },
 
         ),
-        bottomNavigationBar: RecipeBottomNavigationBar(),
+        bottomNavigationBar: Stack(children: [
+          Container(
+            width: double.infinity,
+            height: 120.h,
+            decoration: BoxDecoration(
+              // gradient: LinearGradient(colors: colors)
+
+            ),
+          )
+        ],),
       ),
     );
   }

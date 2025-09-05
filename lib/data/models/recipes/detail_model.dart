@@ -14,7 +14,6 @@ class RecipesDetailModel {
     required this.ingredients,
     required this.instructions,
     required this.user,
-
     required this.timeRequired,
     required this.rating,
     required this.title,

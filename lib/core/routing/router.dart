@@ -25,7 +25,7 @@ import '../../features/launch/launch.dart';
 import '../../features/my_recipes/pages/my_recipes_page.dart';
 
 final router = GoRouter(
-  initialLocation: Routes.followersPage,
+  initialLocation: Routes.home,
 
   routes: [
     GoRoute(

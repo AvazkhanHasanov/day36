@@ -5,7 +5,7 @@ import 'package:hive_flutter/adapters.dart';
 
 class CategoryRepository {
   final ApiClient _client;
-  static final String _box = 'category';
+  final  Box<CategoriesModel> box = Hive.box<CategoriesModel>('category');
 
   CategoryRepository({required ApiClient client}) : _client = client;
 
@@ -15,7 +15,6 @@ class CategoryRepository {
       (error) => Result.error(error),
       (value) async {
         final categories = value.map((x) => CategoriesModel.fromJson(x)).toList();
-        final box = await Hive.openBox<CategoriesModel>(_box);
         await box.clear();
         for (var category in categories) {
           await box.put(category.id, category);
@@ -25,8 +24,8 @@ class CategoryRepository {
     );
   }
 
-  Future<List<CategoriesModel>> getLocal() async {
-    final box = await Hive.openBox<CategoriesModel>(_box);
+  List<CategoriesModel> getLocal() {
+    final box = Hive.box<CategoriesModel>('category');
     return box.values.toList();
   }
 }
