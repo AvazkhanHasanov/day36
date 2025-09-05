@@ -11,14 +11,16 @@ import 'package:go_router/go_router.dart';
 class DetailPageStack extends StatelessWidget {
   const DetailPageStack({
     super.key,
+    required this.id,
     required this.photo,
     required this.title,
-    required this.rating, required this.id,
+    required this.rating,
   });
 
+  final int id;
   final String photo, title;
   final num rating;
-final int id;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -63,7 +65,7 @@ final int id;
                           backgroundColor: Colors.transparent,
                           foregroundColor: AppColors.brownF9,
                         ),
-                        Text('$rating', style: AppStyles.subtextOq),
+                        Text('$rating', style: AppStyles.subtext),
                         SizedBox(width: 8.w),
                         RecipesIconButton(
                           icon: AppIcons.community,
@@ -73,7 +75,7 @@ final int id;
                         ),
                         Text(
                           '2.273',
-                          style: AppStyles.subtextOq,
+                          style: AppStyles.subtext,
                         ),
                       ],
                     ),

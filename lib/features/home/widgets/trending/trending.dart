@@ -1,9 +1,9 @@
+import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:day_36_darsda1/features/home/widgets/trending/trending_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../core/utils/colors.dart';
 import '../../../../data/models/trending_model.dart';
 import '../../managers/home_view_model.dart';
 
@@ -29,11 +29,7 @@ class Trending extends StatelessWidget {
           children: [
             Text(
               'Trending Recipe',
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 15,
-                color: AppColors.redPinkMain,
-              ),
+              style: AppStyles.subtitle
             ),
             Selector<HomeViewModel, TrendingModel?>(
               selector: (context, trendingRecipes) => trendingRecipes.trendingRecipe,

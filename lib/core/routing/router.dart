@@ -33,94 +33,45 @@ final router = GoRouter(
       path: Routes.recipesPage,
       builder: (context, state) => RecipesPage(
         title: state.uri.queryParameters['title']!,
-        categoryId: int.parse(
-          state.pathParameters['id']!,
-        ),
+        categoryId: int.parse(state.pathParameters['id']!),
       ),
     ),
-    GoRoute(path: Routes.categoriesPage, builder: (context, state) => CategoriesPage()),
     GoRoute(
       path: Routes.detailPage,
       builder: (context, state) => RecipesDetailPage(
-        detailId: int.parse(
-          state.pathParameters['id']!,
-        ),
+        detailId: int.parse(state.pathParameters['id']!),
         title: state.uri.queryParameters['title']!,
       ),
     ),
     GoRoute(
-      path: Routes.onboarding,
-      builder: (context, state) => OnboardingPage(),
-    ),
-    GoRoute(
-      path: Routes.home,
-      builder: (context, state) => HomePage(),
-    ),
-    GoRoute(
-      path: Routes.trending,
-      builder: (context, state) => TrendingPage(),
-    ),
-    GoRoute(
-      path: Routes.login,
-      builder: (context, state) => LoginPage(),
-    ),
-    GoRoute(
-      path: Routes.signUp,
-      builder: (context, state) => SignUpPage(),
-    ),
-    GoRoute(
-      path: Routes.completeYourProfilePage,
-      builder: (context, state) => CompleteYourProfilePage(),
-    ),
-    GoRoute(
       path: Routes.chefProfile,
-      builder: (context, state) => ChefProfile(
-        id: int.parse(state.pathParameters['id']!),
-      ),
-    ),
-    GoRoute(
-      path: Routes.sendOTP,
-      builder: (context, state) => SendOTP(),
-    ),
-    GoRoute(
-      path: Routes.enter,
-      builder: (context, state) => EnterOTP(),
-    ),
-    GoRoute(
-      path: Routes.topChefs,
-      builder: (context, state) => TopChefsPage(),
-    ),
-    GoRoute(
-      path: Routes.myRecipes,
-      builder: (context, state) => MyRecipesPage(),
-    ),
-    GoRoute(
-      path: Routes.community,
-      builder: (context, state) => CommunityPage(),
-    ),
-    GoRoute(
-      path: Routes.addRecipePage,
-      builder: (context, state) => AddRecipePage(),
-    ),
-    GoRoute(
-      path: Routes.profile,
-      builder: (context, state) => ProfilePage(),
+      builder: (context, state) => ChefProfile(id: int.parse(state.pathParameters['id']!)),
     ),
     GoRoute(
       path: Routes.reviews,
-      builder: (context, state) => ReviewsPage(
-        id: int.parse(state.pathParameters['id']!),
-      ),
+      builder: (context, state) => ReviewsPage(id: int.parse(state.pathParameters['id']!)),
     ),
     GoRoute(
       path: Routes.createReview,
-      builder: (context, state) => CreateReview(
-        id: int.parse(state.pathParameters['id']!),
-      ),
+      builder: (context, state) => CreateReview(id: int.parse(state.pathParameters['id']!)),
     ),
+    GoRoute(path: Routes.categoriesPage, builder: (context, state) => CategoriesPage()),
+    GoRoute(path: Routes.onboarding, builder: (context, state) => OnboardingPage()),
+    GoRoute(path: Routes.home, builder: (context, state) => HomePage()),
+    GoRoute(path: Routes.trending, builder: (context, state) => TrendingPage()),
+    GoRoute(path: Routes.login, builder: (context, state) => LoginPage()),
+    GoRoute(path: Routes.signUp, builder: (context, state) => SignUpPage()),
+    GoRoute(path: Routes.completeYourProfilePage, builder: (context, state) => CompleteYourProfilePage()),
+    GoRoute(path: Routes.sendOTP, builder: (context, state) => SendOTP()),
+    GoRoute(path: Routes.enter, builder: (context, state) => EnterOTP()),
+    GoRoute(path: Routes.topChefs, builder: (context, state) => TopChefsPage()),
+    GoRoute(path: Routes.myRecipes, builder: (context, state) => MyRecipesPage()),
+    GoRoute(path: Routes.community, builder: (context, state) => CommunityPage()),
+    GoRoute(path: Routes.addRecipePage, builder: (context, state) => AddRecipePage()),
+    GoRoute(path: Routes.profile, builder: (context, state) => ProfilePage()),
     GoRoute(path: Routes.setting, builder: (context, state) => SettingPage()),
     GoRoute(path: Routes.notification, builder: (context, state) => NotificationPage()),
-    GoRoute(path: Routes.launch, builder: (context, state) => Launch() ),
-    GoRoute(path: Routes.followersPage, builder: (context, state) =>  FollowersPage() ),
+    GoRoute(path: Routes.launch, builder: (context, state) => Launch()),
+    GoRoute(path: Routes.followersPage, builder: (context, state) => FollowersPage()),
   ],
 );

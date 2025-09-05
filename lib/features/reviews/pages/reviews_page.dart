@@ -1,5 +1,6 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
+import 'package:day_36_darsda1/features/common/widgets/recipe_app_bar_with_title.dart';
 import 'package:day_36_darsda1/features/reviews/manages/recipes_review_view_model.dart';
 import 'package:day_36_darsda1/features/reviews/widgets/reviews/about.dart';
 import 'package:day_36_darsda1/features/reviews/widgets/star_rating.dart';
@@ -8,12 +9,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class ReviewsPage extends StatelessWidget {
-  const ReviewsPage({super.key , required this.id });
-final int id;
+  const ReviewsPage({super.key, required this.id});
+
+  final int id;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: RecipeAppBarWithTitle(text: ' Reviews',),
       body: ChangeNotifierProvider(
         create: (context) => RecipesReviewViewModel(id: id, recipesRepo: context.read()),
         builder: (context, child) {
@@ -81,7 +84,10 @@ final int id;
                                     ),
                                     Text(
                                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fringilla eleifend purus vel dignissim. Praesent urna ante, iaculis at lobortis eu.',
-                                      style: AppStyles.tSW300S12Oq,
+                                      style: AppStyles.subtext.copyWith(
+                                        fontWeight: FontWeight.w300,
+                                        color: Theme.of(context).colorScheme.primary,
+                                      ),
                                       maxLines: 3,
                                     ),
                                     StarRating(

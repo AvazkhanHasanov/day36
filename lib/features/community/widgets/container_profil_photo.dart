@@ -3,16 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ContainerProfilePhoto extends StatelessWidget {
-  const ContainerProfilePhoto({
-    super.key,
-    required this.profilePhoto,
-    required this.username,
-    required this.created
-  });
+  const ContainerProfilePhoto({super.key, required this.profilePhoto, required this.username, required this.created});
 
   final String profilePhoto;
   final String username;
-final String created;
+  final String created;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +28,10 @@ final String created;
           children: [
             Text(
               '@$username',
-              style: AppStyles.tSW400S15Oq,
+              style: AppStyles.subtitle.copyWith(
+                fontWeight: FontWeight.w400,
+                color: Theme.of(context).colorScheme.primary,
+              ),
             ),
             Text(
               created,

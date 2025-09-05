@@ -29,22 +29,18 @@ class Description extends StatelessWidget {
             RecipesIconButton(
               icon: AppIcons.clock,
               onPressed: () {},
-              foregroundColor: AppColors.brownF9,
+              foregroundColor: Theme.of(context).colorScheme.primary,
               backgroundColor: Colors.transparent,
             ),
             Text(
               '$timeRequired min',
-              style: AppStyles.subtextOq,
+              style: AppStyles.subtext.copyWith(color: Theme.of(context).colorScheme.primary),
             ),
           ],
         ),
         Text(
           description,
-          style: TextStyle(
-            fontWeight: FontWeight.w400,
-            fontSize: 12,
-            color: AppColors.brownF9,
-          ),
+          style: AppStyles.subtext.copyWith(color: Theme.of(context).colorScheme.primary),
         ),
       ],
     );

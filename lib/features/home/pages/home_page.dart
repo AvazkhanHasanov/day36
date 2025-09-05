@@ -28,17 +28,25 @@ class HomePage extends StatelessWidget {
         extendBody: true,
         extendBodyBehindAppBar: true,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
           toolbarHeight: 70,
-          automaticallyImplyLeading: false,
-          title: Column(
-            children: [
-              Text('Hi! Khan', style: AppStyles.titleAB),
-              Text('What are you cooking today', style: AppStyles.subtextOq.copyWith(color: Theme.of(context).colorScheme.primary)),
-            ],
-          ),
-          actions: [
 
+          title: Padding(
+            padding: EdgeInsets.only(left: 19.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Hi! Khan', style: AppStyles.titleAB),
+                Text(
+                  'What are you cooking today',
+                  style: AppStyles.subtextOq.copyWith(color: Theme.of(context).colorScheme.primary),
+                ),
+              ],
+            ),
+          ),
+          actionsPadding: EdgeInsets.only(right: 19.w),
+          actions: [
             AppBarIconButton(
               onPressed: () {},
               icon: AppIcons.notification,
@@ -49,7 +57,6 @@ class HomePage extends StatelessWidget {
               icon: AppIcons.search,
             ),
           ],
-
           bottom: HomeBottom(),
         ),
         body: SafeArea(
@@ -57,7 +64,7 @@ class HomePage extends StatelessWidget {
           bottom: false,
           child: SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.only(top: 19.h),
+              padding: EdgeInsets.only(top: 19.h, bottom: 120.h),
               child: Column(
                 spacing: 19.h,
                 children: [
@@ -65,15 +72,6 @@ class HomePage extends StatelessWidget {
                   YourRecipe(),
                   TopChef(),
                   Recently(),
-                  Transform(
-                    transform: Matrix4.identity()..rotateX(0.5)..rotateY(0.5),
-                    alignment: Alignment.center,
-                    child: Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.blue,
-                    ),
-                  )
                 ],
               ),
             ),

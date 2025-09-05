@@ -3,6 +3,7 @@ import 'package:day_36_darsda1/core/utils/icons.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:day_36_darsda1/features/categories/widgets/recipes_widgets/recipes_icon_button.dart';
 import 'package:day_36_darsda1/features/common/widgets/bottom_navigation_bar/recipe_bottom_navigation_bar.dart';
+import 'package:day_36_darsda1/features/common/widgets/recipe_app_bar_with_title.dart';
 import 'package:day_36_darsda1/features/reviews/manages/create_review_view_model.dart';
 import 'package:day_36_darsda1/features/reviews/widgets/create_review/create_contaner.dart';
 import 'package:day_36_darsda1/features/reviews/widgets/create_review/commet.dart';
@@ -39,7 +40,7 @@ class _CreateReviewState extends State<CreateReview> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      appBar: AppBar(),
+      appBar: RecipeAppBarWithTitle(text: 'Leave a Review'),
       body: ChangeNotifierProvider(
         create: (context) => CreateReviewViewModel(id: widget.id, recipesRepo: context.read()),
         builder: (context, child) {
@@ -66,7 +67,7 @@ class _CreateReviewState extends State<CreateReview> {
                             ),
                             Text(
                               'Your overall rating',
-                              style: AppStyles.tSW400S12Oq,
+                              style: AppStyles.subtext.copyWith(color: Theme.of(context).colorScheme.primary),
                             ),
                             SizedBox(height: 28.h),
                             Column(
@@ -85,7 +86,7 @@ class _CreateReviewState extends State<CreateReview> {
                                     ),
                                     Text(
                                       'Add Photo',
-                                      style: AppStyles.subtitleOq,
+                                      style: AppStyles.subtitle.copyWith(color: Theme.of(context).colorScheme.primary),
                                     ),
                                   ],
                                 ),

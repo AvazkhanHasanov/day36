@@ -1,9 +1,4 @@
-import 'package:day_36_darsda1/core/utils/icons.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
-import 'package:day_36_darsda1/features/categories/widgets/recipes_widgets/recipes_icon_button.dart';
-import 'package:day_36_darsda1/features/reviews/widgets/create_review/commet.dart';
-import 'package:day_36_darsda1/features/reviews/widgets/create_review/create_review_sized_box.dart';
-import 'package:day_36_darsda1/features/reviews/widgets/create_review/create_star.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,7 +21,7 @@ class _YesOrNoState extends State<YesOrNo> {
       children: [
         Text(
           'Do you recommend this recipe?',
-          style: AppStyles.subtextOq,
+          style: AppStyles.subtext.copyWith(color: Theme.of(context).colorScheme.primary),
         ),
         Row(
           spacing: 100.w,
@@ -35,7 +30,10 @@ class _YesOrNoState extends State<YesOrNo> {
               children: [
                 Text(
                   'No',
-                  style: AppStyles.tSW300S15Oq,
+                  style: AppStyles.subtitle.copyWith(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
                 Radio(
                   value: 1,
@@ -55,7 +53,10 @@ class _YesOrNoState extends State<YesOrNo> {
               children: [
                 Text(
                   'Yes',
-                  style: AppStyles.tSW300S15Oq,
+                  style: AppStyles.subtitle.copyWith(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
                 Radio(
                   value: 2,

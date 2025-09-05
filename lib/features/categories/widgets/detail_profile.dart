@@ -45,7 +45,7 @@ class DetailProfile extends StatelessWidget {
                 child: Text(
                   '$firstName $lastName',
                   overflow: TextOverflow.ellipsis,
-                  style: AppStyles.paragraph,
+                  style: AppStyles.paragraph.copyWith(color: Theme.of(context).colorScheme.primary),
                 ),
               ),
             ],

@@ -1,4 +1,5 @@
 import 'package:day_36_darsda1/core/utils/styles.dart';
+import 'package:day_36_darsda1/features/common/widgets/bottom_navigation_bar/recipe_bottom_navigation_bar.dart';
 import 'package:day_36_darsda1/features/common/widgets/recipe_app_bar/recipe_app_bar.dart';
 import 'package:day_36_darsda1/features/community/managers/community_view_model.dart';
 import 'package:day_36_darsda1/features/community/widgets/tab_bar_text.dart';
@@ -36,6 +37,7 @@ class _CommunityPageState extends State<CommunityPage> with SingleTickerProvider
     return ChangeNotifierProvider(
       create: (context) => CommunityViewModel(recipesRepo: context.read()),
       builder: (context, child) => Scaffold(
+        extendBody: true,
         appBar: RecipeAppBar(title: 'Community'),
         body: Consumer<CommunityViewModel>(
           builder: (context, vm, child) {
@@ -46,8 +48,7 @@ class _CommunityPageState extends State<CommunityPage> with SingleTickerProvider
                       SizedBox(
                         width: double.infinity,
                         child: TabBar(
-                          padding: EdgeInsets.zero,
-                          indicatorPadding: EdgeInsets.zero,
+                          dividerColor: Colors.transparent,
                           labelStyle: AppStyles.tSW400S15Oq,
                           indicatorColor: Colors.transparent,
                           indicatorAnimation: TabIndicatorAnimation.elastic,
@@ -118,7 +119,7 @@ class _CommunityPageState extends State<CommunityPage> with SingleTickerProvider
                                   userId: vm.oldCommunity[index].user.id,
                                   id: vm.oldCommunity[index].id,
                                   created: vm.data(vm.oldCommunity[index].created),
-                                    profilePhoto: vm.oldCommunity[index].user.profilePhoto,
+                                  profilePhoto: vm.oldCommunity[index].user.profilePhoto,
                                   username: vm.oldCommunity[index].user.username,
                                   photo: vm.oldCommunity[index].photo,
                                   title: vm.oldCommunity[index].title,
@@ -135,7 +136,9 @@ class _CommunityPageState extends State<CommunityPage> with SingleTickerProvider
                     ],
                   );
           },
+
         ),
+        bottomNavigationBar: RecipeBottomNavigationBar(),
       ),
     );
   }

@@ -1,11 +1,9 @@
 import 'package:day_36_darsda1/core/utils/colors.dart';
-import 'package:day_36_darsda1/core/utils/icons.dart';
 import 'package:day_36_darsda1/core/utils/styles.dart';
 import 'package:day_36_darsda1/features/add_recipes/widgets/ingredient_text_form_field.dart';
-import 'package:day_36_darsda1/features/categories/widgets/recipes_widgets/recipes_icon_button.dart';
+import 'package:day_36_darsda1/features/common/widgets/followers_widgets/following_info.dart';
 import 'package:day_36_darsda1/features/common/widgets/followers_widgets/follow_text.dart';
 import 'package:day_36_darsda1/features/common/widgets/recipe_app_bar_with_title.dart';
-import 'package:day_36_darsda1/features/profile/widgets/text_button_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,28 +22,94 @@ class _FollowersPageState extends State<FollowersPage> with SingleTickerProvider
   final List<Map<String, dynamic>> myList = [
     {
       'image': 'assets/img.png',
-      'nickname': 'khan',
-      'Firstname': "Avazkhan",
-      'secondName': 'Khasanov',
+      'username': 'khan',
+      'firstName': "Avazkhan",
+      'lastName': 'Khasanov',
     },
     {
       'image': 'assets/img.png',
-      'nickname': 'khan',
-      'Firstname': "Avazkhan",
-      'secondName': 'Khasanov',
+      'username': 'khan',
+      'firstName': "Avazkhan",
+      'lastName': 'Khasanov',
     },
     {
       'image': 'assets/img.png',
-      'nickname': 'khan',
-      'Firstname': "Avazkhan",
-      'secondName': 'Khasanov',
+      'username': 'khan',
+      'firstName': "Avazkhan",
+      'lastName': 'Khasanov',
+    },
+    {
+      'image': 'assets/img.png',
+      'username': 'khan',
+      'firstName': "Avazkhan",
+      'lastName': 'Khasanov',
+    },
+    {
+      'image': 'assets/img.png',
+      'username': 'khan',
+      'firstName': "Avazkhan",
+      'lastName': 'Khasanov',
+    },
+    {
+      'image': 'assets/img.png',
+      'username': 'khan',
+      'firstName': "Avazkhan",
+      'lastName': 'Khasanov',
+    },
+    {
+      'image': 'assets/img.png',
+      'username': 'khan',
+      'firstName': "Avazkhan",
+      'lastName': 'Khasanov',
+    },
+    {
+      'image': 'assets/img.png',
+      'username': 'khan',
+      'firstName': "Avazkhan",
+      'lastName': 'Khasanov',
+    },
+    {
+      'image': 'assets/img.png',
+      'username': 'khan',
+      'firstName': "Avazkhan",
+      'lastName': 'Khasanov',
+    },
+    {
+      'image': 'assets/img.png',
+      'username': 'khan',
+      'firstName': "Avazkhan",
+      'lastName': 'Khasanov',
+    },
+    {
+      'image': 'assets/img.png',
+      'username': 'khan',
+      'firstName': "Avazkhan",
+      'lastName': 'Khasanov',
+    },
+    {
+      'image': 'assets/img.png',
+      'username': 'khan',
+      'firstName': "Avazkhan",
+      'lastName': 'Khasanov',
+    },
+    {
+      'image': 'assets/img.png',
+      'username': 'khan',
+      'firstName': "Avazkhan",
+      'lastName': 'Khasanov',
+    },
+    {
+      'image': 'assets/img.png',
+      'username': 'khan',
+      'firstName': "Avazkhan",
+      'lastName': 'Khasanov',
     },
   ];
 
   @override
   void initState() {
     _controller = TabController(length: 2, vsync: this);
-    _controller.addListener(() => setState(() {}));
+    // _controller.addListener(() => setState(() {}));
     super.initState();
   }
 
@@ -81,64 +145,82 @@ class _FollowersPageState extends State<FollowersPage> with SingleTickerProvider
               child: TabBarView(
                 controller: _controller,
                 children: [
-                  Column(
-                    spacing: 9.h,
-                    children: [
-                      IngredientTextFormField(
-                        hintStyle: AppStyles.subtext.copyWith(color: AppColors.redPinkMain),
-                        hint: 'Search',
-                        controller: controllerFollowing,
-                        width: double.infinity,
-                      ),
-                    ],
+                  SingleChildScrollView(
+                    child: Column(
+                      spacing: 15.h,
+                      children: [
+                        IngredientTextFormField(
+                          hintStyle: AppStyles.subtext.copyWith(
+                            color: AppColors.redPinkMain,
+                          ),
+                          hint: 'Search',
+                          controller: controllerFollowing,
+                          width: double.infinity,
+                        ),
+                        ...List.generate(
+                          myList.length,
+                          (index) {
+                            return FollowingInfo(
+                              profilePhoto: myList[index]['image'],
+                              username: myList[index]['username'],
+                              firstName: myList[index]['firstName'],
+                              lastName: myList[index]['lastName'],
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
-                  Column(
-                    spacing: 9.h,
-                    children: [
-                      IngredientTextFormField(
-                        hintStyle: AppStyles.subtext.copyWith(color: AppColors.redPinkMain),
-                        hint: 'Search',
-                        controller: controllerFollowers,
-                        width: double.infinity,
-                      ),
-                      Row(
-                        spacing: 15.w,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(30),
-                            child: Image.asset(
-                              'assets/image.png',
-                              width: 61.w,
-                              height: 63.h,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                '@khan',
-                                style: AppStyles.subtext.copyWith(color: AppColors.redPinkMain),
-                              ),
-                              Text('Avazkhan'),
-                            ],
-                          ),
-                          Spacer(),
-                          TextButtonProfile(
-                            text: 'following',
-                            onPressed: () {},
-                            width: 109,
-                          ),
-                          RecipesIconButton(
-                            icon: AppIcons.threeDots,
-                            onPressed: () {},
-                            backgroundColor: Colors.transparent,
-                            foregroundColor: AppColors.redPinkMain,
-                            size: Size(20.r, 20.r),
-                          ),
-                        ],
-                      ),
-                    ],
+                  SingleChildScrollView(
+                    child: Column(
+                      spacing: 9.h,
+                      children: [
+                        IngredientTextFormField(
+                          hintStyle: AppStyles.subtext.copyWith(color: AppColors.redPinkMain),
+                          hint: 'Search',
+                          controller: controllerFollowers,
+                          width: double.infinity,
+                        ),
+                        ...List.generate(
+                          myList.length,
+                          (index) {
+                            return Row(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Image.asset(
+                                    myList[index]['image'],
+                                    width: 61.w,
+                                    height: 63.h,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 120.w,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '@${myList[index]['username']}',
+                                        style: AppStyles.subtext.copyWith(color: AppColors.redPinkMain),
+                                      ),
+                                      Text(
+                                        '${myList[index]['firstName']} ${myList[index]['lastName']}',
+                                        style: AppStyles.paragraph.copyWith(
+                                          color: Theme.of(context).colorScheme.primary,
+                                          height: 1,
+                                        ),
+                                        maxLines: 1,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

@@ -23,15 +23,18 @@ class HomePageGestureDetector extends StatelessWidget {
       onTap: () => context.push(Routes.topChefs),
       child: Column(
         children: [
-          Image.network(
-            photo,
-            width: 83.h,
-            height: 74.h,
-            fit: BoxFit.cover,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(7.r),
+            child: Image.network(
+              photo,
+              width: 83.h,
+              height: 74.h,
+              fit: BoxFit.cover,
+            ),
           ),
           Text(
             name,
-            style: AppStyles.subtextOq,
+            style: AppStyles.subtext.copyWith(color: Theme.of(context).colorScheme.primary),
           ),
         ],
       ),

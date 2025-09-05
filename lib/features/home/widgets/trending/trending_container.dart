@@ -55,21 +55,12 @@ class HomeTrendingContainer extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.brownF9,
-                    fontFamily: 'Poppins',
-                  ),
+                  style: AppStyles.subtext.copyWith(fontSize: 13.sp, color: Theme.of(context).colorScheme.primary),
                 ),
                 Text(
-                  description,maxLines: 1,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 12,
-                    color: AppColors.brownF9,
-                    fontFamily: 'League',
-                  ),
+                  description,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppStyles.paragraph.copyWith(fontSize: 13.sp, color: Theme.of(context).colorScheme.primary),
                 ),
               ],
             ),

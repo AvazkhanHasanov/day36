@@ -20,7 +20,7 @@ class DetailPageRichText extends StatelessWidget {
         children: [
           TextSpan(
             text: text,
-            style: AppStyles.subtextOq,
+            style: AppStyles.subtext.copyWith(color: Theme.of(context).colorScheme.primary),
           ),
         ],
       ),

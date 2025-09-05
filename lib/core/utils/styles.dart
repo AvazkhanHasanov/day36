@@ -102,6 +102,7 @@ class AppStyles {
     fontSize: 14.sp,
     fontWeight: FontWeight.w300,
     color: AppColors.brownF9,
+    fontFamily: 'League'
   );
   static final subtitle = TextStyle(
     fontSize: 15.sp,

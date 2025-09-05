@@ -1,13 +1,45 @@
+import 'package:day_36_darsda1/core/routing/routes.dart';
 import 'package:day_36_darsda1/core/utils/colors.dart';
 import 'package:day_36_darsda1/core/utils/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
-class RecipeBottomNavigationBar extends StatelessWidget {
+class RecipeBottomNavigationBar extends StatefulWidget {
   const RecipeBottomNavigationBar({
     super.key,
   });
+
+  @override
+  State<RecipeBottomNavigationBar> createState() => _RecipeBottomNavigationBarState();
+}
+
+class _RecipeBottomNavigationBarState extends State<RecipeBottomNavigationBar> {
+  int selectedIndex = 0;
+
+  void _tapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+
+    // Har bir index uchun alohida action
+    switch (index) {
+      case 0:
+        context.go(Routes.home);
+        break;
+      case 1:
+        context.go(Routes.community);
+        break;
+      case 2:
+        context.go(Routes.categoriesPage);
+
+        break;
+      case 3:
+        context.go(Routes.profile);
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +52,7 @@ class RecipeBottomNavigationBar extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.transparent,Theme.of(context).colorScheme.primary],
+                colors: [Colors.transparent, Theme.of(context).colorScheme.primary],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -37,6 +69,7 @@ class RecipeBottomNavigationBar extends StatelessWidget {
                   color: AppColors.redPinkMain,
                 ),
                 child: NavigationBar(
+                  onDestinationSelected: _tapped,
                   height: 56.h,
                   labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
                   labelPadding: EdgeInsets.zero,
@@ -50,15 +83,15 @@ class RecipeBottomNavigationBar extends StatelessWidget {
                     ),
                     NavigationDestination(
                       icon: SvgPicture.asset(AppIcons.community),
-                      label: 'Home',
+                      label: 'Community',
                     ),
                     NavigationDestination(
                       icon: SvgPicture.asset(AppIcons.categories),
-                      label: 'Home',
+                      label: 'Categories',
                     ),
                     NavigationDestination(
                       icon: SvgPicture.asset(AppIcons.profile),
-                      label: 'Home',
+                      label: 'Profile',
                     ),
                   ],
                 ),
